@@ -47,7 +47,7 @@ function calculate11() {
     var third11 = parseInt(document.getElementById('third11').value, 10)
     var fourth11 = parseInt(document.getElementById('fourth11').value, 10)
     var fifth11 = parseInt(document.getElementById('fifth11').value, 10)
-    var eleventh = ((first11 + second11 + third11 + fourth11 + fifth11) / 3.7)
+    var eleventh = ((first11 + second11 + third11 + fourth11 + fifth11) / 5.0)
     return eleventh
 }
 
@@ -93,16 +93,43 @@ function calculatepb() {
 
 function check10(Id) {
     var f = parseInt(document.getElementById(Id).value, 10)
-    if (isNaN())
+    if (isNaN(f)) {
+        if (document.getElementById(Id).value != '') {
+            alert('Please enter numbers only')
+            document.getElementById(Id).value = ''
+            return
+        }
+    }
     if (f > 100) {
         document.getElementById(Id).value = ''
         alert('10th Grade Marks must be lesser than 100')
     }
 }
 
+function check11(Id) {
+    var f = parseInt(document.getElementById(Id).value, 10)
+    if (isNaN(f)) {
+        if (document.getElementById(Id).value != '') {
+            alert('Please enter numbers only')
+            document.getElementById(Id).value = ''
+            return
+        }
+    }
+    if (f > 100) {
+        document.getElementById(Id).value = ''
+        alert('11th Grade Marks must be lesser than 100')
+    }
+}
+
 function check12_70(Id) {
     var f = parseInt(document.getElementById(Id).value, 10)
-    if (isNaN())
+    if (isNaN(f)) {
+        if (document.getElementById(Id).value != '') {
+            alert('Please enter numbers only')
+            document.getElementById(Id).value = ''
+            return
+        }
+    }
     if (f > 70) {
         document.getElementById(Id).value = ''
         alert('There must be 3 subjects graded out of 70 and 2 subjects graded out of 80 in 11th & 12th Grade Exams')
@@ -111,7 +138,13 @@ function check12_70(Id) {
 
 function check12_80(Id) {
     var f = parseInt(document.getElementById(Id).value, 10)
-    if (isNaN())
+    if (isNaN(f)) {
+        if (document.getElementById(Id).value != '') {
+            alert('Please enter numbers only')
+            document.getElementById(Id).value = ''
+            return
+        }
+    }
     if (f > 80) {
         document.getElementById(Id).value = ''
         alert('There must be 3 subjects graded out of 70 and 2 subjects graded out of 80 in 11th & 12th Grade Exams')
@@ -120,7 +153,13 @@ function check12_80(Id) {
 
 function check12ut_35(Id){
     var f = parseInt(document.getElementById(Id).value, 10)
-    if (isNaN())
+    if (isNaN(f)) {
+        if (document.getElementById(Id).value != '') {
+            alert('Please enter numbers only')
+            document.getElementById(Id).value = ''
+            return
+        }
+    }
     if (f > 35) {
         document.getElementById(Id).value = ''
         alert('There must be 3 subjects graded out of 35 and 2 subjects graded out of 40 in 12th Grade Unit Test')
@@ -129,7 +168,13 @@ function check12ut_35(Id){
 
 function check12ut_40(Id){
     var f = parseInt(document.getElementById(Id).value, 10)
-    if (isNaN())
+    if (isNaN(f)) {
+        if (document.getElementById(Id).value != '') {
+            alert('Please enter numbers only')
+            document.getElementById(Id).value = ''
+            return
+        }
+    }
     if (f > 40) {
         document.getElementById(Id).value = ''
         alert('There must be 3 subjects graded out of 35 and 2 subjects graded out of 40 in 12th Grade Unit Test')
@@ -138,7 +183,13 @@ function check12ut_40(Id){
 
 function check12pr20(Id) {
     var f = parseInt(document.getElementById(Id).value, 10)
-    if (isNaN())
+    if (isNaN(f)) {
+        if (document.getElementById(Id).value != '') {
+            alert('Please enter numbers only')
+            document.getElementById(Id).value = ''
+            return
+        }
+    }
     if (f > 20) {
         document.getElementById(Id).value = ''
         alert('There must be 3 subjects graded out of 30 and 2 subjects graded out of 20 in 12th Grade Practical Exam')
@@ -147,7 +198,13 @@ function check12pr20(Id) {
 
 function check12pr30(Id) {
     var f = parseInt(document.getElementById(Id).value, 10)
-    if (isNaN())
+    if (isNaN(f)) {
+        if (document.getElementById(Id).value != '') {
+            alert('Please enter numbers only')
+            document.getElementById(Id).value = ''
+            return
+        }
+    }
     if (f > 30) {
         document.getElementById(Id).value = ''
         alert('There must be 3 subjects graded out of 30 and 2 subjects graded out of 20 in 12th Grade Practical Exam')
