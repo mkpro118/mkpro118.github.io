@@ -238,26 +238,44 @@ function display(what){
     if (what == 'tenth') {
         msg = 'Your 10<sup>th</sup> Grade Board Exam Percentage is: '
         marks = Math.round(calculate10()*1000) / 1000
+        if (!isNaN(marks)) {
+          document.getElementsByTagName('h2')[0].style.color = '#C38D9E'
+        }
     }
     else if (what == 'eleventh') {
         msg = 'Your 11<sup>th</sup> Grade Final Exam Percentage is: '
         marks = Math.round(calculate11()*1000) / 1000
+        if (!isNaN(marks)) {
+          document.getElementsByTagName('h2')[0].style.color = '#61892F'
+        }
     }
     else if (what == 'practical') {
         msg = 'Your 12<sup>th</sup> Grade Practical Exam Percentage is: '
         marks = Math.round(calculatepr()*1000) / 1000
+        if (!isNaN(marks)) {
+          document.getElementsByTagName('h2')[0].style.color = '#007CC7'
+        }
     }
     else if (what == 'unittest') {
         msg = 'Your 12<sup>th</sup> Grade Unit Test Percentage is: '
         marks = Math.round(calculateut()*1000) / 1000
+        if (!isNaN(marks)) {
+          document.getElementsByTagName('h2')[0].style.color = '#E27D60'
+        }
     }
     else if (what == 'midterm') {
         msg = 'Your 12<sup>th</sup> Grade MidTerm Exam Percentage is: '
         marks = Math.round(calculatemt()*1000) / 1000
+        if (!isNaN(marks)) {
+          document.getElementsByTagName('h2')[0].style.color = '#557A95'
+        }
     }
     else if (what == 'preboard') {
         msg = 'Your 12<sup>th</sup> Grade Pre-Board Exam Percentage is: '
         marks = Math.round(calculatepb()*1000) / 1000
+        if (!isNaN(marks)) {
+          document.getElementsByTagName('h2')[0].style.color = '#8860D0'
+        }
     }
     if (!isNaN(marks)) {
         document.getElementsByTagName('h2')[0].innerHTML = msg + marks + '%'
@@ -266,6 +284,7 @@ function display(what){
 
 
 function revert() {
+    document.getElementsByTagName('h2')[0].style.color = '#479761'
     if (!isNaN(percentage)) {
         document.getElementsByTagName('h2')[0].innerHTML = "Your Percentage is: " + percentage + " %"
     }
