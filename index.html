@@ -11,6 +11,7 @@
         <div class="first">
             <fieldset onmouseleave="revert()" onmouseenter="display('tenth')" onclick="display('tenth')" class="one">
                 <legend class="one">10<sup>th</sup> Grade Board Exam</legend>
+                <div class="container">
                 <span class="first">
                     <label>Marks for Best Subject from 10<sup>th</sup> Grade <small>(100)</small></label><br>
                     <label>Marks for Second Best Subject from 10<sup>th</sup> Grade <small>(100)</small></label><br>
@@ -21,6 +22,7 @@
                     <input class="tenth" type="text" id="second10" oninput="check10('second10')" minlength="1" maxlength="3"><br>
                     <input class="tenth" type="text" id="third10" oninput="check10('third10')" minlength="1" maxlength="3">
                 </span>
+            </div>
             </fieldset>
             <fieldset onmouseleave="revert()" onmouseenter="display('eleventh')" onclick="display('eleventh')" class="two">
                 <legend class="two">11<sup>th</sup> Grade Final Exam</legend>
@@ -114,6 +116,7 @@
     <br clear="all">
     <div>
         <!-- <button type="submit" onclick="calculate(1)">Calculate My Percentage</button> -->
+        <br>
         <br>
         <h2 id="percentage">Your Percentage is: --.--% </h2>
     </div>
