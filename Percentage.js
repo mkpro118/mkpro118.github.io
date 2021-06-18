@@ -1,3 +1,5 @@
+var percentage = NaN
+
 function calculate() {
     var inputs = document.getElementsByTagName('input')
     for (var i = 0; i < inputs.length; i++) {
@@ -30,6 +32,7 @@ function calculate() {
     var final_marks = (tenth + eleventh + twelfth)
     var marks = document.getElementsByTagName('h2')[0]
     final_marks = Math.round(final_marks * 1000) / 1000
+    percentage = final_marks
     marks.innerHTML = "Your Percentage is: " + final_marks + " %"
 }
 
@@ -258,5 +261,15 @@ function display(what){
     }
     if (!isNaN(marks)) {
         document.getElementsByTagName('h2')[0].innerHTML = msg + marks + '%'
+    }
+}
+
+
+function revert() {
+    if (!isNaN(percentage)) {
+        document.getElementsByTagName('h2')[0].innerHTML = "Your Percentage is: " + percentage + " %"
+    }
+    else {
+        document.getElementsByTagName('h2')[0].innerHTML ='Your Percentage is: --.--%'
     }
 }
