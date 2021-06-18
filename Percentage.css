@@ -1,0 +1,181 @@
+body{
+    background-color: #2A2A2A;
+    font-size: 19px;
+    font-family: 'Helvetica';
+    margin-left: auto;
+    margin-right: auto;
+    color: #B1B1B1;
+}
+
+div{
+    align-content: center;
+    display: block;
+}
+
+div.first{
+    float: left;
+    display: inline;
+    align-content: right;
+}
+
+div.second{
+    float: right;
+    display: inline;
+    align-content: left;
+}
+
+span.first{
+    float: left;
+    margin: 5px;
+}
+
+span.second{
+    float: right;
+    margin-right: 15px;
+}
+
+small{
+    font-size: 13px;
+}
+
+label{
+    margin: 5px;
+    padding: 5px;
+}
+
+input{
+    background-color: #444444;
+    text-align: center;
+    margin: 3px;
+    margin-left: 10px;
+    width: 50px;
+    border-radius: 7px;
+    border: groove;
+}
+
+input:focus{
+    background-color: #AAAAAA;
+    outline: none;
+}
+
+input:hover, input:focus{
+    transform: scale(1.125);
+}
+
+input.tenth{
+    background-color: #C38D9E;
+}
+
+input.eleventh{
+    background-color: #61892F;
+}
+
+input.practical{
+    background-color: #479761;
+}
+
+input.unittest{
+    background-color: #E27D60;
+}
+
+input.midterm{
+    background-color: #557A95;
+}
+
+input.preboard{
+    background-color: #8860D0;
+}
+
+fieldset{
+    margin: 10px;
+    width: 700px;
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 1px;
+}
+
+fieldset:hover{
+    transform: scale(1.025);
+}
+
+fieldset.one{
+    border-color: #C38D9E;
+}
+
+fieldset.two{
+    border-color: #61892F;
+}
+
+fieldset.three{
+    border-color: #479761;
+}
+
+fieldset.four{
+    border-color: #E27D60;
+}
+
+fieldset.five{
+    border-color: #557A95;
+}
+
+fieldset.six{
+    border-color: #8860D0;
+}
+
+legend{
+    font-size: 21px;
+    margin-left: 100px;
+}
+
+legend.one{
+    color: #C38D9E;
+}
+
+legend.two{
+    color: #61892F;
+}
+
+legend.three{
+    color: #479761;
+}
+
+legend.four{
+    color: #E27D60;
+}
+
+legend.five{
+    color: #557A95;
+}
+
+legend.six{
+    color: #8860D0;
+}
+
+button{
+    font-size: 25px;
+    color: #D8C3A5;
+    background-color: #116466;
+    border-color: #45A29E;
+    border-radius: 8px;
+    height: 50px;
+    text-align: center;
+    margin:auto;
+    display:block;
+}
+
+h2{
+    font-size: 30px;
+    text-align: center;
+    margin:auto;
+    display:block;
+    width: 800px;
+}
+
+h2:hover{
+    transform: scale(1.02);
+}
+
+button:active, button:hover{
+    background-color: #116471;
+    transform: scale(1.1);
+}

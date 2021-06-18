@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Calculate your 12th Board Percentage</title>
+    <link rel="stylesheet" href="Percentage.css">
+
+</head>
+<body>
+    <div>
+        <div class="first">
+            <fieldset onclick="display('tenth')" class="one">
+                <legend class="one">10<sup>th</sup> Grade Board Exam</legend>
+                <span class="first">
+                    <label>Marks for Best Subject from 10<sup>th</sup> Grade <small>(100)</small></label><br>
+                    <label>Marks for Second Best Subject from 10<sup>th</sup> Grade <small>(100)</small></label><br>
+                    <label>Marks for Third Best Subject from 10<sup>th</sup> Grade <small>(100)</small></label><br>
+                </span>
+                <span class="second">
+                    <input class="tenth" type="text" id="first10" oninput="check10('first10')" minlength="1" maxlength="3"><br>
+                    <input class="tenth" type="text" id="second10" oninput="check10('second10')" minlength="1" maxlength="3"><br>
+                    <input class="tenth" type="text" id="third10" oninput="check10('third10')" minlength="1" maxlength="3">
+                </span>
+            </fieldset>
+            <fieldset onclick="display('eleventh')" class="two">
+                <legend class="two">11<sup>th</sup> Grade Final Exam</legend>
+                <span class="first">
+                    <label>Marks for First Subject from 11<sup>th</sup> Grade <small>(70)</small></label><br>
+                    <label>Marks for Second Subject from 11<sup>th</sup> Grade <small>(70)</small></label><br>
+                    <label>Marks for Third Subject from 11<sup>th</sup> Grade <small>(70)</small></label><br>
+                    <label>Marks for Fourth Subject from 11<sup>th</sup> Grade <small>(80)</small></label><br>
+                    <label>Marks for Fifth Subject from 11<sup>th</sup> Grade <small>(80)</small></label><br>
+                </span>
+                <span class="second">
+                <input class="eleventh" type="text" id="first11" oninput="check12_70('first11')" minlength="1" maxlength="2"><br>
+                <input class="eleventh" type="text" id="second11" oninput="check12_70('second11')" minlength="1" maxlength="2"><br>
+                <input class="eleventh" type="text" id="third11" oninput="check12_70('third11')" minlength="1" maxlength="2"><br>
+                <input class="eleventh" type="text" id="fourth11" oninput="check12_80('fourth11')" minlength="1" maxlength="2"><br>
+                <input class="eleventh" type="text" id="fifth11" oninput="check12_80('fifth11')" minlength="1" maxlength="2">
+                </span>
+            </fieldset>
+            <fieldset onclick="display('practical')" class="three">
+                <legend class="three">12<sup>th</sup> Grade Practical Exam</legend>
+                <span class="first">
+                    <label>Marks for First Subject from 12<sup>th</sup> Grade Practical Exam <small>(20)</small></label><br>
+                    <label>Marks for Second Subject from 12<sup>th</sup> Grade Practical Exam <small>(20)</small></label><br>
+                    <label>Marks for Third Subject from 12<sup>th</sup> Grade Practical Exam <small>(30)</small></label><br>
+                    <label>Marks for Fourth Subject from 12<sup>th</sup> Grade Practical Exam <small>(30)</small></label><br>
+                    <label>Marks for Fifth Subject from 12<sup>th</sup> Grade Practical Exam <small>(30)</small></label><br>
+                </span>
+                <span class="second">
+                <input class="practical" type="text" id="firstpr12" oninput="check12pr20('firstpr12')" minlength="1" maxlength="2"><br>
+                <input class="practical" type="text" id="secondpr12" oninput="check12pr20('secondpr12')" minlength="1" maxlength="2"><br>
+                <input class="practical" type="text" id="thirdpr12" oninput="check12pr30('thirdpr12')" minlength="1" maxlength="2"><br>
+                <input class="practical" type="text" id="fourthpr12" oninput="check12pr30('fourthpr12')" minlength="1" maxlength="2"><br>
+                <input class="practical" type="text" id="fifthpr12" oninput="check12pr30('fifthpr12')" minlength="1" maxlength="2">
+                </span>
+            </fieldset>
+        </div>
+        <div class="second">
+            <fieldset onclick="display('unittest')" class="four">
+                <legend class="four">12<sup>th</sup> Grade Unit Test</legend>
+                <span class="first">
+                    <label>Marks for First Subject from 12<sup>th</sup> Grade Unit Test <small>(35)</small></label><br>
+                    <label>Marks for Second Subject from 12<sup>th</sup> Grade Unit Test <small>(35)</small></label><br>
+                    <label>Marks for Third Subject from 12<sup>th</sup> Grade Unit Test <small>(35)</small></label><br>
+                    <label>Marks for Fourth Subject from 12<sup>th</sup> Grade Unit Test <small>(40)</small></label><br>
+                    <label>Marks for Fifth Subject from 12<sup>th</sup> Grade Unit Test <small>(40)</small></label><br>
+                </span>
+                <span class="second">
+                    <input class="unittest" type="text" id="firstut12" oninput="check12ut_35('firstut12')" minlength="1" maxlength="2"><br>
+                    <input class="unittest" type="text" id="secondut12" oninput="check12ut_35('secondut12')" minlength="1" maxlength="2"><br>
+                    <input class="unittest" type="text" id="thirdut12" oninput="check12ut_35('thirdut12')" minlength="1" maxlength="2"><br>
+                    <input class="unittest" type="text" id="fourthut12" oninput="check12ut_40('fourthut12')" minlength="1" maxlength="2"><br>
+                    <input class="unittest" type="text" id="fifthut12" oninput="check12ut_40('fifthut12')" minlength="1" maxlength="2">
+                </span>
+            </fieldset>
+            <fieldset onclick="display('midterm')" class="five">
+                <legend class="five">12<sup>th</sup> Grade Midterm Exam</legend>
+                <span class="first">
+                    <label>Marks for First Subject from 12<sup>th</sup> Grade Midterm Exam <small>(70)</small></label><br>
+                    <label>Marks for Second Subject from 12<sup>th</sup> Grade Midterm Exam <small>(70)</small></label><br>
+                    <label>Marks for Third Subject from 12<sup>th</sup> Grade Midterm Exam <small>(70)</small></label><br>
+                    <label>Marks for Fourth Subject from 12<sup>th</sup> Grade Midterm Exam <small>(80)</small></label><br>
+                    <label>Marks for Fifth Subject from 12<sup>th</sup> Grade Midterm Exam <small>(80)</small></label><br>
+                </span>
+                <span class="second">
+                    <input class="midterm" type="text" id="firstmt12" oninput="check12_70('firstmt12')" minlength="1" maxlength="2"><br>
+                    <input class="midterm" type="text" id="secondmt12" oninput="check12_70('secondmt12')" minlength="1" maxlength="2"><br>
+                    <input class="midterm" type="text" id="thirdmt12" oninput="check12_70('thirdmt12')" minlength="1" maxlength="2"><br>
+                    <input class="midterm" type="text" id="fourthmt12" oninput="check12_80('fourthmt12')" minlength="1" maxlength="2"><br>
+                    <input class="midterm" type="text" id="fifthmt12" oninput="check12_80('fifthmt12')" minlength="1" maxlength="2">
+                </span>
+            </fieldset>
+            <fieldset onclick="display('preboard')" class="six">
+                <legend class="six">12<sup>th</sup> Grade Pre-Board Exam</legend>
+                <span class="first">
+                    <label>Marks for First Subject from 12<sup>th</sup> Grade Pre-Board Exam <small>(70)</small></label><br>
+                    <label>Marks for Second Subject from 12<sup>th</sup> Grade Pre-Board Exam <small>(70)</small></label><br>
+                    <label>Marks for Third Subject from 12<sup>th</sup> Grade Pre-Board Exam <small>(70)</small></label><br>
+                    <label>Marks for Fourth Subject from 12<sup>th</sup> Grade Pre-Board Exam <small>(80)</small></label><br>
+                    <label>Marks for Fifth Subject from 12<sup>th</sup> Grade Pre-Board Exam <small>(80)</small></label><br>
+                </span>
+                <span class="second">
+                    <input class="preboard" type="text" id="firstpb12" oninput="check12_70('firstpb12')" minlength="1" maxlength="2"><br>
+                    <input class="preboard" type="text" id="secondpb12" oninput="check12_70('secondpb12')" minlength="1" maxlength="2"><br>
+                    <input class="preboard" type="text" id="thirdpb12" oninput="check12_70('thirdpb12')" minlength="1" maxlength="2"><br>
+                    <input class="preboard" type="text" id="fourthpb12" oninput="check12_80('fourthpb12')" minlength="1" maxlength="2"><br>
+                    <input class="preboard" type="text" id="fifthpb12" oninput="check12_80('fifthpb12')" minlength="1" maxlength="2">
+                </span>
+            </fieldset>
+        </div>
+    </div>
+    <br clear="all">
+    <br clear="all">
+    <div>
+        <button type="submit" onclick="calculate()">Calculate My Percentage</button>
+        <br>
+        <h2 id="percentage">Your Percentage is: --.--% </h2>
+    </div>
+    <script src="Percentage.js"></script>
+</body>
+</html>
