@@ -51,6 +51,7 @@ input{
     width: 50px;
     border-radius: 7px;
     border: groove;
+    font-weight: bold;
 }
 
 input:focus{
@@ -71,7 +72,7 @@ input.eleventh{
 }
 
 input.practical{
-    background-color: #479761;
+    background-color: #007CC7;
 }
 
 input.unittest{
@@ -107,7 +108,7 @@ fieldset.two{
 }
 
 fieldset.three{
-    border-color: #479761;
+    border-color: #007CC7;
 }
 
 fieldset.four{
@@ -136,7 +137,7 @@ legend.two{
 }
 
 legend.three{
-    color: #479761;
+    color: #007CC7;
 }
 
 legend.four{
@@ -168,7 +169,8 @@ h2{
     text-align: center;
     margin:auto;
     display:block;
-    width: 800px;
+    width: 850px;
+    color: #479761;
 }
 
 h2:hover{
