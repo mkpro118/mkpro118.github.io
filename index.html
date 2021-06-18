@@ -5,12 +5,11 @@
     <link rel="shortcut icon" href="icon.png">
     <title>Calculate your 12th Board Percentage</title>
     <link rel="stylesheet" href="Percentage.css">
-
 </head>
 <body>
     <div>
         <div class="first">
-            <fieldset onclick="display('tenth')" class="one">
+            <fieldset onmouseleave="revert()" onmouseenter="display('tenth')" onclick="display('tenth')" class="one">
                 <legend class="one">10<sup>th</sup> Grade Board Exam</legend>
                 <span class="first">
                     <label>Marks for Best Subject from 10<sup>th</sup> Grade <small>(100)</small></label><br>
@@ -23,7 +22,7 @@
                     <input class="tenth" type="text" id="third10" oninput="check10('third10')" minlength="1" maxlength="3">
                 </span>
             </fieldset>
-            <fieldset onclick="display('eleventh')" class="two">
+            <fieldset onmouseleave="revert()" onmouseenter="display('eleventh')" onclick="display('eleventh')" class="two">
                 <legend class="two">11<sup>th</sup> Grade Final Exam</legend>
                 <span class="first">
                     <label>Marks for First Subject from 11<sup>th</sup> Grade <small>(100)</small></label><br>
@@ -40,7 +39,7 @@
                 <input class="eleventh" type="text" id="fifth11" oninput="check11('fifth11')" minlength="1" maxlength="3">
                 </span>
             </fieldset>
-            <fieldset onclick="display('practical')" class="three">
+            <fieldset onmouseleave="revert()" onmouseenter="display('practical')" onclick="display('practical')" class="three">
                 <legend class="three">12<sup>th</sup> Grade Practical Exam</legend>
                 <span class="first">
                     <label>Marks for First Subject from 12<sup>th</sup> Grade Practical Exam <small>(20)</small></label><br>
@@ -59,7 +58,7 @@
             </fieldset>
         </div>
         <div class="second">
-            <fieldset onclick="display('unittest')" class="four">
+            <fieldset onmouseleave="revert()" onmouseenter="display('unittest')" onclick="display('unittest')" class="four">
                 <legend class="four">12<sup>th</sup> Grade Unit Test</legend>
                 <span class="first">
                     <label>Marks for First Subject from 12<sup>th</sup> Grade Unit Test <small>(35)</small></label><br>
@@ -76,7 +75,7 @@
                     <input class="unittest" type="text" id="fifthut12" oninput="check12ut_40('fifthut12')" minlength="1" maxlength="2">
                 </span>
             </fieldset>
-            <fieldset onclick="display('midterm')" class="five">
+            <fieldset onmouseleave="revert()" onmouseenter="display('midterm')" onclick="display('midterm')" class="five">
                 <legend class="five">12<sup>th</sup> Grade Midterm Exam</legend>
                 <span class="first">
                     <label>Marks for First Subject from 12<sup>th</sup> Grade Midterm Exam <small>(70)</small></label><br>
@@ -93,7 +92,7 @@
                     <input class="midterm" type="text" id="fifthmt12" oninput="check12_80('fifthmt12')" minlength="1" maxlength="2">
                 </span>
             </fieldset>
-            <fieldset onclick="display('preboard')" class="six">
+            <fieldset onmouseleave="revert()" onmouseenter="display('preboard')" onclick="display('preboard')" class="six">
                 <legend class="six">12<sup>th</sup> Grade Pre-Board Exam</legend>
                 <span class="first">
                     <label>Marks for First Subject from 12<sup>th</sup> Grade Pre-Board Exam <small>(70)</small></label><br>
@@ -112,7 +111,6 @@
             </fieldset>
         </div>
     </div>
-    <br clear="all">
     <br clear="all">
     <div>
         <button type="submit" onclick="calculate()">Calculate My Percentage</button>
