@@ -8,7 +8,7 @@ function calculate() {
     }
 
     // 10th Grade
-    var tenth = calculate10()/0.3
+    var tenth = calculate10()*0.3
 
     // 11th Grade
     var eleventh = calculate11()*0.3
@@ -25,9 +25,9 @@ function calculate() {
     //12th Grade Pre-Board Exams
     var preboard = calculatepb()
 
-    var twelfth = (practical + unittest + midterm + preboard) / 10
+    var twelfth = ((practical + unittest + midterm + preboard) / 4) * 0.4
 
-    var final_marks = tenth + eleventh + twelfth
+    var final_marks = (tenth + eleventh + twelfth)
     var marks = document.getElementsByTagName('h2')[0]
     final_marks = Math.round(final_marks * 1000) / 1000
     marks.innerHTML = "Your Percentage is: " + final_marks + " %"
@@ -36,8 +36,8 @@ function calculate() {
 function calculate10() {
     var first10 = parseInt(document.getElementById('first10').value, 10)
     var second10 = parseInt(document.getElementById('second10').value, 10)
-    var third10 = parseInt(document.getElementById('first10').value, 10)
-    var tenth = (first10 + second10 + third10)/3
+    var third10 = parseInt(document.getElementById('third10').value, 10)
+    var tenth = (first10 + second10 + third10) / 3
     return tenth
 }
 
