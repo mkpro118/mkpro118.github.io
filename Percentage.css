@@ -24,6 +24,11 @@ div.second{
     align-content: left;
 }
 
+div.container{
+    margin-top: 22px;
+    display: block;
+}
+
 span.first{
     float: left;
     margin: 5px;
@@ -94,6 +99,7 @@ fieldset{
     border-style: solid;
     border-radius: 10px;
     border-width: 1px;
+    height: 175px;
 }
 
 fieldset:hover{
@@ -102,6 +108,7 @@ fieldset:hover{
 
 fieldset.one{
     border-color: #C38D9E;
+    align-content: center;
 }
 
 fieldset.two{
