@@ -41,6 +41,7 @@ small{
 label{
     margin: 5px;
     padding: 5px;
+    line-height: 100%;
 }
 
 input{
