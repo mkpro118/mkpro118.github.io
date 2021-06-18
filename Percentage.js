@@ -104,6 +104,7 @@ function check10(Id) {
         document.getElementById(Id).value = ''
         alert('10th Grade Marks must be lesser than 100')
     }
+    display('tenth')
 }
 
 function check11(Id) {
@@ -119,6 +120,7 @@ function check11(Id) {
         document.getElementById(Id).value = ''
         alert('11th Grade Marks must be lesser than 100')
     }
+    display('eleventh')
 }
 
 function check12_70(Id) {
@@ -133,6 +135,12 @@ function check12_70(Id) {
     if (f > 70) {
         document.getElementById(Id).value = ''
         alert('There must be 3 subjects graded out of 70 and 2 subjects graded out of 80 in 11th & 12th Grade Exams')
+    }
+    if (Id.includes('mt')) {
+        display('midterm')
+    }
+    else if (Id.includes('pb')){
+        display('preboard')
     }
 }
 
@@ -149,6 +157,12 @@ function check12_80(Id) {
         document.getElementById(Id).value = ''
         alert('There must be 3 subjects graded out of 70 and 2 subjects graded out of 80 in 11th & 12th Grade Exams')
     }
+    if (Id.includes('mt')) {
+        display('midterm')
+    }
+    else if (Id.includes('pb')){
+        display('preboard')
+    }
 }
 
 function check12ut_35(Id){
@@ -164,6 +178,7 @@ function check12ut_35(Id){
         document.getElementById(Id).value = ''
         alert('There must be 3 subjects graded out of 35 and 2 subjects graded out of 40 in 12th Grade Unit Test')
     }
+    display('unittest')
 }
 
 function check12ut_40(Id){
@@ -179,6 +194,7 @@ function check12ut_40(Id){
         document.getElementById(Id).value = ''
         alert('There must be 3 subjects graded out of 35 and 2 subjects graded out of 40 in 12th Grade Unit Test')
     }
+    display('unittest')
 }
 
 function check12pr20(Id) {
@@ -194,6 +210,7 @@ function check12pr20(Id) {
         document.getElementById(Id).value = ''
         alert('There must be 3 subjects graded out of 30 and 2 subjects graded out of 20 in 12th Grade Practical Exam')
     }
+    display('practical')
 }
 
 function check12pr30(Id) {
@@ -209,6 +226,7 @@ function check12pr30(Id) {
         document.getElementById(Id).value = ''
         alert('There must be 3 subjects graded out of 30 and 2 subjects graded out of 20 in 12th Grade Practical Exam')
     }
+    display('practical')
 }
 
 function display(what){
