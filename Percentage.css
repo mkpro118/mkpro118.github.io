@@ -70,11 +70,11 @@ input:hover, input:focus{
 }
 
 input.tenth{
-    background-color: #C38D9E;
+    background-color: #EE6699;
 }
 
 input.eleventh{
-    background-color: #61892F;
+    background-color: #339933;
 }
 
 input.practical{
@@ -107,12 +107,12 @@ fieldset:hover{
 }
 
 fieldset.one{
-    border-color: #C38D9E;
+    border-color: #EE6699;
     align-content: center;
 }
 
 fieldset.two{
-    border-color: #61892F;
+    border-color: #339933;
 }
 
 fieldset.three{
@@ -137,11 +137,11 @@ legend{
 }
 
 legend.one{
-    color: #C38D9E;
+    color: #EE6699;
 }
 
 legend.two{
-    color: #61892F;
+    color: #339933;
 }
 
 legend.three{
