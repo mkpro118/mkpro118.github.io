@@ -26,19 +26,19 @@
             </fieldset>
             <fieldset onmouseleave="revert()" onmouseenter="display('eleventh')" onclick="display('eleventh')" class="two">
                 <legend class="two">11<sup>th</sup> Grade Final Exam</legend>
-                <span class="first">
-                    <label for="first11">Marks for First Subject from 11<sup>th</sup> Grade <small>(100)</small></label><br>
-                    <label for="second11">Marks for Second Subject from 11<sup>th</sup> Grade <small>(100)</small></label><br>
-                    <label for="third11">Marks for Third Subject from 11<sup>th</sup> Grade <small>(100)</small></label><br>
-                    <label for="fourth11">Marks for Fourth Subject from 11<sup>th</sup> Grade <small>(100)</small></label><br>
-                    <label for="fifth11">Marks for Fifth Subject from 11<sup>th</sup> Grade <small>(100)</small></label><br>
-                </span>
                 <span class="second">
                 <input class="eleventh" type="text" id="first11" oninput="check11('first11')" minlength="1" maxlength="3"><br>
                 <input class="eleventh" type="text" id="second11" oninput="check11('second11')" minlength="1" maxlength="3"><br>
                 <input class="eleventh" type="text" id="third11" oninput="check11('third11')" minlength="1" maxlength="3"><br>
                 <input class="eleventh" type="text" id="fourth11" oninput="check11('fourth11')" minlength="1" maxlength="3"><br>
                 <input class="eleventh" type="text" id="fifth11" oninput="check11('fifth11')" minlength="1" maxlength="3">
+                </span>
+                <span class="first">
+                    <label for="first11">Marks for First Subject from 11<sup>th</sup> Grade <small>(100)</small></label><br>
+                    <label for="second11">Marks for Second Subject from 11<sup>th</sup> Grade <small>(100)</small></label><br>
+                    <label for="third11">Marks for Third Subject from 11<sup>th</sup> Grade <small>(100)</small></label><br>
+                    <label for="fourth11">Marks for Fourth Subject from 11<sup>th</sup> Grade <small>(100)</small></label><br>
+                    <label for="fifth11">Marks for Fifth Subject from 11<sup>th</sup> Grade <small>(100)</small></label><br>
                 </span>
             </fieldset>
             <fieldset onmouseleave="revert()" onmouseenter="display('practical')" onclick="display('practical')" class="three">
@@ -119,6 +119,8 @@
         <br>
         <br>
         <h2 id="percentage">Your Percentage is: --.--% </h2>
+        <br>
+        <br>
     </div>
     <script src="Percentage.js"></script>
 </body>
