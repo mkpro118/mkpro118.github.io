@@ -298,6 +298,7 @@ function revert() {
     else {
         document.getElementsByTagName('h2')[0].innerHTML ='Your 12<sup>th</sup> Grade Board Exam Percentage is: --.--%'
     }
+    document.activeElement.blur();
 }
 
 function highlight(Id, status) {
