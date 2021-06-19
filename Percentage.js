@@ -1,4 +1,5 @@
 var percentage = NaN
+var centered = false
 
 function calculate() {
     var inputs = document.getElementsByTagName('input')
@@ -310,5 +311,32 @@ function highlight(Id, status) {
     else if (status == 'exit') {
         label.style.opacity = '0.85'
         label.style.color = '#A5A5A5'
+    }
+}
+
+function center(Id) {
+    revert_center()
+    centered = true
+    var fieldset = document.getElementById(Id)
+    console.log(fieldset)
+    console.log(fieldset.style.borderColor)
+    fieldset.className = fieldset.className +" center"+fieldset.className
+    // fieldset.style.background = 'none'
+    var fieldsets = document.getElementsByTagName('fieldset')
+    for (var i = 0; i < fieldsets.length; i++) {
+        if (fieldsets[i].id != Id){
+            fieldsets[i].style.opacity = '0.3'
+        }
+    }
+}
+
+function revert_center() {
+    if (centered) {
+        var fieldsets = document.getElementsByTagName('fieldset')
+        for (var i = 0; i < fieldsets.length; i++) {
+            fieldsets[i].style.opacity = '1.0'
+            fieldsets[i].className = fieldsets[i].className.split(" ")[0]
+        }
+        centered = false
     }
 }
