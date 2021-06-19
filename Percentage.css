@@ -2,8 +2,10 @@ body{
     background-color: #2A2A2A;
     font-size: 19px;
     font-family: 'Helvetica';
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 9px;
+    margin-right: 10px;
+    margin-top: 0px;
+    margin-bottom: 0px;
     color: #DBDBDB;
     background: linear-gradient(to bottom left, rgba(0, 0, 0, 0.95), rgba(1, 1, 1, 0.95));
 }
@@ -17,12 +19,20 @@ div.first{
     float: left;
     display: inline;
     align-content: right;
+    margin-left: 25px;
+    padding-left: 5px;
+    margin-right: 0px;
+    padding-right: 0px;
 }
 
 div.second{
     float: right;
     display: inline;
     align-content: left;
+    margin-left: 0px;
+    padding-left: 0px;
+    margin-right: 25px;
+    padding-right: 5px;
 }
 
 div.container{
@@ -51,6 +61,7 @@ label{
     line-height: 100%;
     opacity: 0.85;
     text-shadow: 2px 2px 3px black;
+    transition: transform 1s ease-in-out, color 1s ease;
 }
 
 label:hover{
@@ -62,6 +73,7 @@ label:hover{
 
 input{
     background-color: #444444;
+    color: #000000;
     text-align: center;
     margin: 3px;
     margin-left: 10px;
@@ -72,6 +84,7 @@ input{
     opacity: 0.5;
     outline: none;
     box-shadow: 4px 4px 2px black;
+    transition: transform 1s ease;
 }
 
 input:focus{
@@ -116,48 +129,56 @@ input.preboard{
 
 fieldset{
     margin: 10px;
-    width: 700px;
+    width: 670px;
     border-style: solid;
     border-radius: 15px;
     border-width: 1px;
     height: 175px;
     box-shadow: 4px 4px 7px 2px rgba(255, 255, 255, 0.3);
+    transition: transform 1s ease-in-out;
 }
 
-fieldset:hover{
-    transform: scale(1.025);
+fieldset:hover,
+fieldset:focus-within{
     box-shadow: 5px 5px 7px 3px rgba(255, 255, 255, 0.3);
+    transform: scale(1.075);
 }
 
 fieldset.one{
     border-color: #EE6699;
     background: linear-gradient(to bottom left, rgba(238, 102, 153, 0.40),rgba(238, 102, 153, 0.75));
     align-content: center;
+    margin-right: 5px;
 }
 
 fieldset.two{
     border-color: #339933;
     background: linear-gradient(to bottom left, rgba(51, 153, 51, 0.50), rgba(51, 153, 51, 1.0));
+    margin-right: 5px;
 }
 
 fieldset.three{
     border-color: #007CC7;
     background: linear-gradient(to bottom left, rgba(0, 124, 199, 0.50), rgba(0, 124, 199, 1.0));
+    margin-right: 5px;
 }
 
 fieldset.four{
     border-color: #E27D60;
     background: linear-gradient(to bottom left, rgba(226, 125, 96, 0.50), rgba(226, 125, 96, 1.0));
+    margin-left: 5px;
 }
 
 fieldset.five{
     border-color: #557A95;
     background: linear-gradient(to bottom left, rgba(85, 122, 149, 0.50), rgba(85, 122, 149, 1.0));
+    margin-left: 5px;
 }
 
 fieldset.six{
     border-color: #8860D0;
     background: linear-gradient(to bottom left, rgba(136, 96, 208, 0.50), rgba(136, 96, 208, 1.0));
+    margin-left: 5px;
 }
 
 legend{
@@ -200,13 +221,9 @@ h2{
     width: 1200px;
     color: #A3A3A3;
     text-shadow: 4px 4px 2px black;
+    transition: transform 0.5s ease-in-out;
 }
 
 h2:hover{
     transform: scale(1.02);
-}
-
-button:active, button:hover{
-    background-color: #116471;
-    transform: scale(1.1);
 }
