@@ -1,12 +1,9 @@
 var percentage = NaN
 
-function calculate(code) {
+function calculate() {
     var inputs = document.getElementsByTagName('input')
     for (var i = 0; i < inputs.length; i++) {
         if (isNaN(parseInt(inputs[i].value))) {
-            if (code == 1) {
-                alert('Please fill all the fields')
-            }
             return
         }
     }
@@ -109,7 +106,7 @@ function check10(Id) {
         document.getElementById(Id).value = ''
         alert('10th Grade Marks must be lesser than 100')
     }
-    calculate(0)
+    calculate()
     display('tenth')
 }
 
@@ -126,7 +123,7 @@ function check11(Id) {
         document.getElementById(Id).value = ''
         alert('11th Grade Marks must be lesser than 100')
     }
-    calculate(0)
+    calculate()
     display('eleventh')
 }
 
@@ -143,7 +140,7 @@ function check12_70(Id) {
         document.getElementById(Id).value = ''
         alert('There must be 3 subjects graded out of 70 and 2 subjects graded out of 80 in 11th & 12th Grade Exams')
     }
-    calculate(0)
+    calculate()
     if (Id.includes('mt')) {
         display('midterm')
     }
@@ -165,7 +162,7 @@ function check12_80(Id) {
         document.getElementById(Id).value = ''
         alert('There must be 3 subjects graded out of 70 and 2 subjects graded out of 80 in 11th & 12th Grade Exams')
     }
-    calculate(0)
+    calculate()
     if (Id.includes('mt')) {
         display('midterm')
     }
@@ -187,7 +184,7 @@ function check12ut_35(Id){
         document.getElementById(Id).value = ''
         alert('There must be 3 subjects graded out of 35 and 2 subjects graded out of 40 in 12th Grade Unit Test')
     }
-    calculate(0)
+    calculate()
     display('unittest')
 }
 
@@ -204,7 +201,7 @@ function check12ut_40(Id){
         document.getElementById(Id).value = ''
         alert('There must be 3 subjects graded out of 35 and 2 subjects graded out of 40 in 12th Grade Unit Test')
     }
-    calculate(0)
+    calculate()
     display('unittest')
 }
 
@@ -221,7 +218,7 @@ function check12pr20(Id) {
         document.getElementById(Id).value = ''
         alert('There must be 3 subjects graded out of 30 and 2 subjects graded out of 20 in 12th Grade Practical Exam')
     }
-    calculate(0)
+    calculate()
     display('practical')
 }
 
@@ -238,7 +235,7 @@ function check12pr30(Id) {
         document.getElementById(Id).value = ''
         alert('There must be 3 subjects graded out of 30 and 2 subjects graded out of 20 in 12th Grade Practical Exam')
     }
-    calculate(0)
+    calculate()
     display('practical')
 }
 
@@ -249,7 +246,7 @@ function display(what){
         msg = 'Your 10<sup>th</sup> Grade Board Exam Percentage is: '
         marks = Math.round(calculate10()*1000) / 1000
         if (!isNaN(marks)) {
-          document.getElementsByTagName('h2')[0].style.color = '#ea4a86'
+          document.getElementsByTagName('h2')[0].style.color = '#EA4A86'
         }
     }
     else if (what == 'eleventh') {
@@ -296,9 +293,21 @@ function display(what){
 function revert() {
     document.getElementsByTagName('h2')[0].style.color = '#A3A3A3'
     if (!isNaN(percentage)) {
-        document.getElementsByTagName('h2')[0].innerHTML = "Your Percentage is: " + percentage + " %"
+        document.getElementsByTagName('h2')[0].innerHTML = "Your 12<sup>th</sup> Grade Board Exam Percentage is: " + percentage + " %"
     }
     else {
-        document.getElementsByTagName('h2')[0].innerHTML ='Your Percentage is: --.--%'
+        document.getElementsByTagName('h2')[0].innerHTML ='Your 12<sup>th</sup> Grade Board Exam Percentage is: --.--%'
+    }
+}
+
+function highlight(Id, status) {
+    var label = document.getElementById(Id)
+    if (status == 'enter') {
+        label.style.opacity = '1.0'
+        label.style.color = '#FEFEFE'
+    }
+    else if (status == 'exit') {
+        label.style.opacity = '0.85'
+        label.style.color = '#A5A5A5'
     }
 }
