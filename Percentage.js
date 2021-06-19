@@ -249,7 +249,7 @@ function display(what){
         msg = 'Your 10<sup>th</sup> Grade Board Exam Percentage is: '
         marks = Math.round(calculate10()*1000) / 1000
         if (!isNaN(marks)) {
-          document.getElementsByTagName('h2')[0].style.color = '#C38D9E'
+          document.getElementsByTagName('h2')[0].style.color = '#ea4a86'
         }
     }
     else if (what == 'eleventh') {
@@ -294,7 +294,7 @@ function display(what){
 
 
 function revert() {
-    document.getElementsByTagName('h2')[0].style.color = '#479761'
+    document.getElementsByTagName('h2')[0].style.color = '#A3A3A3'
     if (!isNaN(percentage)) {
         document.getElementsByTagName('h2')[0].innerHTML = "Your Percentage is: " + percentage + " %"
     }
