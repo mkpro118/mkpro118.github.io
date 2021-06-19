@@ -7,12 +7,17 @@ body{
     margin-top: 0px;
     margin-bottom: 0px;
     color: #DBDBDB;
+    overflow: visible;
     background: linear-gradient(to bottom left, rgba(0, 0, 0, 0.95), rgba(1, 1, 1, 0.95));
 }
 
 div{
     align-content: center;
     display: block;
+}
+
+div.main{
+    overflow: visible;
 }
 
 div.first{
@@ -23,6 +28,7 @@ div.first{
     padding-left: 5px;
     margin-right: 0px;
     padding-right: 0px;
+    width: 700px;
 }
 
 div.second{
@@ -33,16 +39,27 @@ div.second{
     padding-left: 0px;
     margin-right: 25px;
     padding-right: 5px;
+    width: 700px;
 }
 
 div.container{
+    height: 175px;
+    width: 670px;
+    margin: 0px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    background-color: rgba(0, 0, 0, 0.0);
+    align-content: right;
+}
+
+div.splcontainer{
     margin-top: 22px;
-    display: block;
 }
 
 span.first{
     float: left;
     margin: 5px;
+    align-items: center;
 }
 
 span.second{
@@ -62,6 +79,7 @@ label{
     opacity: 0.85;
     text-shadow: 2px 2px 3px black;
     transition: transform 1s ease-in-out, color 1s ease;
+    width: 600px;
 }
 
 label:hover{
@@ -99,32 +117,32 @@ input:hover, input:focus, input:active{
 
 input.tenth{
     background-color: #EE6699;
-    background: linear-gradient(to top left, rgba(255, 255, 255, 0.69), rgba(238, 102, 153, 1.0));
+    background: linear-gradient(to top left, rgba(255, 255, 255, 0.89), rgba(238, 102, 153, 1.0));
 }
 
 input.eleventh{
     background-color: #339933;
-    background: linear-gradient(to top left, rgba(255, 255, 255, 0.69), rgba(51, 153, 51, 1.0));
+    background: linear-gradient(to top left, rgba(255, 255, 255, 0.89), rgba(51, 153, 51, 1.0));
 }
 
 input.practical{
     background-color: #007CC7;
-    background: linear-gradient(to top left, rgba(255, 255, 255, 0.69), rgba(0, 124, 199, 1.0));
+    background: linear-gradient(to top left, rgba(255, 255, 255, 0.89), rgba(0, 124, 199, 1.0));
 }
 
 input.unittest{
     background-color: #E27D60;
-    background: linear-gradient(to top left, rgba(255, 255, 255, 0.69), rgba(226, 125, 96, 1.0));
+    background: linear-gradient(to top left, rgba(255, 255, 255, 0.89), rgba(226, 125, 96, 1.0));
 }
 
 input.midterm{
     background-color: #557A95;
-    background: linear-gradient(to top left, rgba(255, 255, 255, 0.69), rgba(85, 122, 149, 1.0));
+    background: linear-gradient(to top left, rgba(255, 255, 255, 0.89), rgba(85, 122, 149, 1.0));
 }
 
 input.preboard{
     background-color: #8860D0;
-    background: linear-gradient(to top left, rgba(255, 255, 255, 0.69), rgba(136, 96, 208, 1.0));
+    background: linear-gradient(to top left, rgba(255, 255, 255, 0.89), rgba(136, 96, 208, 1.0));
 }
 
 fieldset{
@@ -134,6 +152,7 @@ fieldset{
     border-radius: 15px;
     border-width: 1px;
     height: 175px;
+    opacity: 1.0;
     box-shadow: 4px 4px 7px 2px rgba(255, 255, 255, 0.3);
     transition: transform 1s ease-in-out;
 }
@@ -144,40 +163,93 @@ fieldset:focus-within{
     transform: scale(1.075);
 }
 
+fieldset.centerone{
+    z-index: 5;
+    position: fixed;
+    bottom: 50%;
+    right: 50%;
+    transform: translate(50%,20%) scale(1.5);
+    transition: transform 1.5s ease-in;
+}
+
+fieldset.centertwo{
+    z-index: 5;
+    position: fixed;
+    bottom: 50%;
+    right: 50%;
+    transform: translate(50%, 20%) scale(1.5);
+    transition: transform 1.5s ease-in;
+}
+
+fieldset.centerthree{
+    z-index: 5;
+    position: fixed;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -80%) scale(1.5);
+    transition: transform 1.5s ease-in;
+}
+
+fieldset.centerfour{
+    z-index: 5;
+    position: fixed;
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%) scale(1.5);
+    transition: transform 1.5s ease-in;
+}
+
+fieldset.centerfive{
+    z-index: 5;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -80%) scale(1.5);
+    transition: transform 1.5s ease-in;
+}
+fieldset.centersix{
+    z-index: 5;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -80%) scale(1.5);
+    transition: transform 1.5s ease-in;
+}
+
 fieldset.one{
     border-color: #EE6699;
-    background: linear-gradient(to bottom left, rgba(238, 102, 153, 0.40),rgba(238, 102, 153, 0.75));
+    background: linear-gradient(to bottom left, rgba(238, 102, 153, 0.60),rgba(238, 102, 153, 0.75));
     align-content: center;
     margin-right: 5px;
 }
 
 fieldset.two{
     border-color: #339933;
-    background: linear-gradient(to bottom left, rgba(51, 153, 51, 0.50), rgba(51, 153, 51, 1.0));
+    background: linear-gradient(to bottom left, rgba(51, 153, 51, 0.75), rgba(51, 153, 51, 1.0));
     margin-right: 5px;
 }
 
 fieldset.three{
     border-color: #007CC7;
-    background: linear-gradient(to bottom left, rgba(0, 124, 199, 0.50), rgba(0, 124, 199, 1.0));
+    background: linear-gradient(to bottom left, rgba(0, 124, 199, 0.75), rgba(0, 124, 199, 1.0));
     margin-right: 5px;
 }
 
 fieldset.four{
     border-color: #E27D60;
-    background: linear-gradient(to bottom left, rgba(226, 125, 96, 0.50), rgba(226, 125, 96, 1.0));
+    background: linear-gradient(to bottom left, rgba(226, 125, 96, 0.75), rgba(226, 125, 96, 1.0));
     margin-left: 5px;
 }
 
 fieldset.five{
     border-color: #557A95;
-    background: linear-gradient(to bottom left, rgba(85, 122, 149, 0.50), rgba(85, 122, 149, 1.0));
+    background: linear-gradient(to bottom left, rgba(85, 122, 149, 0.75), rgba(85, 122, 149, 1.0));
     margin-left: 5px;
 }
 
 fieldset.six{
     border-color: #8860D0;
-    background: linear-gradient(to bottom left, rgba(136, 96, 208, 0.50), rgba(136, 96, 208, 1.0));
+    background: linear-gradient(to bottom left, rgba(136, 96, 208, 0.75), rgba(136, 96, 208, 1.0));
     margin-left: 5px;
 }
 
