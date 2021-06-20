@@ -1,4 +1,4 @@
-body{
+:root{
     background-color: #2A2A2A;
     font-size: 19px;
     font-family: 'Helvetica';
@@ -18,6 +18,7 @@ div{
 
 div.main{
     overflow: visible;
+    transition: all 1s ease-in-out;
 }
 
 div.first{
@@ -43,8 +44,9 @@ div.second{
 }
 
 div.container{
+    z-index: 1;
     height: 175px;
-    width: 670px;
+    /*width: 670px;*/
     margin: 0px;
     margin-top: 25px;
     margin-bottom: 25px;
@@ -166,10 +168,12 @@ fieldset:focus-within{
 fieldset.centerone{
     z-index: 5;
     position: fixed;
-    bottom: 50%;
+    top: 10%;
     right: 50%;
-    transform: translate(50%,20%) scale(1.7);
+    transform: translate(50%,55%) scale(1.7);
     transition: transform 1.5s ease-in;
+    animation-name: centeroneanimation;
+    animation-duration: 1.5s;
 }
 
 fieldset.centertwo{
@@ -193,18 +197,18 @@ fieldset.centerthree{
 fieldset.centerfour{
     z-index: 5;
     position: fixed;
-    bottom: 50%;
+    top: 10%;
     left: 50%;
-    transform: translate(-50%, 20%) scale(1.7);
+    transform: translate(-50%, 55%) scale(1.7);
     transition: transform 1.5s ease-in;
 }
 
 fieldset.centerfive{
     z-index: 5;
     position: fixed;
-    top: 50%;
+    bottom: 50%;
     left: 50%;
-    transform: translate(-50%, -80%) scale(1.7);
+    transform: translate(-50%, 20%) scale(1.7);
     transition: transform 1.5s ease-in;
 }
 fieldset.centersix{
@@ -298,4 +302,21 @@ h2{
 
 h2:hover{
     transform: scale(1.02);
+}
+
+@media(max-width: 1500px){
+    div.second{
+        float: left;
+        display: inline;
+        align-content: right;
+        margin-left: 25px;
+        padding-left: 5px;
+        margin-right: 0px;
+        padding-right: 0px;
+        width: 700px;
+    }
+    div.main{
+        width: 50%;
+        margin: 0 auto;
+    }
 }
