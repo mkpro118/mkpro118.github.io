@@ -17,9 +17,8 @@
     overflow: hidden;
 }
 
-.ranks {
+.ranks, .ranks-reverse {
     display: flex;
-    flex-direction: column;
     background: #222222;
     justify-content: center;
     width: 40vw;
@@ -28,9 +27,28 @@
     overflow: hidden;
 }
 
+.ranks {
+    flex-direction: column;
+}
+
+.ranks-reverse {
+    flex-direction: column-reverse;
+}
+
 .files {
     display: flex;
     flex-direction: row;
+    background: #222222;
+    justify-content: center;
+    margin: 0px;
+    width: 40vw;
+    flex-basis: 40vw;
+    overflow: hidden;
+}
+
+.files-reverse {
+    display: flex;
+    flex-direction: row-reverse;
     background: #222222;
     justify-content: center;
     margin: 0px;
@@ -122,15 +140,15 @@ img:hover {
     transition: transform 0.2s ease-out;
 }
 
-#coordinates-container-ranks::before{
+.coordinates-container-ranks::before,
+.coordinates-container-ranks-reverse::before{
     clear: both;
 }
 
-#coordinates-container-ranks{
+.coordinates-container-ranks, .coordinates-container-ranks-reverse {
     z-index: 10;
     position: absolute;
     display: flex;
-    flex-direction: column;
     float: left;
     top: 50%;
     left: 26%;
@@ -140,33 +158,48 @@ img:hover {
     clear: both;
 }
 
-#coordinates-container-ranks::after{
+.coordinates-container-ranks {
+    flex-direction: column;
+}
+
+.coordinates-container-ranks-reverse{
+    flex-direction: column-reverse;
+}
+
+.coordinates-container-ranks::after,
+.coordinates-container-ranks-reverse::after{
     clear: both;
 }
 
-#coordinates-container-files::before{
+.coordinates-container-files::before,
+.coordinates-container-files-reverse::before{
     clear: both;
 }
 
-@media screen and (max-width:) {
-
-}
-
-#coordinates-container-files{
+.coordinates-container-files, .coordinates-container-files-reverse{
     z-index: 10;
     position: absolute;
     display: flex;
-    flex-direction: row;
     float: left;
     bottom: 50%;
     right: 50%;
     width: 44vw;
+    -webkit-transform: translate(41%, 2000%);
     transform: translate(41%, 2000%);
     justify-content: space-evenly;
     clear: both;
 }
 
-#coordinates-container-files::after{
+.coordinates-container-files{
+    flex-direction: row;
+}
+
+.coordinates-container-files-reverse{
+    flex-direction: row-reverse;
+}
+
+.coordinates-container-files::after,
+.coordinates-container-files-reverse::after{
     clear: both;
 }
 
@@ -260,4 +293,71 @@ div.move-black{
     font-size: 1.4vw;
     color: #202422;
     align-self: center;
+}
+
+.flip{
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(1042%, -1069%); /* Do not look at this!!! */
+    float: right;
+    width: 1.75vw;
+    height: 1.75vw;
+    background-image: url("images/flip.png");
+    background-size: 1.75vw;
+    background-repeat: no-repeat;
+}
+
+.flip:hover{
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(1042%, -1069%) scale(1.2);
+}
+
+.flipper:hover{
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(1042%, -1069%) scale(1.2);
+}
+
+.flipper{
+    -webkit-animation-name: spin;
+    -webkit-animation-duration: 0.4s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-fill-mode: forwards;
+
+}
+
+@keyframes spin {
+    100% {
+        position: absolute;
+        top: 50%;
+        right: 50%;
+        transform: translate(1042%, -1069%) rotate(180deg);
+    }
+}
+
+@-moz-keyframes spin {
+    100% {
+        position: absolute;
+        top: 50%;
+        right: 50%;
+        -moz-transform: translate(1042%, -1069%) rotate(180deg);
+    }
+}
+
+@-webkit-keyframes spin {
+    100% {
+        position: absolute;
+        top: 50%;
+        right: 50%;
+        -webkit-transform: translate(1042%, -1069%) rotate(180deg);
+    }
+}
+
+.flip-flip{
+
 }
