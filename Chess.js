@@ -71,6 +71,10 @@ for (var i = 0; i < coords.length; i++) {
 
 window.onload = disable
 
+window.addEventListener('contextmenu', function (e) {
+  e.preventDefault();
+}, false);
+
 function revert() {
     all_squares = document.getElementsByTagName('div')
     for (sq of all_squares) {
@@ -599,4 +603,45 @@ function pawn(id) {
         }
     }
     return offsets
+}
+
+function flip() {
+    const element = document.getElementById('flip-button');
+    element.classList.remove('flipper');
+    void element.offsetWidth;
+    element.classList.add('flipper');
+
+    window.setTimeout(function() {
+        element.classList.remove('flipper');
+    }, 400)
+    var ranks_div = document.getElementById('ranks')
+    if (!ranks_div.className.includes('reverse')) {
+        ranks_div.className = 'ranks-reverse'
+    }
+    else {
+        ranks_div.className = 'ranks'
+    }
+    if (ranks_div.firstElementChild.className === 'files') {
+        var files_div = document.querySelectorAll('.files')
+        files_div.forEach(function(e) { e.className = 'files-reverse'})
+    }
+    else {
+        var files_div = document.querySelectorAll('.files-reverse')
+        files_div.forEach(function(e) { e.className = 'files'})
+    }
+
+    var ranks_coord = document.getElementById('coordinates-container-ranks')
+    if (ranks_coord.className.includes('reverse')) {
+        ranks_coord.className = 'coordinates-container-ranks'
+    }
+    else {
+        ranks_coord.className = 'coordinates-container-ranks-reverse'
+    }
+    var files_coord = document.getElementById('coordinates-container-files')
+    if (files_coord.className.includes('reverse')) {
+        files_coord.className = 'coordinates-container-files'
+    }
+    else {
+        files_coord.className = 'coordinates-container-files-reverse'
+    }
 }
