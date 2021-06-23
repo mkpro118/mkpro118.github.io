@@ -296,6 +296,7 @@ div.move-black{
 }
 
 .flip{
+    z-index: 15;
     position: absolute;
     top: 50%;
     right: 50%;
@@ -356,8 +357,4 @@ div.move-black{
         right: 50%;
         -webkit-transform: translate(1042%, -1069%) rotate(180deg);
     }
-}
-
-.flip-flip{
-
 }
