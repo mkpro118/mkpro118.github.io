@@ -320,7 +320,7 @@ div.move-black{
     position: absolute;
     top: 50%;
     right: 50%;
-    transform: translate(1042%, -1069%) scale(1.2);
+    transform: translate(1042%, -1069%) scale(1.25);
 }
 
 .flipper{
