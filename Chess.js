@@ -8,6 +8,11 @@ var has_black_rook1_moved = false
 var has_black_rook2_moved = false
 
 var move_counter = 0
+var for_en_passant = null
+var prev_move = null
+var is_en_passant_allowed = false
+
+var is_highlighted = false
 
 var files = {
     'a': 0,
@@ -97,7 +102,7 @@ function highlight(event) {
         var square = document.getElementById(move)
         square.className = square.className + " highlight-" + square.className.slice(7)
         if (square.firstElementChild) {
-            // square.className = square.className + "-unfriendly"
+            square.className = square.className + "-unfriendly"
         }
     }
 }
@@ -107,13 +112,15 @@ function allowDrop(event) {
 }
 
 function drag(event) {
-    event.dataTransfer.setData("text", event.target.id)
+    event.dataTransfer.setData("text", event.target.id + ' ' + event.target.parentNode.id)
     highlight(event.target.id)
 }
 
 function drop(event) {
     event.preventDefault();
-    var data = event.dataTransfer.getData("text")
+    var raw_data = event.dataTransfer.getData("text")
+    var data = raw_data.slice(0,raw_data.indexOf(' '))
+    var parent = raw_data.slice(raw_data.indexOf(' ')+1)
     var target = event.target
     var to = target.id
     if (to == data) {
@@ -263,25 +270,49 @@ function drop(event) {
     }
     if (target.className.startsWith('square')) {
         var move = ''
-        target.appendChild(document.getElementById(data))
         if (data.includes('king')) {
             move = 'K' + to
+            for_en_passant = null
         }
         else if(data.includes('queen')) {
             move = 'Q' + to
+            for_en_passant = null
         }
         else if(data.includes('rook')) {
             move = 'R' + to
+            for_en_passant = null
         }
         else if(data.includes('bishop')) {
             move = 'B' + to
+            for_en_passant = null
         }
         else if(data.includes('knight')) {
             move = 'N' + to
+            for_en_passant = null
         }
         else if(data.includes('pawn')) {
             move = to
+            if (((move[1] === '5') && (turn === 'black') && (parent[0] === move[0]))) {
+                for_en_passant = move
+            }
+            else if (move[1] === '4' && turn === 'white' && (parent[0] === move[0])) {
+                for_en_passant = move
+            }
+            else if ((move[1] === '3' || move[1] === '6') && (parent[0] != move[0]) && (prev_move === for_en_passant)) {
+                move = parent[0] + 'x' + to
+                if (to[1] === '3' && turn === 'black' && (prev_move === for_en_passant)) {
+                    document.getElementById(to[0]+'4').removeChild(document.getElementById(to[0]+'4').firstElementChild)
+                }
+                else if (to[1] === '6' && turn === 'white'  && (prev_move === for_en_passant)) {
+                    document.getElementById(to[0]+'5').removeChild(document.getElementById(to[0]+'5').firstElementChild)
+                }
+            }
+            else {
+                    for_en_passant = null
+            }
         }
+        target.appendChild(document.getElementById(data))
+        prev_move = move
         writeMoves(move, turn)
         if (data === 'white-rook-1') {
             has_white_rook1_moved = true
@@ -542,6 +573,9 @@ function knight(id) {
 }
 
 function pawn(id) {
+    console.log('for_en_passant ' + for_en_passant)
+    console.log('prev_move ' + prev_move)
+    console.log(for_en_passant === prev_move)
     var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
     var child = document.getElementById(id)
     var parent = child.parentNode
@@ -553,7 +587,22 @@ function pawn(id) {
         if (!(document.getElementById(up).firstElementChild)) {
             offsets.push([-1, 0])
             if (parent.id.endsWith('2')) {
-                offsets.push([-2, 0])
+                var up_up = up[0] + ranks_rev[ranks[up[1]] - 1]
+                if (true) {
+                    offsets.push([-2, 0])
+                }
+            }
+        }
+        if (for_en_passant === prev_move) {
+            if (parent.id.endsWith('5')) {
+                var side1 = letters.indexOf(parent.id[0]) + 1
+                var side2 = letters.indexOf(parent.id[0]) - 1
+                if (for_en_passant[0] === files_rev[side1]) {
+                    offsets.push([-1, 1])
+                }
+                if (for_en_passant[0] === files_rev[side2]) {
+                    offsets.push([-1, -1])
+                }
             }
         }
         if (ranks[parent.id[1]] > 0) {
@@ -581,6 +630,20 @@ function pawn(id) {
             offsets.push([1, 0])
             if (parent.id.endsWith('7')) {
                 offsets.push([2, 0])
+            }
+        }
+        if (for_en_passant === for_en_passant) {
+            if (parent.id.endsWith('4')) {
+                if (turn != for_en_passant.slice(2)) {
+                    var side1 = letters.indexOf(parent.id[0]) + 1
+                    var side2 = letters.indexOf(parent.id[0]) - 1
+                    if (for_en_passant[0] === files_rev[side1]) {
+                        offsets.push([1, 1])
+                    }
+                    if (for_en_passant[0] === files_rev[side2]) {
+                        offsets.push([1, -1])
+                    }
+                }
             }
         }
         if (ranks[parent.id[1]] < 7) {
