@@ -1,11 +1,18 @@
 :root {
-    margin: 10px;
-    background: #222222;
+    --squarelight-background: #789bb9;
+    --squaredark-background: #A0824E;
+    --highlightlight-background: radial-gradient(circle at center, rgba(22, 205, 218,0.5) 20%, var(--squarelight-background) 20%);
+    --highlightdark-background: radial-gradient(circle at center, rgba(22, 205, 218,0.5) 20%, var(--squaredark-background) 20%);
+    --boardshadow-box-shadow-color: var(--squarelight-background);
+    background: linear-gradient(to top left, var(--squarelight-background), var(--squaredark-background));
+    -webkit-user-select: none;
     user-select: none;
+    height: 100vh;
+    width: 100vw;
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 2vw;
 }
 
 ::-webkit-scrollbar-track {
@@ -36,14 +43,23 @@
     -moz-border: 2px solid black;
     -o-border: 2px solid black;
     border: 2px solid black;
-    -webkit-border: 2px solid black;
     -webkit-border-radius: 4px;
-    -moz-border: 2px solid black;
     -moz-border-radius: 4px;
-    -o-border: 2px solid black;
     -o-border-radius: 4px;
     border-radius: 4px;
     overflow: hidden;
+    -webkit-box-shadow: 0 -5px 10px var(--boardshadow-box-shadow-color),
+                5px 0 10px var(--boardshadow-box-shadow-color),
+                -5px 0 10px var(--boardshadow-box-shadow-color);
+    -moz-box-shadow: 0 -5px 10px var(--boardshadow-box-shadow-color)
+                5px 0 10px var(--boardshadow-box-shadow-color),
+                -5px 0 10px var(--boardshadow-box-shadow-color);
+    -o-box-shadow: 0 -5px 10px var(--boardshadow-box-shadow-color),
+                5px 0 10px var(--boardshadow-box-shadow-color),
+                -5px 0 10px var(--boardshadow-box-shadow-color);
+    box-shadow: 0 -5px 10px var(--boardshadow-box-shadow-color),
+                5px 0 10px var(--boardshadow-box-shadow-color),
+                -5px 0 10px var(--boardshadow-box-shadow-color);
 }
 
 .ranks, .ranks-reverse {
@@ -90,8 +106,8 @@ small{
     z-index: 6;
 }
 
-.square-white {
-    background-color: #bbb;
+.square-light {
+    background-color: var(--squarelight-background);
     height: 100%;
     flex-basis: 12.5%;
     margin: 0px;
@@ -107,58 +123,78 @@ small{
     border-right: 0.01px solid black;
     border-bottom: 0.01px solid black;
     border-radius: 3px;
+    -webkit-box-shadow: inset 0 -0.5px 1px #2a2a2a,
+                inset 0.5px 0 1px #2a2a2a,
+                inset -0.5px 0 1px #2a2a2a;
+    -moz-box-shadow: inset 0 -0.5px 1px #2a2a2a,
+                inset 0.5px 0 1px #2a2a2a,
+                inset -0.5px 0 1px #2a2a2a;
+    -o-box-shadow: inset 0 -0.5px 1px #2a2a2a,
+                inset 0.5px 0 1px #2a2a2a,
+                inset -0.5px 0 1px #2a2a2a;
+    box-shadow: inset 0 -0.5px 1px #2a2a2a,
+                inset 0.5px 0 1px #2a2a2a,
+                inset -0.5px 0 1px #2a2a2a;
 }
 
-.square-black {
-    background-color: #888;
+.square-dark {
+    background-color: var(--squaredark-background);
     height: 100%;
     flex-basis: 12.5%;
     margin: 0px;
     -webkit-border-right: 0.01px solid black;
-    -webkit-border-bottom: 0.01px solid black;
-    -webkit-border-radius: 3px;
     -moz-border-right: 0.01px solid black;
-    -moz-border-bottom: 0.01px solid black;
-    -moz-border-radius: 3px;
     -o-border-right: 0.01px solid black;
-    -o-border-bottom: 0.01px solid black;
-    -o-border-radius: 3px;
     border-right: 0.01px solid black;
+    -webkit-border-bottom: 0.01px solid black;
+    -moz-border-bottom: 0.01px solid black;
+    -o-border-bottom: 0.01px solid black;
     border-bottom: 0.01px solid black;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -o-border-radius: 3px;
     border-radius: 3px;
+    -webkit-box-shadow: inset 0 -0.2px 1px #2a2a2a,
+                inset 0.2px 0 1px #2a2a2a,
+                inset -0.2px 0 1px #2a2a2a;
+    -moz-box-shadow: inset 0 -0.2px 1px #2a2a2a,
+                inset 0.2px 0 1px #2a2a2a,
+                inset -0.2px 0 1px #2a2a2a;
+    -o-box-shadow: inset 0 -0.2px 1px #2a2a2a,
+                inset 0.2px 0 1px #2a2a2a,
+                inset -0.2px 0 1px #2a2a2a;
+    box-shadow: inset 0 -0.2px 1px #2a2a2a,
+                inset 0.2px 0 1px #2a2a2a,
+                inset -0.2px 0 1px #2a2a2a;
 }
 
-.highlight-white {
-    background: radial-gradient(rgba(27, 99, 107,0.5) 20%, rgba(4, 98, 186,0.12) 20%, rgba(150, 150, 150, 0.4) 30%);
-    background-color: #bbb;
+.highlight-light {
+    background: var(--highlightlight-background);
     height: 100%;
     flex-basis: 12.5%;
     margin: 0px;
-    z-index: 5;
 }
 
-.highlight-black {
-    background: radial-gradient(rgba(27, 99, 107,0.5) 20%, rgba(4, 98, 186,0.12) 20%, rgba(150, 150, 150, 0.4) 30%);
-    background-color: #888;
+.highlight-dark {
+    background: var(--highlightdark-background);
     height: 100%;
     flex-basis: 12.5%;
     margin: 0px;
-    z-index: 5;
 }
 
-.highlight-black-unfriendly,
-.highlight-white-unfriendly {
+.highlight-light-unfriendly,
+.highlight-dark-unfriendly {
     background-color: #55aba1;
 }
 
 img {
-    width: 90%;
-    height: 90%;
+    width: 95%;
+    height: 95%;
     position: relative;
     top: 50%;
     left: 50%;
     z-index: 1;
-
+    -webkit-user-select: none;
     user-select: none;
     -webkit-transform: translate(-50%,-50%);
     -moz-transform: translate(-50%,-50%);
@@ -167,24 +203,24 @@ img {
 }
 
 img.grabbable {
-    cursor: -webkit-grab;
-    cursor: -moz-grab;
-    cursor: -o-grab;
-    cursor: grab;
+    cursor: -webkit-grab, pointer;
+    cursor: -moz-grab, pointer;
+    cursor: -o-grab, pointer;
+    cursor: grab, pointer;
 }
 
 img.grabbable:active {
-    cursor: -webkit-grabbing;
-    cursor: -moz-grabbing;
-    cursor: -o-grabbing;
-    cursor: grabbing;
+    cursor: -webkit-grabbing, pointer;
+    cursor: -moz-grabbing, pointer;
+    cursor: -o-grabbing, pointer;
+    cursor: grabbing, pointer;
 }
 
 img.grabbable:hover {
-    cursor: grab;
-    cursor: -webkit-grab;
-    cursor: -moz-grab;
-    cursor: -o-grab;
+    cursor: -webkit-grab, pointer;
+    cursor: -moz-grab, pointer;
+    cursor: -o-grab, pointer;
+    cursor: grab, pointer;
 }
 
 img:hover {
@@ -307,6 +343,18 @@ label {
     -moz-border-bottom-right-radius: 3.9%;
     -o-border-bottom-right-radius: 3.9%;
     border-bottom-right-radius: 3.9%;
+    -webkit-box-shadow: inset 0 -1px 20px #222222,
+                inset 1px 0 5px #222222,
+                inset -1px 0 5px #222222;
+    -moz-box-shadow: inset 0 -1px 20px #222222,
+                inset 1px 0 5px #222222,
+                inset -1px 0 5px #222222;
+    -o-box-shadow: inset 0 -1px 20px #222222,
+                inset 1px 0 5px #222222,
+                inset -1px 0 5px #222222;
+    box-shadow: inset 0 -1px 20px #222222,
+                inset 1px 0 5px #222222,
+                inset -1px 0 5px #222222;
     -webkit-transform: translate(210%, -50%);
     -moz-transform: translate(210%, -50%);
     -o-transform: translate(210%, -50%);
@@ -317,11 +365,15 @@ label {
 #header{
     position: fixed;
     margin: 0px;
+    -webkit-background-color: #083c70;
+    -moz-background-color: #083c70;
+    -o-background-color: #083c70;
     background-color: #083c70;
-    -webkit-background: linear-gradient(to bottom, rgba(8, 60, 112, 0.69), rgba(99, 38, 75, 0.69));
-    -moz-background: linear-gradient(to bottom, rgba(8, 60, 112, 0.69), rgba(99, 38, 75, 0.69));
-    -o-background: linear-gradient(to bottom, rgba(8, 60, 112, 0.69), rgba(99, 38, 75, 0.69));
-    background: linear-gradient(to bottom, rgba(8, 60, 112, 0.69), rgba(99, 38, 75, 0.69));
+    opacity: 0.69;
+    -webkit-background: linear-gradient(to bottom, var(--squarelight-background), var(--squaredark-background));
+    -moz-background: linear-gradient(to bottom, var(--squarelight-background), var(--squaredark-background));
+    -o-background: linear-gradient(to bottom, var(--squarelight-background), var(--squaredark-background));
+    background: linear-gradient(to bottom, var(--squarelight-background), var(--squaredark-background));
     color: #C0C2C4;
     font-size: 3vw;
     font-family: Georgia;
@@ -356,13 +408,13 @@ label {
 }
 
 ol.moves-list{
+    display: table;
     position: relative;
-    height: 25vw;
+    height: 15vw;
     width: 19vw;
     top: 10%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+/*     flex-direction: column;
+    justify-content: flex-start;*/
     margin: 1em 2px;
     padding: 0;
     list-style: none;
@@ -370,10 +422,11 @@ ol.moves-list{
     overflow-y: auto;
 }
 li{
-    display: flex;
-    flex-direction: row;
+    /* display: flex;
+    flex-direction: row; */
+    display: table-row;
     line-height: 1.5;
-    flex-basis: 10%;
+    /* flex-basis: 10%; */
     justify-content: space-evenly;
     counter-increment: move;
     content: counter(move);
@@ -387,26 +440,31 @@ ol > li::before {
     font-family: Verdana;
     font-size: 1.4vw;
     color: #202422;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
+    display: table-cell;
+    /* align-items: flex-start;
+    justify-content: center; */
     padding-right: 0.8em;
+    width: 30%;
 }
 
 div.move-white{
+    display: table-cell;
     text-align: center;
     font-family: Helvetica;
     font-size: 1.4vw;
-    color: #202422;
-    align-self: center;
+    color: #dddddd;
+    /* align-self: center; */
+    width: 40%;
 }
 
 div.move-black{
+    display: table-cell;
     text-align: center;
     font-family: Helvetica;
     font-size: 1.4vw;
-    color: #202422;
-    align-self: center;
+    color: #dddddd;
+    /* align-self: center; */
+    width: 40%;
 }
 
 .tool-container::before{
@@ -428,10 +486,10 @@ div.move-black{
     -o-background: linear-gradient(rgba(105, 105, 105, 1.0), rgba(105, 105, 105, 0.8));
     background: linear-gradient(rgba(105, 105, 105, 1.0), rgba(105, 105, 105, 0.8));
     float: left;
-    -webkit-border: 1px solid black;
-    -moz-border: 1px solid black;
-    -o-border: 1px solid black;
-    border: 1px solid black;
+    -webkit-border: 1px solid #471c03;
+    -moz-border: 1px solid #471c03;
+    -o-border: 1px solid #471c03;
+    border: 1px solid #471c03;
     position: absolute;
     top: 50%;
     right: 50%;
@@ -456,6 +514,18 @@ div.move-black{
     -moz-border-bottom-right-radius: 5%;
     -o-border-bottom-right-radius: 5%;
     border-bottom-right-radius: 5%;
+    -webkit-box-shadow: inset 0 -1px 20px #222222,
+                inset 1px 0 5px #222222,
+                inset -1px 0 5px #222222;
+    -moz-box-shadow: inset 0 -1px 20px #222222,
+                inset 1px 0 5px #222222,
+                inset -1px 0 5px #222222;
+    -o-box-shadow: inset 0 -1px 20px #222222,
+                inset 1px 0 5px #222222,
+                inset -1px 0 5px #222222;
+    box-shadow: inset 0 -1px 20px #222222,
+                inset 1px 0 5px #222222,
+                inset -1px 0 5px #222222;
 }
 
 .header{
@@ -473,10 +543,11 @@ div.move-black{
     -moz-background-color: #63264b;
     -o-background-color: #63264b;
     background-color: #63264b;
-    -webkit-background: linear-gradient(to bottom, rgba(8, 60, 112, 0.69), rgba(99, 38, 75, 0.69));
-    -moz-background: linear-gradient(to bottom, rgba(8, 60, 112, 0.69), rgba(99, 38, 75, 0.69));
-    -o-background: linear-gradient(to bottom, rgba(8, 60, 112, 0.69), rgba(99, 38, 75, 0.69));
-    background: linear-gradient(to bottom, rgba(8, 60, 112, 0.69), rgba(99, 38, 75, 0.69));
+    opacity: 0.69;
+    -webkit-background: linear-gradient(to bottom, var(--squarelight-background) , var(--squaredark-background));
+    -moz-background: linear-gradient(to bottom, var(--squarelight-background) , var(--squaredark-background));
+    -o-background: linear-gradient(to bottom, var(--squarelight-background) , var(--squaredark-background));
+    background: linear-gradient(to bottom, var(--squarelight-background) , var(--squaredark-background));
     text-align: center;
     -webkit-border: 1px solid black;
     -moz-border: 1px solid black;
@@ -523,13 +594,14 @@ div.move-black{
     width: 16.69vw;
     height: 8vw;
     transform: translateY(42%);
-    border: 2px solid black;
+    border: hidden;
     color: lightcyan;
     font-size: 1.5vw;
     font-family: Georgia;
     text-shadow: 2px 2px black;
     display: flex;
     flex-direction: row;
+    justify-content: space-evenly;
 }
 
 fieldset legend {
@@ -537,6 +609,144 @@ fieldset legend {
     font-size: 1.25vw;
     font-family: Georgia;
     text-shadow: 2px 2px black;
+}
+
+.lichess-style,
+.chesscom-style,
+.chesscom-style-highlight,
+.lichess-style-highlight{
+    z-index: 40;
+    margin-top: 0.9vw;
+    height: 5vw;
+    width: 5vw;
+}
+
+.lichess-style,
+.lichess-style-highlight{
+    background: url("images/black-king.png");
+    background-color: var(--squarelight-background);
+    background-size: 5vw;
+    background-repeat: no-repeat;
+    align-self: flex-start;
+}
+.lichess-style::after{
+    clear: both;
+}
+
+.divider{
+    margin-top: 1.5vw;
+    height: 4vw;
+    width: 0.11vw;
+    background-color: #222222;
+    background: #222222;
+    opacity: 0.8;
+    clear: both;
+}
+
+.chesscom-style::before{
+    clear: both;
+}
+.chesscom-style,
+.chesscom-style-highlight{
+    background: url("images/black-king-alt.png");
+    background-color: var(--squaredark-background);
+    background-size: 5vw;
+    background-repeat: no-repeat;
+    align-self: flex-end;
+}
+
+.chesscom-style-highlight,
+.lichess-style-highlight{
+    box-shadow: inset 2px 2px 3px aliceblue,
+                inset -2px -2px 3px aliceblue;
+}
+
+.chesscom-style:hover,
+.lichess-style:hover,
+.chesscom-style-highlight:hover,
+.lichess-style-highlight:hover{
+    transform: scale(1.05);
+    transition: transform 400ms ease-out;
+}
+
+.customize-color{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    z-index: 10;
+    margin-top: 0px;
+    margin-bottom: 2%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 15.69vw;
+    height: 9vw;
+    transform: translateY(42%);
+    border: hidden;
+}
+
+.customize-color legend{
+    color: lightcyan;
+    font-size: 1.25vw;
+    font-family: Georgia;
+    text-shadow: 1.5px 1.5px black;
+}
+
+.color-square{
+    display: flex;
+    width: 14vw;
+    height: 2vw;
+    margin-right: auto;
+    margin-left: auto;
+    align-self: auto;
+    margin-bottom: 2vw;
+    margin-top: 1vw;
+}
+
+.color-square label[for]{
+    margin: 0px;
+    margin-right: 1.5vw;
+    margin-left: 0.7vw;
+    display: table-cell;
+    font-size: 1.2vw;
+    font-family: Georgia;
+    color: lightcyan;
+    text-shadow: 1px 1px black;
+    text-align: center;
+}
+
+#color-picker-light{
+    display: table-cell;
+    outline: none;
+    border: 1px solid black;
+    width: 2vw;
+    height: 2vw;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50%;
+    background-color: var(--squarelight-background);
+}
+
+#color-picker-dark{
+    display: table-cell;
+    outline: none;
+    border: 1px solid black;
+    width: 2vw;
+    height: 2vw;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50%;
+    background-color: var(--squaredark-background);
+    transform: translateX(8%);
+}
+
+.color-square input{
+    visibility: hidden;
+}
+
+hr{
+    margin: 0px;
+    color: #222222;
+    transform: translateY(-500%);
 }
 
 .flip{
