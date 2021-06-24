@@ -12,7 +12,7 @@
 }
 
 ::-webkit-scrollbar {
-  width: 2vw;
+  width: 0.2vw;
 }
 
 ::-webkit-scrollbar-track {
@@ -307,6 +307,11 @@ label {
     color: white;
 }
 
+#moves-list-container{
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
 .moves{
     counter-reset: move;
     float: right;
@@ -323,10 +328,6 @@ label {
     -moz-background: linear-gradient(rgba(105, 105, 105, 1.0), rgba(105, 105, 105, 0.8));
     -o-background: linear-gradient(rgba(105, 105, 105, 1.0), rgba(105, 105, 105, 0.8));
     background: linear-gradient(rgba(105, 105, 105, 1.0), rgba(105, 105, 105, 0.8));
-    -webkit-border: 3px solid #471c03;
-    -moz-border: 3px solid #471c03;
-    -o-border: 3px solid #471c03;
-    border: 3px solid #471c03;
     -webkit-border-top-left-radius: 0px;
     -moz-border-top-left-radius: 0px;
     -o-border-top-left-radius: 0px;
@@ -378,13 +379,9 @@ label {
     font-size: 3vw;
     font-family: Georgia;
     height: 12%;
-    width: 100%;
+    width: 99.5%;
     text-align: center;
     text-shadow: 3px 2px black;
-    -webkit-transform: translateX(-0.5%);
-    -moz-transform: translateX(-0.5%);
-    -o-transform: translateX(-0.5%);
-    transform: translateX(-0.5%);
     -webkit-border: 1px solid black;
     -moz-border: 1px solid black;
     -o-border: 1px solid black;
@@ -408,13 +405,13 @@ label {
 }
 
 ol.moves-list{
-    display: table;
+    display: flex;
     position: relative;
-    height: 15vw;
+    height: 25vw;
     width: 19vw;
     top: 10%;
-/*     flex-direction: column;
-    justify-content: flex-start;*/
+     flex-direction: column;
+    justify-content: flex-start;
     margin: 1em 2px;
     padding: 0;
     list-style: none;
@@ -422,11 +419,10 @@ ol.moves-list{
     overflow-y: auto;
 }
 li{
-    /* display: flex;
-    flex-direction: row; */
-    display: table-row;
+    display: flex;
+    flex-direction: row;
     line-height: 1.5;
-    /* flex-basis: 10%; */
+    flex-basis: 10%;
     justify-content: space-evenly;
     counter-increment: move;
     content: counter(move);
@@ -441,8 +437,8 @@ ol > li::before {
     font-size: 1.4vw;
     color: #202422;
     display: table-cell;
-    /* align-items: flex-start;
-    justify-content: center; */
+    align-items: flex-start;
+    justify-content: center;
     padding-right: 0.8em;
     width: 30%;
 }
@@ -453,7 +449,7 @@ div.move-white{
     font-family: Helvetica;
     font-size: 1.4vw;
     color: #dddddd;
-    /* align-self: center; */
+    align-self: center;
     width: 40%;
 }
 
@@ -463,7 +459,7 @@ div.move-black{
     font-family: Helvetica;
     font-size: 1.4vw;
     color: #dddddd;
-    /* align-self: center; */
+    align-self: center;
     width: 40%;
 }
 
