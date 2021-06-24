@@ -80,9 +80,55 @@ window.addEventListener('contextmenu', function (e) {
   e.preventDefault();
 }, false);
 
+function hexToRgb(hex) {
+  var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return result ? {
+    r: parseInt(result[1], 16),
+    g: parseInt(result[2], 16),
+    b: parseInt(result[3], 16)
+  } : null;
+}
+
+function computeShadow() {
+    const computed_style = window.getComputedStyle(document.documentElement)
+    const light_color = computed_style.getPropertyValue('--squarelight-background').trim()
+    const dark_color = computed_style.getPropertyValue('--squaredark-background').trim()
+    console.log(light_color)
+    console.log(dark_color)
+    const c1 = hexToRgb(light_color).r,
+          c2 = hexToRgb(light_color).g,
+          c3 = hexToRgb(light_color).b,
+          c4 = hexToRgb(dark_color).r,
+          c5 = hexToRgb(dark_color).g,
+          c6 = hexToRgb(dark_color).b
+    const s1 = c1 + c2 + c3,
+          s2 = c4 + c5 + c6
+    if (s1 > s2) {
+        document.documentElement.style.setProperty('--boardshadow-box-shadow-color', light_color)
+    }
+    else {
+        document.documentElement.style.setProperty('--boardshadow-box-shadow-color', dark_color)
+    }
+}
+
+customize_light_square = document.getElementById('light-square')
+customize_dark_square = document.getElementById('dark-square')
+
+customize_light_square.addEventListener('input', function() {
+    document.documentElement.style.setProperty('--squarelight-background', customize_light_square.value)
+    computeShadow()
+})
+customize_dark_square.addEventListener('input', function() {
+    document.documentElement.style.setProperty('--squaredark-background', customize_dark_square.value)
+    computeShadow()
+})
+
 function revert() {
     all_squares = document.getElementsByTagName('div')
     for (sq of all_squares) {
+        if (sq.className.includes('style')) {
+            continue
+        }
         if (sq.className.includes('highlight')) {
             sq.className = sq.className.slice(0,12)
         }
@@ -100,7 +146,7 @@ function highlight(event) {
     }
     for (move of moves) {
         var square = document.getElementById(move)
-        square.className = square.className + " highlight-" + square.className.slice(7)
+        square.className = square.className + " highlight-" + square.className.slice(7).trim()
         if (square.firstElementChild) {
             square.className = square.className + "-unfriendly"
         }
@@ -410,6 +456,7 @@ function writeMoves(move, turn) {
         var move_black = document.getElementById('move-black-' + move_counter.toString())
         move_black.innerHTML = move
     }
+    document.getElementById("moves-list").scrollTop = document.getElementById("moves-list").scrollHeight;
 }
 
 function disable() {
@@ -573,9 +620,6 @@ function knight(id) {
 }
 
 function pawn(id) {
-    console.log('for_en_passant ' + for_en_passant)
-    console.log('prev_move ' + prev_move)
-    console.log(for_en_passant === prev_move)
     var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
     var child = document.getElementById(id)
     var parent = child.parentNode
@@ -706,5 +750,41 @@ function flip() {
     }
     else {
         files_coord.className = 'coordinates-container-files-reverse'
+    }
+}
+
+function changePieceStyle(id) {
+    var lichess = document.getElementById('lichess')
+    var chesscom = document.getElementById('chesscom')
+    const pieces = document.querySelectorAll('img')
+    pieces.forEach(function(e) {
+        if (id === 'lichess') {
+            if (e.src.includes('-alt')) {
+                var img = e.src.indexOf('-alt')
+                e.src = e.src.slice(0,img) + '.png'
+            }
+        }
+        else if (id === 'chesscom') {
+            if (!e.src.includes('-alt')) {
+                var img = e.src.indexOf('.png')
+                e.src = e.src.slice(0,img) + '-alt.png'
+            }
+        }
+    })
+    if (id === 'lichess') {
+        if (!lichess.className.includes('-highlight')) {
+            lichess.className = lichess.className + '-highlight'
+            if (chesscom.className.includes('-highlight')){
+                chesscom.className = chesscom.className.slice(0, chesscom.className.indexOf('-highlight'))
+            }
+        }
+    }
+    if (id === 'chesscom') {
+        if (!chesscom.className.includes('-highlight')) {
+            chesscom.className = chesscom.className + '-highlight'
+            if (lichess.className.includes('-highlight')){
+                lichess.className = lichess.className.slice(0, lichess.className.indexOf('-highlight'))
+            }
+        }
     }
 }
