@@ -80,9 +80,8 @@
     flex-direction: column-reverse;
 }
 
-.files {
+.files, .files-reverse {
     display: flex;
-    flex-direction: row;
     background: #222222;
     justify-content: center;
     margin: 0px;
@@ -91,15 +90,12 @@
     overflow: hidden;
 }
 
+.files {
+    flex-direction: row;
+}
+
 .files-reverse {
-    display: flex;
     flex-direction: row-reverse;
-    background: #222222;
-    justify-content: center;
-    margin: 0px;
-    width: 40vw;
-    flex-basis: 40vw;
-    overflow: hidden;
 }
 
 small{
@@ -375,7 +371,7 @@ label {
     -moz-background: linear-gradient(to bottom, var(--squarelight-background), var(--squaredark-background));
     -o-background: linear-gradient(to bottom, var(--squarelight-background), var(--squaredark-background));
     background: linear-gradient(to bottom, var(--squarelight-background), var(--squaredark-background));
-    color: #C0C2C4;
+    color: #FFFFFF;
     font-size: 3vw;
     font-family: Georgia;
     height: 12%;
@@ -531,10 +527,10 @@ div.move-black{
     width: 100%;
     height: 15%;
     font-size: 2vw;
-    -webkit-color: #C0C2C4;
-    -moz-color: #C0C2C4;
-    -o-color: #C0C2C4;
-    color: #C0C2C4;
+    -webkit-color: #FFFFFF;
+    -moz-color: #FFFFFF;
+    -o-color: #FFFFFF;
+    color: #FFFFFF;
     -webkit-background-color: #63264b;
     -moz-background-color: #63264b;
     -o-background-color: #63264b;
@@ -815,4 +811,49 @@ hr{
         right: 50%;
         -webkit-transform: translate(1042%, -1069%) rotate(180deg);
     }
+}
+
+
+#top-timer-container,
+#bottom-timer-container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10vw;
+    height: 5vw;
+    color: black;
+    font-family: Helvetica;
+    font-size: 3.5vw;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    border: 0.01vw solid black;
+}
+
+#top-timer-container{
+    transform: translate(-420%, -375%);
+    background-color: var(--squarelight-background);
+    background: var(--squarelight-background);
+}
+
+#bottom-timer-container{
+    transform: translate(-420%, 275%);
+    background-color: var(--squaredark-background);
+    background: var(--squaredark-background);
+}
+
+#timer-white,
+#timer-black{
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+}
+
+#black-timer-progress,
+#white-timer-progress{
+    width: 100%;
+    height: 5%;
+    background-color: lightgreen;
+    margin-left: 0px;
+    border-radius: 9999px;
 }
