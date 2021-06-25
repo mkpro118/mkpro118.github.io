@@ -7,12 +7,12 @@
         <meta property="og:url" content="https://mkpro118.github.io/Chess.html">
         <meta property="og:title" content="Chess Project">
         <meta property="og:image" content="images/chessboard.png">
-        <meta property="og:image_height" content="150">
-        <meta property="og:image_width" content="150">
-        <meta name="description" content="Play Chess { without rules for now ;-) } and Have Fun.
-                                                 This is a project developed by a complete noob who was learning JavaScript at the time of building this game">
+        <meta property="og:image_height" content="800">
+        <meta property="og:image_width" content="800">
         <title>Play Chess</title>
-        <link rel="stylesheet" type="text/css" href="Chess.css">
+        <link rel="stylesheet" type="text/css" href="Chess2.css" media="(max-width: 800px)">
+        <link rel="stylesheet" type="text/css" href="Chess.css" media="(min-width:800px)">
+
         <link rel="shortcut icon" href="images/black-king.png">
     </head>
     <body>
@@ -251,6 +251,18 @@
             <div>
                 <a onclick="flip()" class="flip-board"></a>
             </div>
+        </div>
+        <div id='top-timer-container'>
+            <div id="timer-black">
+                10:00
+            </div>
+            <div id="black-timer-progress"></div>
+        </div>
+        <div id='bottom-timer-container'>
+            <div id="timer-white">
+                10:00
+            </div>
+            <div id="white-timer-progress"></div>
         </div>
         <script src="Chess.js"></script>
     </body>
