@@ -13,6 +13,7 @@ var prev_move = null
 var is_en_passant_allowed = false
 
 var is_highlighted = false
+var selected_piece = null
 
 var files = {
     'a': 0,
@@ -93,8 +94,6 @@ function computeShadow() {
     const computed_style = window.getComputedStyle(document.documentElement)
     const light_color = computed_style.getPropertyValue('--squarelight-background').trim()
     const dark_color = computed_style.getPropertyValue('--squaredark-background').trim()
-    console.log(light_color)
-    console.log(dark_color)
     const c1 = hexToRgb(light_color).r,
           c2 = hexToRgb(light_color).g,
           c3 = hexToRgb(light_color).b,
@@ -131,6 +130,7 @@ function revert() {
         }
         if (sq.className.includes('highlight')) {
             sq.className = sq.className.slice(0,12)
+            sq.onclick = function (e) { return false }
         }
     }
 }
@@ -139,16 +139,24 @@ function highlight(event) {
     revert()
     var moves = null
     if (typeof(event) === 'string') {
+        selected_piece = event
         moves = possibleMoves(event)
     }
     else {
+        selected_piece = event.target.id
         moves = possibleMoves(event.target.id)
     }
+    selected_piece_parent = document.getElementById(selected_piece).parentNode.id
     for (move of moves) {
         var square = document.getElementById(move)
         square.className = square.className + " highlight-" + square.className.slice(7).trim()
         if (square.firstElementChild) {
             square.className = square.className + "-unfriendly"
+        }
+        square.onclick = function(e) {
+            var raw_data = selected_piece + ' ' + selected_piece_parent
+                           + ' ' + e.target.id
+            drop(raw_data)
         }
     }
 }
@@ -163,12 +171,25 @@ function drag(event) {
 }
 
 function drop(event) {
-    event.preventDefault();
-    var raw_data = event.dataTransfer.getData("text")
-    var data = raw_data.slice(0,raw_data.indexOf(' '))
-    var parent = raw_data.slice(raw_data.indexOf(' ')+1)
-    var target = event.target
-    var to = target.id
+    var data = null
+    var parent = null
+    var target = null
+    var to = null
+    if (typeof(event) === 'string') {
+        var raw_data = event.split(' ')
+        data = raw_data[0].trim()
+        parent = raw_data[1].trim()
+        to = raw_data[2]
+        target = document.getElementById(to)
+    }
+    else {
+        event.preventDefault();
+        var raw_data = event.dataTransfer.getData("text")
+        data = raw_data.slice(0,raw_data.indexOf(' '))
+        parent = raw_data.slice(raw_data.indexOf(' ')+1)
+        target = event.target
+        to = target.id
+    }
     if (to == data) {
         return
     }
