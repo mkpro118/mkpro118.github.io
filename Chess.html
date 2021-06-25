@@ -3,6 +3,12 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta property="og:site_name" content="My Obsession">
+        <meta property="og:url" content="https://mkpro118.github.io/Chess.html">
+        <meta property="og:title" content="Chess Project">
+        <meta property="og:image" content="images/chessboard.png">
+        <meta property="og:image_height" content="800">
+        <meta property="og:image_width" content="800">
         <title>Play Chess</title>
         <link rel="stylesheet" type="text/css" href="Chess.css">
         <link rel="shortcut icon" href="images/black-king.png">
@@ -11,24 +17,72 @@
         <div id="chessboard" class="chessboard">
            <div id="ranks" class="ranks">
                 <div id="rank-8" class="files">
-                   <div id="a8" class="square-light" ondrop="drop(event)" ondragover="allowDrop(event)"><img id="black-rook-1" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)" src="images/black-rook-alt.png" draggable="true" alt="black-rook-1"></div>
-                   <div id="b8" class="square-dark" ondrop="drop(event)" ondragover="allowDrop(event)"><img id="black-knight-1" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)" src="images/black-knight-alt.png" draggable="true" alt="black-knight-1"></div>
-                   <div id="c8" class="square-light" ondrop="drop(event)" ondragover="allowDrop(event)"><img id="black-bishop-1" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)" src="images/black-bishop-alt.png" draggable="true" alt="black-bishop-1"></div>
-                   <div id="d8" class="square-dark" ondrop="drop(event)" ondragover="allowDrop(event)"><img id="black-queen" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)" src="images/black-queen-alt.png" draggable="true" alt="black-queen"></div>
-                   <div id="e8" class="square-light" ondrop="drop(event)" ondragover="allowDrop(event)"><img id="black-king" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)" src="images/black-king-alt.png" draggable="true" alt="black-king"></div>
-                   <div id="f8" class="square-dark" ondrop="drop(event)" ondragover="allowDrop(event)"><img id="black-bishop-2" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)" src="images/black-bishop-alt.png" draggable="true" alt="black-bishop-2"></div>
-                   <div id="g8" class="square-light" ondrop="drop(event)" ondragover="allowDrop(event)"><img id="black-knight-2" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)" src="images/black-knight-alt.png" draggable="true" alt="black-knight-2"></div>
-                   <div id="h8" class="square-dark" ondrop="drop(event)" ondragover="allowDrop(event)"><img id="black-rook-2" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)" src="images/black-rook-alt.png" draggable="true" alt="black-rook-2"></div>
+                   <div id="a8" class="square-light" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <img id="black-rook-1" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)"
+                            src="images/black-rook-alt.png" draggable="true" alt="black-rook-1">
+                    </div>
+                   <div id="b8" class="square-dark" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <img id="black-knight-1" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)"
+                            src="images/black-knight-alt.png" draggable="true" alt="black-knight-1">
+                    </div>
+                   <div id="c8" class="square-light" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <img id="black-bishop-1" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)"
+                            src="images/black-bishop-alt.png" draggable="true" alt="black-bishop-1">
+                    </div>
+                   <div id="d8" class="square-dark" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <img id="black-queen" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)"
+                            src="images/black-queen-alt.png" draggable="true" alt="black-queen">
+                    </div>
+                   <div id="e8" class="square-light" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <img id="black-king" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)"
+                            src="images/black-king-alt.png" draggable="true" alt="black-king">
+                    </div>
+                   <div id="f8" class="square-dark" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <img id="black-bishop-2" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)"
+                            src="images/black-bishop-alt.png" draggable="true" alt="black-bishop-2">
+                    </div>
+                   <div id="g8" class="square-light" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <img id="black-knight-2" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)"
+                            src="images/black-knight-alt.png" draggable="true" alt="black-knight-2">
+                    </div>
+                   <div id="h8" class="square-dark" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <img id="black-rook-2" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)"
+                            src="images/black-rook-alt.png" draggable="true" alt="black-rook-2">
+                    </div>
                </div>
                <div id="rank-7" class="files">
-                   <div id="a7" class="square-dark" ondrop="drop(event)" ondragover="allowDrop(event)"><img id="black-pawn-1" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)" src="images/black-pawn-alt.png" draggable="true" alt="black-pawn-1"></div>
-                   <div id="b7" class="square-light" ondrop="drop(event)" ondragover="allowDrop(event)"><img id="black-pawn-2" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)" src="images/black-pawn-alt.png" draggable="true" alt="black-pawn-2"></div>
-                   <div id="c7" class="square-dark" ondrop="drop(event)" ondragover="allowDrop(event)"><img id="black-pawn-3" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)" src="images/black-pawn-alt.png" draggable="true" alt="black-pawn-3"></div>
-                   <div id="d7" class="square-light" ondrop="drop(event)" ondragover="allowDrop(event)"><img id="black-pawn-4" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)" src="images/black-pawn-alt.png" draggable="true" alt="black-pawn-4"></div>
-                   <div id="e7" class="square-dark" ondrop="drop(event)" ondragover="allowDrop(event)"><img id="black-pawn-5" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)" src="images/black-pawn-alt.png" draggable="true" alt="black-pawn-5"></div>
-                   <div id="f7" class="square-light" ondrop="drop(event)" ondragover="allowDrop(event)"><img id="black-pawn-6" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)" src="images/black-pawn-alt.png" draggable="true" alt="black-pawn-6"></div>
-                   <div id="g7" class="square-dark" ondrop="drop(event)" ondragover="allowDrop(event)"><img id="black-pawn-7" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)" src="images/black-pawn-alt.png" draggable="true" alt="black-pawn-7"></div>
-                   <div id="h7" class="square-light" ondrop="drop(event)" ondragover="allowDrop(event)"><img id="black-pawn-8" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)" src="images/black-pawn-alt.png" draggable="true" alt="black-pawn-8"></div>
+                   <div id="a7" class="square-dark" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <img id="black-pawn-1" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)"
+                            src="images/black-pawn-alt.png" draggable="true" alt="black-pawn-1">
+                    </div>
+                   <div id="b7" class="square-light" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <img id="black-pawn-2" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)"
+                            src="images/black-pawn-alt.png" draggable="true" alt="black-pawn-2">
+                    </div>
+                   <div id="c7" class="square-dark" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <img id="black-pawn-3" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)"
+                            src="images/black-pawn-alt.png" draggable="true" alt="black-pawn-3">
+                    </div>
+                   <div id="d7" class="square-light" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <img id="black-pawn-4" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)"
+                            src="images/black-pawn-alt.png" draggable="true" alt="black-pawn-4">
+                    </div>
+                   <div id="e7" class="square-dark" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <img id="black-pawn-5" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)"
+                            src="images/black-pawn-alt.png" draggable="true" alt="black-pawn-5">
+                    </div>
+                   <div id="f7" class="square-light" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <img id="black-pawn-6" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)"
+                            src="images/black-pawn-alt.png" draggable="true" alt="black-pawn-6">
+                    </div>
+                   <div id="g7" class="square-dark" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <img id="black-pawn-7" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)"
+                            src="images/black-pawn-alt.png" draggable="true" alt="black-pawn-7">
+                    </div>
+                   <div id="h7" class="square-light" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <img id="black-pawn-8" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)"
+                            src="images/black-pawn-alt.png" draggable="true" alt="black-pawn-8">
+                    </div>
                </div>
                <div id="rank-6" class="files">
                    <div id="a6" class="square-light" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
@@ -71,24 +125,61 @@
                    <div id="h3" class="square-light" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
                </div>
                <div id="rank-2" class="files">
-                   <div id="a2" class="square-light" ondrop="drop(event)" ondragover="allowDrop(event)"><img id="white-pawn-1" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)" src="images/white-pawn-alt.png" draggable="true" alt="white-pawn-1"></div>
-                   <div id="b2" class="square-dark" ondrop="drop(event)" ondragover="allowDrop(event)"><img id="white-pawn-2" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)" src="images/white-pawn-alt.png" draggable="true" alt="white-pawn-2"></div>
-                   <div id="c2" class="square-light" ondrop="drop(event)" ondragover="allowDrop(event)"><img id="white-pawn-3" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)" src="images/white-pawn-alt.png" draggable="true" alt="white-pawn-3"></div>
-                   <div id="d2" class="square-dark" ondrop="drop(event)" ondragover="allowDrop(event)"><img id="white-pawn-4" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)" src="images/white-pawn-alt.png" draggable="true" alt="white-pawn-4"></div>
-                   <div id="e2" class="square-light" ondrop="drop(event)" ondragover="allowDrop(event)"><img id="white-pawn-5" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)" src="images/white-pawn-alt.png" draggable="true" alt="white-pawn-5"></div>
-                   <div id="f2" class="square-dark" ondrop="drop(event)" ondragover="allowDrop(event)"><img id="white-pawn-6" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)" src="images/white-pawn-alt.png" draggable="true" alt="white-pawn-6"></div>
-                   <div id="g2" class="square-light" ondrop="drop(event)" ondragover="allowDrop(event)"><img id="white-pawn-7" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)" src="images/white-pawn-alt.png" draggable="true" alt="white-pawn-7"></div>
-                   <div id="h2" class="square-dark" ondrop="drop(event)" ondragover="allowDrop(event)"><img id="white-pawn-8" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)" src="images/white-pawn-alt.png" draggable="true" alt="white-pawn-8"></div>
+                   <div id="a2" class="square-light" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <img id="white-pawn-1" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)" src="images/white-pawn-alt.png" draggable="true" alt="white-pawn-1">
+                    </div>
+                   <div id="b2" class="square-dark" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <img id="white-pawn-2" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)" src="images/white-pawn-alt.png" draggable="true" alt="white-pawn-2">
+                    </div>
+                   <div id="c2" class="square-light" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <img id="white-pawn-3" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)" src="images/white-pawn-alt.png" draggable="true" alt="white-pawn-3">
+                    </div>
+                   <div id="d2" class="square-dark" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <img id="white-pawn-4" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)" src="images/white-pawn-alt.png" draggable="true" alt="white-pawn-4">
+                    </div>
+                   <div id="e2" class="square-light" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <img id="white-pawn-5" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)" src="images/white-pawn-alt.png" draggable="true" alt="white-pawn-5">
+                    </div>
+                   <div id="f2" class="square-dark" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <img id="white-pawn-6" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)" src="images/white-pawn-alt.png" draggable="true" alt="white-pawn-6">
+                    </div>
+                   <div id="g2" class="square-light" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <img id="white-pawn-7" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)" src="images/white-pawn-alt.png" draggable="true" alt="white-pawn-7">
+                    </div>
+                   <div id="h2" class="square-dark" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <img id="white-pawn-8" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)" src="images/white-pawn-alt.png" draggable="true" alt="white-pawn-8">
+                    </div>
                </div>
                <div id="rank-1" class="files">
-                   <div id="a1" class="square-dark" ondrop="drop(event)" ondragover="allowDrop(event)"><img id="white-rook-1" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)" src="images/white-rook-alt.png" draggable="true" alt="white-rook-1"></div>
-                   <div id="b1" class="square-light" ondrop="drop(event)" ondragover="allowDrop(event)"><img id="white-knight-1" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)" src="images/white-knight-alt.png" draggable="true" alt="white-knight-1"></div>
-                   <div id="c1" class="square-dark" ondrop="drop(event)" ondragover="allowDrop(event)"><img id="white-bishop-1" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)" src="images/white-bishop-alt.png" draggable="true" alt="white-bishop-1"></div>
-                   <div id="d1" class="square-light" ondrop="drop(event)" ondragover="allowDrop(event)"><img id="white-queen" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)" src="images/white-queen-alt.png" draggable="true" alt="white-queen"></div>
-                   <div id="e1" class="square-dark" ondrop="drop(event)" ondragover="allowDrop(event)"><img id="white-king" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)" src="images/white-king-alt.png" draggable="true" alt="white-king"></div>
-                   <div id="f1" class="square-light" ondrop="drop(event)" ondragover="allowDrop(event)"><img id="white-bishop-2" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)" src="images/white-bishop-alt.png" draggable="true" alt="white-bishop-2"></div>
-                   <div id="g1" class="square-dark" ondrop="drop(event)" ondragover="allowDrop(event)"><img id="white-knight-2" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)" src="images/white-knight-alt.png" draggable="true" alt="white-knight-2"></div>
-                   <div id="h1" class="square-light" ondrop="drop(event)" ondragover="allowDrop(event)"><img id="white-rook-2" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)" src="images/white-rook-alt.png" draggable="true" alt="white-rook-2"></div>
+                   <div id="a1" class="square-dark" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <img id="white-rook-1" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)" src="images/white-rook-alt.png" draggable="true" alt="white-rook-1">
+                    </div>
+                   <div id="b1" class="square-light" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <img id="white-knight-1" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)" src="images/white-knight-alt.png" draggable="true" alt="white-knight-1">
+                    </div>
+                   <div id="c1" class="square-dark" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <img id="white-bishop-1" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)"
+                            src="images/white-bishop-alt.png" draggable="true" alt="white-bishop-1">
+                    </div>
+                   <div id="d1" class="square-light" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <img id="white-queen" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)"
+                            src="images/white-queen-alt.png" draggable="true" alt="white-queen">
+                    </div>
+                   <div id="e1" class="square-dark" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <img id="white-king" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)"
+                            src="images/white-king-alt.png" draggable="true" alt="white-king">
+                    </div>
+                   <div id="f1" class="square-light" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <img id="white-bishop-2" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)"
+                            src="images/white-bishop-alt.png" draggable="true" alt="white-bishop-2">
+                    </div>
+                   <div id="g1" class="square-dark" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <img id="white-knight-2" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)"
+                            src="images/white-knight-alt.png" draggable="true" alt="white-knight-2">
+                    </div>
+                   <div id="h1" class="square-light" ondrop="drop(event)" ondragover="allowDrop(event)"><img id="white-rook-2" class="grabbable" ondragstart="drag(event)" onclick="highlight(event)"
+                        src="images/white-rook-alt.png" draggable="true" alt="white-rook-2">
+                   </div>
                </div>
            </div>
         </div>
