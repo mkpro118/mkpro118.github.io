@@ -15,6 +15,19 @@ var is_en_passant_allowed = false
 var is_highlighted = false
 var selected_piece = null
 
+var white_queen_count = 1
+var black_queen_count = 1
+
+var pieceStyle = 'chesscom'
+
+var time_white = 600
+var time_black = 600
+
+var has_white_started = false
+var has_black_started = false
+
+var timer = null
+
 var files = {
     'a': 0,
     'b': 1,
@@ -117,12 +130,10 @@ customize_dark_square = document.getElementById('dark-square')
 customize_light_square.addEventListener('input', function() {
     document.documentElement.style.setProperty('--squarelight-background', customize_light_square.value)
     computeShadow()
-    e.stopPropagation()
 })
 customize_dark_square.addEventListener('input', function() {
     document.documentElement.style.setProperty('--squaredark-background', customize_dark_square.value)
     computeShadow()
-    e.stopPropagation()
 })
 
 function revert() {
@@ -132,7 +143,7 @@ function revert() {
             continue
         }
         if (sq.className.includes('highlight')) {
-            sq.className = sq.className.slice(0,12)
+            sq.className = sq.className.split(' ')[0]
             sq.onclick = function (e) { return false }
         }
     }
@@ -194,11 +205,6 @@ function drop(event) {
         to = target.id
     }
     if (to == data) {
-        return
-    }
-
-
-    if (!((possibleMoves(data).includes(to)) || (possibleMoves(data).includes(target.parentNode.id)))) {
         return
     }
 
@@ -335,9 +341,19 @@ function drop(event) {
         }
     }
 
+    if (!((possibleMoves(data).includes(to)) || (possibleMoves(data).includes(target.parentNode.id)))) {
+        return
+    }
+
+    // moving to a square occupied by friendly pieces
+    // Note: this part has been placed after the castles logic to
+    // allow users to click or drag the king over near the rook and still
+    // be able to castle on either direction
     if (to.startsWith(data.slice(0, 5))){
         return
     }
+
+    // moving to an empty square
     if (target.className.startsWith('square')) {
         var move = ''
         if (data.includes('king')) {
@@ -361,6 +377,8 @@ function drop(event) {
             for_en_passant = null
         }
         else if(data.includes('pawn')) {
+            var is_promoting = false
+            var promotion = null
             move = to
             if (((move[1] === '5') && (turn === 'black') && (parent[0] === move[0]))) {
                 for_en_passant = move
@@ -380,8 +398,39 @@ function drop(event) {
             else {
                     for_en_passant = null
             }
+            if (turn === 'white' && move.includes('8')) {
+                is_promoting = true
+                promotion = document.createElement('img')
+                promotion.src = (pieceStyle === 'lichess') ? 'images/white-queen.png' : 'images/white-queen-alt.png'
+                promotion.id = 'white-queen-' + (++white_queen_count)
+                promotion.className = 'grabbable'
+                promotion.onclick = highlight
+                promotion.ondragstart = drag
+                promotion.draggable = true
+                promotion.alt = 'black-queen'
+                console.log(promotion)
+
+            }
+            if (turn === 'black' && move.includes('1')) {
+                is_promoting = true
+                promotion = document.createElement('img')
+                promotion.src = (pieceStyle === 'lichess') ? 'images/black-queen.png' : 'images/black-queen-alt.png'
+                promotion.id = 'black-queen-' + (++black_queen_count)
+                promotion.className = 'grabbable'
+                promotion.onclick = highlight
+                promotion.ondragstart = drag
+                promotion.draggable = true
+                promotion.alt = 'black-queen'
+                console.log(promotion)
+            }
         }
-        target.appendChild(document.getElementById(data))
+        if (is_promoting) {
+            target.appendChild(promotion)
+            move = move+'=Q'
+            document.getElementById(parent).removeChild(document.getElementById(data))
+        } else {
+            target.appendChild(document.getElementById(data))
+        }
         prev_move = move
         writeMoves(move, turn)
         if (data === 'white-rook-1') {
@@ -406,6 +455,8 @@ function drop(event) {
         disable(turn)
         revert()
     }
+
+    // moving to a sqaure occupied by an unfriendly piece
     else if ((data.slice(0, 5) != to.slice(0, 5))) {
         var move = ''
         if (data.includes()) {}
@@ -452,10 +503,30 @@ function drop(event) {
         else if (data === 'black-king') {
             has_black_king_moved = true
         }
+        if (!has_white_started && turn === 'white') {
+        has_white_started = true
+        }
+        if (!has_black_started && turn === 'black') {
+            has_black_started = true
+        }
         turn = (turn == 'white') ? 'black' : 'white'
         disable(turn)
         revert()
     }
+    if (turn === 'black') {
+        has_white_started = true
+    }
+    if (turn === 'white') {
+        has_black_started = true
+    }
+    if (timer) {
+        clearInterval(timer)
+    }
+    timer = setInterval(function() {
+        if (has_white_started && has_black_started) {
+            countdown(turn)
+        }
+    }, 1000)
 }
 
 function writeMoves(move, turn) {
@@ -656,7 +727,8 @@ function pawn(id) {
             offsets.push([-1, 0])
             if (parent.id.endsWith('2')) {
                 var up_up = up[0] + ranks_rev[ranks[up[1]] - 1]
-                if (true) {
+                up_up = document.getElementById(up_up)
+                if (!up_up.firstElementChild) {
                     offsets.push([-2, 0])
                 }
             }
@@ -697,10 +769,14 @@ function pawn(id) {
         if (!(document.getElementById(down).firstElementChild)) {
             offsets.push([1, 0])
             if (parent.id.endsWith('7')) {
-                offsets.push([2, 0])
+                var down_down = down[0] + ranks_rev[ranks[down[1]] + 1]
+                down_down = document.getElementById(down_down)
+                if (!down_down.firstElementChild) {
+                    offsets.push([2, 0])
+                }
             }
         }
-        if (for_en_passant === for_en_passant) {
+        if (for_en_passant === prev_move) {
             if (parent.id.endsWith('4')) {
                 if (turn != for_en_passant.slice(2)) {
                     var side1 = letters.indexOf(parent.id[0]) + 1
@@ -736,18 +812,64 @@ function pawn(id) {
     return offsets
 }
 
+function countdown(count_for) {
+
+    if (count_for === 'white') {
+        --time_white
+        var minutes = (Math.floor(time_white / 60)).toString()
+        var seconds = (time_white % 60).toString()
+        if (minutes.length < 2) {
+            minutes = '0' + minutes
+        }
+        if (seconds.length < 2) {
+            seconds = '0' + seconds
+        }
+        if (minutes == '-1' && seconds === '-1'){
+            clearInterval(timer)
+            alert("Time's up! Black Wins!!!")
+            disable('white')
+            disable('black')
+        } else {
+            document.querySelector('#timer-white').innerHTML = minutes + ':' + seconds
+            var progress = Math.floor(time_white/6)
+            document.querySelector('#white-timer-progress').style.width = progress+'%'
+        }
+    }
+    else {
+        --time_black
+        var minutes = (Math.floor(time_black / 60)).toString()
+        var seconds = (time_black % 60).toString()
+        if (minutes.length < 2) {
+            minutes = '0' + minutes
+        }
+        if (seconds.length < 2) {
+            seconds = '0' + seconds
+        }
+        if (minutes == '-1' && seconds === '-1'){
+            clearInterval(timer)
+            alert("Time's up! White Wins!!!")
+            disable('white')
+            disable('black')
+        } else {
+            document.querySelector('#timer-black').innerHTML = minutes + ':' + seconds
+            var progress = Math.floor(time_black/6)
+            document.querySelector('#black-timer-progress').style.width = progress+'%'
+        }
+    }
+}
+
 function flip() {
     const element = document.getElementById('flip-button');
     element.classList.remove('flipper');
     void element.offsetWidth;
     element.classList.add('flipper');
-
-    window.setTimeout(function() {
+    setTimeout(function() {
         element.classList.remove('flipper');
     }, 400)
     var ranks_div = document.getElementById('ranks')
     if (!ranks_div.className.includes('reverse')) {
         ranks_div.className = 'ranks-reverse'
+        black_timer = document.getElementById('')
     }
     else {
         ranks_div.className = 'ranks'
@@ -778,6 +900,7 @@ function flip() {
 }
 
 function changePieceStyle(id) {
+    pieceStyle = id
     var lichess = document.getElementById('lichess')
     var chesscom = document.getElementById('chesscom')
     const pieces = document.querySelectorAll('img')
