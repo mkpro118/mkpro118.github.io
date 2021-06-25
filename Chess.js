@@ -78,7 +78,8 @@ for (var i = 0; i < coords.length; i++) {
 window.onload = disable
 
 window.addEventListener('contextmenu', function (e) {
-  e.preventDefault();
+  e.preventDefault()
+  e.stopPropagation()
 }, false);
 
 function hexToRgb(hex) {
@@ -116,10 +117,12 @@ customize_dark_square = document.getElementById('dark-square')
 customize_light_square.addEventListener('input', function() {
     document.documentElement.style.setProperty('--squarelight-background', customize_light_square.value)
     computeShadow()
+    e.stopPropagation()
 })
 customize_dark_square.addEventListener('input', function() {
     document.documentElement.style.setProperty('--squaredark-background', customize_dark_square.value)
     computeShadow()
+    e.stopPropagation()
 })
 
 function revert() {
