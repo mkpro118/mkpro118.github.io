@@ -858,7 +858,7 @@ hr{
     border-radius: 9999px;
 }
 
-@media (max-width:800px) {
+@media (max-width:1024px) {
     :root {
         --squarelight-background: #789bb9;
         --squaredark-background: #A0824E;
