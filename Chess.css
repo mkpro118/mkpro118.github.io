@@ -675,8 +675,8 @@ fieldset legend {
     margin-left: auto;
     margin-right: auto;
     width: 15.69vw;
-    height: 9vw;
-    transform: translateY(42%);
+    height: 8vw;
+    transform: translateY(38%);
     border: hidden;
 }
 
@@ -689,12 +689,13 @@ fieldset legend {
 
 .color-square{
     display: flex;
+    flex-direction: row;
     width: 14vw;
-    height: 2vw;
+    height: 1.5vw;
     margin-right: auto;
     margin-left: auto;
     align-self: auto;
-    margin-bottom: 2vw;
+    margin-bottom: 1vw;
     margin-top: 1vw;
 }
 
@@ -716,6 +717,8 @@ fieldset legend {
     border: 1px solid black;
     width: 2vw;
     height: 2vw;
+    margin-top: 0;
+    margin-bottom: 0;
     margin-left: auto;
     margin-right: auto;
     border-radius: 50%;
@@ -728,6 +731,8 @@ fieldset legend {
     border: 1px solid black;
     width: 2vw;
     height: 2vw;
+    margin-top: 0;
+    margin-bottom: 0;
     margin-left: auto;
     margin-right: auto;
     border-radius: 50%;
@@ -737,12 +742,15 @@ fieldset legend {
 
 .color-square input{
     visibility: hidden;
+    width: 2vw;
+    height: 2vw;
 }
 
 hr{
     margin: 0px;
+    height: 0.1vh;
     color: #222222;
-    transform: translateY(-500%);
+    transform: translateY(80%);
 }
 
 .flip{
