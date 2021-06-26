@@ -869,10 +869,55 @@ function flip() {
     var ranks_div = document.getElementById('ranks')
     if (!ranks_div.className.includes('reverse')) {
         ranks_div.className = 'ranks-reverse'
-        black_timer = document.getElementById('')
+        var black_timer_container = document.getElementById('top-timer-container')
+        var white_timer_container = document.getElementById('bottom-timer-container')
+        var black_timer = document.getElementById('timer-black')
+        var white_timer = document.getElementById('timer-white')
+        var black_timer_progress = document.getElementById('black-timer-progress')
+        var white_timer_progress = document.getElementById('white-timer-progress')
+        black_timer_container.removeChild(black_timer)
+        black_timer_container.removeChild(black_timer_progress)
+        white_timer_container.removeChild(white_timer)
+        white_timer_container.removeChild(white_timer_progress)
+        white_timer_container.appendChild(black_timer)
+        white_timer_container.appendChild(black_timer_progress)
+        black_timer_container.appendChild(white_timer)
+        black_timer_container.appendChild(white_timer_progress)
+        var temp = window.getComputedStyle(white_timer_container, null)['background']
+        white_timer_container.style.background = window.getComputedStyle(black_timer_container, null)['background']
+        black_timer_container.style.background = temp
+        var temp = window.getComputedStyle(white_timer_container, null)['background']
+        white_timer_container.style.background = window.getComputedStyle(black_timer_container, null)['background']
+        black_timer_container.style.background = temp
+        var temp = window.getComputedStyle(white_timer_container, null)['background-color']
+        white_timer_container.style.backgroundColor = window.getComputedStyle(black_timer_container, null)['background-color']
+        black_timer_container.style.backgroundColor = temp
     }
     else {
         ranks_div.className = 'ranks'
+        var black_timer_container = document.querySelector('#top-timer-container')
+        var white_timer_container = document.querySelector('#bottom-timer-container')
+        var black_timer = document.querySelector('#timer-black')
+        var white_timer = document.querySelector('#timer-white')
+        var black_timer_progress = document.querySelector('#black-timer-progress')
+        var white_timer_progress = document.querySelector('#white-timer-progress')
+        black_timer_container.removeChild(white_timer)
+        black_timer_container.removeChild(white_timer_progress)
+        white_timer_container.removeChild(black_timer)
+        white_timer_container.removeChild(black_timer_progress)
+        white_timer_container.appendChild(white_timer)
+        white_timer_container.appendChild(white_timer_progress)
+        black_timer_container.appendChild(black_timer)
+        black_timer_container.appendChild(black_timer_progress)
+        var temp = window.getComputedStyle(white_timer_container, null)['background']
+        white_timer_container.style.background = window.getComputedStyle(black_timer_container, null)['background']
+        black_timer_container.style.background = temp
+        var temp = window.getComputedStyle(white_timer_container, null)['background']
+        white_timer_container.style.background = window.getComputedStyle(black_timer_container, null)['background']
+        black_timer_container.style.background = temp
+        var temp = window.getComputedStyle(white_timer_container, null)['background-color']
+        white_timer_container.style.backgroundColor = window.getComputedStyle(black_timer_container, null)['background-color']
+        black_timer_container.style.backgroundColor = temp
     }
     if (ranks_div.firstElementChild.className === 'files') {
         var files_div = document.querySelectorAll('.files')
