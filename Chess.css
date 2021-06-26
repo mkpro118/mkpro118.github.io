@@ -3778,10 +3778,10 @@ hr{
         position: absolute;
         top: 50%;
         left: 50%;
-        -webkit-transform: translate(25%, 100%);
-        -moz-transform: translate(25%, 100%);
-        -o-transform: translate(25%, 100%);
-        transform: translate(25%, 100%);
+        -webkit-transform: translate(15%, 80%);
+        -moz-transform: translate(15%, 80%);
+        -o-transform: translate(15%, 80%);
+        transform: translate(15%, 80%);
         padding: 0px;
         -webkit-border-top-left-radius: 0%;
         -moz-border-top-left-radius: 0%;
