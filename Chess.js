@@ -104,6 +104,25 @@ function hexToRgb(hex) {
   } : null;
 }
 
+function isColorTooDark(which) {
+    var current_color = window.getComputedStyle(document.getElementById(which + '-timer-container'),null)['background'].trim()
+    current_color = current_color.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+(?:\.\d+)?))?\)/)
+
+    r = current_color[1];
+    g = current_color[2];
+    b = current_color[3];
+
+    var hsp = Math.sqrt((0.299 * (r * r) )+ (0.587 * (g * g) )+ (0.114 * (b * b)))
+    return (hsp < 127.5)
+}
+
+function computeTimerTextColor(which) {
+    if (isColorTooDark(which)) {
+        var text_color_container = document.getElementById(which+'-timer-container')
+        text_color_container.style.color = '#DDDDDD'
+    }
+}
+
 function computeShadow() {
     const computed_style = window.getComputedStyle(document.documentElement)
     const light_color = computed_style.getPropertyValue('--squarelight-background').trim()
@@ -130,10 +149,12 @@ customize_dark_square = document.getElementById('dark-square')
 customize_light_square.addEventListener('input', function() {
     document.documentElement.style.setProperty('--squarelight-background', customize_light_square.value)
     computeShadow()
+    computeTimerTextColor('top')
 })
 customize_dark_square.addEventListener('input', function() {
     document.documentElement.style.setProperty('--squaredark-background', customize_dark_square.value)
     computeShadow()
+    computeTimerTextColor('bottom')
 })
 
 function revert() {
