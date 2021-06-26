@@ -119,7 +119,20 @@ function isColorTooDark(which) {
 function computeTimerTextColor(which) {
     if (isColorTooDark(which)) {
         var text_color_container = document.getElementById(which+'-timer-container')
-        text_color_container.style.color = '#DDDDDD'
+        text_color_container.firstElementChild.style.color = 'white'
+        if (which === 'bottom') {
+            var size = document.getElementById('flip-button').style.backgroundSize
+            document.getElementById('flip-button').style.background = 'url("images/flip.png")'
+            document.getElementById('flip-button').style.backgroundSize = size
+        }
+    } else {
+        var text_color_container = document.getElementById(which+'-timer-container')
+        text_color_container.firstElementChild.style.color = 'black'
+        if (which === 'bottom') {
+            var size = document.getElementById('flip-button').style.backgroundSize
+            document.getElementById('flip-button').style.background = 'url("images/flip-alt.png")'
+            document.getElementById('flip-button').style.backgroundSize = size
+        }
     }
 }
 
