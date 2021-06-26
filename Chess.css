@@ -758,7 +758,7 @@ hr{
     float: right;
     width: 1.75vw;
     height: 1.75vw;
-    background-image: url("images/flip.png");
+    background-image: url("images/flip-alt.png");
     background-size: 1.75vw;
     background-repeat: no-repeat;
 }
@@ -1577,7 +1577,7 @@ hr{
         float: right;
         width: 3vw;
         height: 3vw;
-        background-image: url("images/flip.png");
+        background-image: url("images/flip-alt.png");
         background-size: 3vw;
         background-repeat: no-repeat;
     }
@@ -2395,7 +2395,7 @@ hr{
         float: right;
         width: 3vw;
         height: 3vw;
-        background-image: url("images/flip.png");
+        background-image: url("images/flip-alt.png");
         background-size: 3vw;
         background-repeat: no-repeat;
     }
@@ -3217,7 +3217,7 @@ hr{
         float: right;
         width: 4.5vw;
         height: 4.5vw;
-        background-image: url("images/flip.png");
+        background-image: url("images/flip-alt.png");
         background-size: 4.5vw;
         background-repeat: no-repeat;
     }
@@ -4038,7 +4038,7 @@ hr{
         float: right;
         width: 5.25vw;
         height: 5.25vw;
-        background-image: url("images/flip.png");
+        background-image: url("images/flip-alt.png");
         background-size: 5.25vw;
         background-repeat: no-repeat;
     }
