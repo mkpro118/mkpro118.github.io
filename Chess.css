@@ -2469,7 +2469,7 @@ hr{
     }
 
     #top-timer-container{
-        transform: translate(120%, -1000%);
+        transform: translate(120%, -1150%);
         background-color: var(--squarelight-background);
         background: var(--squarelight-background);
     }
