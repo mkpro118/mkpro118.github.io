@@ -3965,7 +3965,7 @@ hr{
     .color-square{
         display: flex;
         flex-direction: row;
-        width: 20vw;
+        width: 30vw;
         height: 1.5vw;
         margin-right: auto;
         margin-left: auto;
@@ -3976,7 +3976,7 @@ hr{
 
     .color-square label[for]{
         margin: 0px;
-        margin-right: 1.5vw;
+        margin-right: 0.5vw;
         margin-left: 0.7vw;
         display: table-cell;
         font-size: 2.5vw;
