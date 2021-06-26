@@ -2120,7 +2120,7 @@ hr{
         display: flex;
         flex-direction: column;
         height: 35vw;
-        width: 30vw;
+        width: 36vw;
         -webkit-background-color: #696969;
         -moz-background-color: #696969;
         -o-background-color: #696969;
@@ -2469,7 +2469,7 @@ hr{
     }
 
     #top-timer-container{
-        transform: translate(120%, -1100%);
+        transform: translate(120%, -1050%);
         background-color: var(--squarelight-background);
         background: var(--squarelight-background);
     }
