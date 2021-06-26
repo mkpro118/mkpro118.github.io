@@ -2956,10 +2956,10 @@ hr{
         position: absolute;
         top: 50%;
         left: 50%;
-        -webkit-transform: translate(25%, 100%);
-        -moz-transform: translate(25%, 100%);
-        -o-transform: translate(25%, 100%);
-        transform: translate(25%, 100%);
+        -webkit-transform: translate(20%, 90%);
+        -moz-transform: translate(20%, 90%);
+        -o-transform: translate(20%, 90%);
+        transform: translate(20%, 90%);
         padding: 0px;
         -webkit-border-top-left-radius: 0%;
         -moz-border-top-left-radius: 0%;
@@ -3143,7 +3143,7 @@ hr{
     .color-square{
         display: flex;
         flex-direction: row;
-        width: 20vw;
+        width: 23vw;
         height: 1.5vw;
         margin-right: auto;
         margin-left: auto;
