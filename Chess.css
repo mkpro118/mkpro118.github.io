@@ -4024,7 +4024,7 @@ hr{
 
     hr{
         margin: 0px;
-        height: 0.1vh;
+        height: 0.05vh;
         color: #222222;
         transform: translateY(80%);
     }
