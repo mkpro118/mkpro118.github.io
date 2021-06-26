@@ -1892,10 +1892,10 @@ hr{
         left: 50%;
         height: 95vw;
         font-size: 1.4vw;
-        -webkit-transform: translate(-2650%, -80%);
-        -moz-transform: translate(-2650%, -80%);
-        -o-transform: translate(-2650%, -80%);
-        transform: translate(-2650%, -80%);
+        -webkit-transform: translate(-2450%, -80%);
+        -moz-transform: translate(-2450%, -80%);
+        -o-transform: translate(-2450%, -80%);
+        transform: translate(-2450%, -80%);
         justify-content: space-evenly;
         clear: both;
     }
@@ -2469,7 +2469,7 @@ hr{
     }
 
     #top-timer-container{
-        transform: translate(120%, -1150%);
+        transform: translate(120%, -1100%);
         background-color: var(--squarelight-background);
         background: var(--squarelight-background);
     }
