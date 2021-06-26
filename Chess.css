@@ -4110,7 +4110,7 @@ hr{
     }
 
     #top-timer-container{
-        transform: translate(120%, -990%);
+        transform: translate(120%, -1020%);
         background-color: var(--squarelight-background);
         background: var(--squarelight-background);
     }
