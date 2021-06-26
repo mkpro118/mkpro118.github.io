@@ -1892,10 +1892,10 @@ hr{
         left: 50%;
         height: 95vw;
         font-size: 1.4vw;
-        -webkit-transform: translate(-2750%, -80%);
-        -moz-transform: translate(-2750%, -80%);
-        -o-transform: translate(-2750%, -80%);
-        transform: translate(-2750%, -80%);
+        -webkit-transform: translate(-2650%, -80%);
+        -moz-transform: translate(-2650%, -80%);
+        -o-transform: translate(-2650%, -80%);
+        transform: translate(-2650%, -80%);
         justify-content: space-evenly;
         clear: both;
     }
