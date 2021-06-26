@@ -124,6 +124,18 @@ function computeTimerTextColor(which) {
             var size = document.getElementById('flip-button').style.backgroundSize
             document.getElementById('flip-button').style.background = 'url("images/flip.png")'
             document.getElementById('flip-button').style.backgroundSize = size
+            size = document.getElementById('chesscom').style.backgroundSize
+            var og_color = window.getComputedStyle(document.getElementById('chesscom'), null)['background-color'].trim()
+            document.getElementById('chesscom').style.background = 'url("images/white-king-alt.png")'
+            document.getElementById('chesscom').style.backgroundColor = og_color
+            document.getElementById('chesscom').style.backgroundSize = size
+        }
+        if (which === 'top') {
+            var size = document.getElementById('lichess').style.backgroundSize
+            var og_color = window.getComputedStyle(document.getElementById('lichess'), null)['background-color'].trim()
+            document.getElementById('lichess').style.background = 'url("images/white-king.png")'
+            document.getElementById('lichess').style.backgroundColor = og_color
+            document.getElementById('lichess').style.backgroundSize = size
         }
     } else {
         var text_color_container = document.getElementById(which+'-timer-container')
@@ -132,6 +144,18 @@ function computeTimerTextColor(which) {
             var size = document.getElementById('flip-button').style.backgroundSize
             document.getElementById('flip-button').style.background = 'url("images/flip-alt.png")'
             document.getElementById('flip-button').style.backgroundSize = size
+            size = document.getElementById('chesscom').style.backgroundSize
+            var og_color = window.getComputedStyle(document.getElementById('chesscom'), null)['background-color'].trim()
+            document.getElementById('chesscom').style.background = 'url("images/black-king-alt.png")'
+            document.getElementById('chesscom').style.backgroundColor = og_color
+            document.getElementById('chesscom').style.backgroundSize = size
+        }
+        if (which === 'top') {
+            var size = document.getElementById('lichess').style.backgroundSize
+            var og_color = window.getComputedStyle(document.getElementById('lichess'), null)['background-color'].trim()
+            document.getElementById('lichess').style.background = 'url("images/black-king.png")'
+            document.getElementById('lichess').style.backgroundColor = og_color
+            document.getElementById('lichess').style.backgroundSize = size
         }
     }
 }
