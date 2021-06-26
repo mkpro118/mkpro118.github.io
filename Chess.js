@@ -12,7 +12,6 @@ var for_en_passant = null
 var prev_move = null
 var is_en_passant_allowed = false
 
-var is_highlighted = false
 var selected_piece = null
 
 var white_queen_count = 1
@@ -72,25 +71,9 @@ var ranks_rev = {
     0: '8',
 }
 
-var symbols = {
-    'king' : 'K',
-    'queen' : 'Q',
-    'rook' : 'R',
-    'bishop' : 'B',
-    'knight' : 'N',
-}
-
-var coords = new Array(8)
-for (var i = 0; i < coords.length; i++) {
-    coords[i] = new Array(8)
-    for (var j = 0; j < coords[i].length; j++) {
-        coords[i][j] = j
-    }
-}
-
 window.onload = disable
 
-window.addEventListener('contextmenu', function (e) {
+window.addEventListener('contextmenu', e => {
   e.preventDefault()
   e.stopPropagation()
 }, false);
@@ -183,12 +166,12 @@ function computeShadow() {
 customize_light_square = document.getElementById('light-square')
 customize_dark_square = document.getElementById('dark-square')
 
-customize_light_square.addEventListener('input', function() {
+customize_light_square.addEventListener('input', () => {
     document.documentElement.style.setProperty('--squarelight-background', customize_light_square.value)
     computeShadow()
     computeTimerTextColor('top')
 })
-customize_dark_square.addEventListener('input', function() {
+customize_dark_square.addEventListener('input', () => {
     document.documentElement.style.setProperty('--squaredark-background', customize_dark_square.value)
     computeShadow()
     computeTimerTextColor('bottom')
@@ -202,7 +185,7 @@ function revert() {
         }
         if (sq.className.includes('highlight')) {
             sq.className = sq.className.split(' ')[0]
-            sq.onclick = function (e) { return false }
+            sq.onclick = e => false
         }
     }
 }
@@ -225,7 +208,7 @@ function highlight(event) {
         if (square.firstElementChild) {
             square.className = square.className + "-unfriendly"
         }
-        square.onclick = function(e) {
+        square.onclick = e => {
             var raw_data = selected_piece + ' ' + selected_piece_parent
                            + ' ' + e.target.id
             drop(raw_data)
@@ -580,7 +563,7 @@ function drop(event) {
     if (timer) {
         clearInterval(timer)
     }
-    timer = setInterval(function() {
+    timer = setInterval(() => {
         if (has_white_started && has_black_started) {
             countdown(turn)
         }
@@ -616,8 +599,8 @@ function disable() {
     var pieces = document.getElementsByTagName('img')
     for (piece of pieces) {
         if (!piece.id.startsWith(turn)) {
-            piece.ondragstart = function(event) { return false}
-            piece.onclick = function(event) { return false}
+            piece.ondragstart = e => false
+            piece.onclick = e => false
         }
         else {
             piece.ondragstart = drag
@@ -921,9 +904,7 @@ function flip() {
     element.classList.remove('flipper');
     void element.offsetWidth;
     element.classList.add('flipper');
-    setTimeout(function() {
-        element.classList.remove('flipper');
-    }, 400)
+    setTimeout(() => { element.classList.remove('flipper')}, 400)
     var ranks_div = document.getElementById('ranks')
     if (!ranks_div.className.includes('reverse')) {
         ranks_div.className = 'ranks-reverse'
@@ -979,11 +960,11 @@ function flip() {
     }
     if (ranks_div.firstElementChild.className === 'files') {
         var files_div = document.querySelectorAll('.files')
-        files_div.forEach(function(e) { e.className = 'files-reverse'})
+        files_div.forEach(e => {e.className = 'files-reverse'})
     }
     else {
         var files_div = document.querySelectorAll('.files-reverse')
-        files_div.forEach(function(e) { e.className = 'files'})
+        files_div.forEach(e => {e.className = 'files'})
     }
 
     var ranks_coord = document.getElementById('coordinates-container-ranks')
@@ -1007,7 +988,7 @@ function changePieceStyle(id) {
     var lichess = document.getElementById('lichess')
     var chesscom = document.getElementById('chesscom')
     const pieces = document.querySelectorAll('img')
-    pieces.forEach(function(e) {
+    pieces.forEach(e => {
         if (id === 'lichess') {
             if (e.src.includes('-alt')) {
                 var img = e.src.indexOf('-alt')
