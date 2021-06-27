@@ -601,7 +601,7 @@ fieldset legend {
     color: lightcyan;
     font-size: 1.25vw;
     font-family: Georgia;
-    text-shadow: 2px 2px black;
+    text-shadow: 1.5px 1.5px black;
 }
 
 .lichess-style,
