@@ -73,13 +73,17 @@ let ranks_rev = Object.freeze({
 })
 
 window.onload = () => {
-    preffered_light_color = localStorage.getItem('preferredLightColor')
+    const preffered_light_color = localStorage.getItem('preferredLightColor')
     if (preffered_light_color) {
         document.documentElement.style.setProperty('--squarelight-background', preffered_light_color)
     }
-    preffered_dark_color = localStorage.getItem('preferredDarkColor')
+    const preffered_dark_color = localStorage.getItem('preferredDarkColor')
     if (preffered_dark_color) {
         document.documentElement.style.setProperty('--squaredark-background', preffered_dark_color)
+    }
+    const preffered_piece_style = localStorage.getItem('preferredPieceStyle')
+    if (preffered_piece_style) {
+        changePieceStyle(preffered_piece_style)
     }
     disable()
 }
@@ -1025,6 +1029,7 @@ function flip() {
 
 function changePieceStyle(id) {
     pieceStyle = id
+    localStorage.setItem('preferredPieceStyle', id)
     let lichess = document.getElementById('lichess')
     let chesscom = document.getElementById('chesscom')
     const pieces = document.querySelectorAll('img')
