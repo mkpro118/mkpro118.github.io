@@ -72,21 +72,31 @@ let ranks_rev = Object.freeze({
     0: '8',
 })
 
-window.onload = disable
+window.onload = () => {
+    preffered_light_color = localStorage.getItem('preferredLightColor')
+    if (preffered_light_color) {
+        document.documentElement.style.setProperty('--squarelight-background', preffered_light_color)
+    }
+    preffered_dark_color = localStorage.getItem('preferredDarkColor')
+    if (preffered_dark_color) {
+        document.documentElement.style.setProperty('--squaredark-background', preffered_dark_color)
+    }
+    disable()
+}
 
 window.addEventListener('contextmenu', e => {
   e.preventDefault()
   e.stopPropagation()
-}, false);
+}, false)
 
 
 function hexToRgb(hex) {
-  let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
   return result ? {
     r: parseInt(result[1], 16),
     g: parseInt(result[2], 16),
     b: parseInt(result[3], 16)
-  } : null;
+  } : null
 }
 
 
@@ -94,9 +104,9 @@ function isColorTooDark(which) {
     let current_color = window.getComputedStyle(document.getElementById(which + '-timer-container'),null)['background'].trim()
     current_color = current_color.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+(?:\.\d+)?))?\)/)
 
-    r = current_color[1];
-    g = current_color[2];
-    b = current_color[3];
+    r = current_color[1]
+    g = current_color[2]
+    b = current_color[3]
 
     let hsp = Math.sqrt((0.299 * (r * r) )+ (0.587 * (g * g) )+ (0.114 * (b * b)))
     return (hsp < 127.5)
@@ -171,11 +181,13 @@ customize_light_square.addEventListener('input', () => {
     document.documentElement.style.setProperty('--squarelight-background', customize_light_square.value)
     computeShadow()
     computeTimerTextColor('top', customize_light_square.value)
+    localStorage.setItem('preferredLightColor', customize_light_square.value)
 })
 customize_dark_square.addEventListener('input', () => {
     document.documentElement.style.setProperty('--squaredark-background', customize_dark_square.value)
     computeShadow()
     computeTimerTextColor('bottom', customize_dark_square.value)
+    localStorage.setItem('preferredDarkColor', customize_dark_square.value)
 })
 
 
@@ -244,7 +256,7 @@ function drop(event) {
         target = document.getElementById(to)
     }
     else {
-        event.preventDefault();
+        event.preventDefault()
         let raw_data = event.dataTransfer.getData("text")
         data = raw_data.slice(0,raw_data.indexOf(' '))
         parent = raw_data.slice(raw_data.indexOf(' ')+1)
@@ -609,7 +621,7 @@ function writeMoves(move, turn) {
         let move_black = document.getElementById('move-black-' + move_counter.toString())
         move_black.innerHTML = move
     }
-    document.getElementById("moves-list").scrollTop = document.getElementById("moves-list").scrollHeight;
+    document.getElementById("moves-list").scrollTop = document.getElementById("moves-list").scrollHeight
 }
 
 
@@ -927,10 +939,10 @@ function countdown(count_for) {
 
 
 function flip() {
-    const element = document.getElementById('flip-button');
-    element.classList.remove('flipper');
-    void element.offsetWidth;
-    element.classList.add('flipper');
+    const element = document.getElementById('flip-button')
+    element.classList.remove('flipper')
+    void element.offsetWidth
+    element.classList.add('flipper')
     setTimeout(() => { element.classList.remove('flipper')}, 400)
     let ranks_div = document.getElementById('ranks')
     if (!ranks_div.className.includes('reverse')) {
