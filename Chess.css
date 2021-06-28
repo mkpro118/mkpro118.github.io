@@ -2350,7 +2350,7 @@ hr{
 
     .flipper{
         -webkit-animation-name: spin;
-        -webkit-animation-duration: 0.4s;
+        -webkit-animation-duration: 0.15s;
         -webkit-animation-iteration-count: 1;
         -webkit-animation-timing-function: ease-in-out;
         -webkit-animation-fill-mode: forwards;
