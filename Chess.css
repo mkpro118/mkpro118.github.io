@@ -2454,10 +2454,10 @@ hr{
 }
 
 @media screen and (max-width: 441px) and (orientation: landscape) {
-  html {
+  :root {
     transform: rotate(-90deg);
     transform-origin: left top;
-    width: 100vh;
+/*     width: 100vh; */
     height: 100vw;
     overflow-x: hidden;
     position: absolute;
