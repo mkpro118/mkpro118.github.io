@@ -2207,22 +2207,22 @@ hr{
     .lichess-style-highlight{
         z-index: 40;
         margin-top: 0.9vw;
-        height: 5vw;
-        width: 5vw;
+        height: 7vw;
+        width: 7vw;
     }
 
     .lichess-style,
     .lichess-style-highlight{
         background: url("images/black-king.png");
         background-color: var(--squarelight-background);
-        background-size: 5vw;
+        background-size: 7vw;
         background-repeat: no-repeat;
         align-self: flex-start;
     }
 
     .divider{
         margin-top: 0vw;
-        height: 7vw;
+        height: 9vw;
         width: 0.11vw;
         background-color: #222222;
         background: #222222;
