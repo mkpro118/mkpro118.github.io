@@ -2207,22 +2207,22 @@ hr{
     .lichess-style-highlight{
         z-index: 40;
         margin-top: 0.9vw;
-        height: 7vw;
-        width: 7vw;
+        height: 8vw;
+        width: 8vw;
     }
 
     .lichess-style,
     .lichess-style-highlight{
         background: url("images/black-king.png");
         background-color: var(--squarelight-background);
-        background-size: 7vw;
+        background-size: 8vw;
         background-repeat: no-repeat;
         align-self: flex-start;
     }
 
     .divider{
         margin-top: 0vw;
-        height: 9vw;
+        height: 10vw;
         width: 0.11vw;
         background-color: #222222;
         background: #222222;
@@ -2234,7 +2234,7 @@ hr{
     .chesscom-style-highlight{
         background: url("images/black-king-alt.png");
         background-color: var(--squaredark-background);
-        background-size: 5vw;
+        background-size: 8vw;
         background-repeat: no-repeat;
         align-self: flex-start;
     }
