@@ -2442,3 +2442,32 @@ hr{
         border-radius: 9999px;
     }
 }
+@media only screen and (max-width:441px) and (orientation: landscape) {
+    :root::before {
+        content: "";
+        position: absolute;
+        height: 100vh;
+        width: 100vw;
+        top: 50%;
+        left:50%;
+        transform: translate(-50%, -50%);
+        background: linear-gradient(to top left, var(--squarelight-background), var(--squaredark-background));
+        -webkit-user-select: none;
+        user-select: none;
+        z-index: 900;
+    }
+    
+    :root::after {
+        content: "Please rotate your device for a better experience :)";
+        height: 50vh;
+        width: 50vw;
+        color: white;
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-50%, -50%);
+        -webkit-user-select: none;
+        user-select: none;
+        z-index: 1000;
+    }
+}
