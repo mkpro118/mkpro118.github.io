@@ -2187,7 +2187,7 @@ hr{
 
     .piece-style{
         position: relative;
-        width: 30vw;
+        width: 25vw;
         height: 10vw;
         transform: translateY(55%);
         text-shadow: 0.5px 0.5px black;
@@ -2202,24 +2202,24 @@ hr{
     .chesscom-style,
     .chesscom-style-highlight,
     .lichess-style-highlight{
-        height: 3vw;
-        width: 3vw;
+        height: 5vw;
+        width: 5vw;
     }
 
     .lichess-style,
     .lichess-style-highlight{
-        background-size: 3vw;
+        background-size: 5vw;
     }
 
     .divider{
         margin-top: 0vw;
-        height: 5vw;
+        height: 7vw;
         width: 0.11vw;
     }
 
     .chesscom-style,
     .chesscom-style-highlight{
-        background-size: 3vw;
+        background-size: 5vw;
     }
 
     .chesscom-style-highlight,
