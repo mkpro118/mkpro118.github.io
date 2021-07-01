@@ -2187,7 +2187,7 @@ hr{
 
     .piece-style{
         position: relative;
-        width: 25vw;
+        width: 30vw;
         height: 10vw;
         transform: translateY(55%);
         text-shadow: 0.5px 0.5px black;
