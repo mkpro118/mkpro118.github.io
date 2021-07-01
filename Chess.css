@@ -2161,6 +2161,10 @@ hr{
     }
 
     .tools-container{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         height: 35vw;
         width: 40vw;
     }
