@@ -120,7 +120,6 @@ customize_dark_square.addEventListener('input', () => {
 
 rematch.addEventListener('click', e => {
     squares = document.querySelectorAll('div[class^=square]')
-    console.log(squares)
     squares.forEach(s => {
         s.classList.remove('highlight-light')
         s.classList.remove('highlight-dark')
@@ -1492,7 +1491,6 @@ function calculate_check_path(piece, my_king) {
 
 
 function checkmate(player) {
-    console.log('for checkmate ' + player)
     const pieces = document.querySelectorAll(`img[id^=${player}]`)
     const possible_moves_set = new Set()
     pieces.forEach(e => {
@@ -1532,10 +1530,7 @@ function isPiecePinned(p) {
     try {
         opponent_pieces.forEach(e => {
             const __moves = allPossibleMoves(e.id)
-            console.log(__moves)
-            console.log(my_king.parentNode.id)
             if (__moves.includes(my_king.parentNode.id)) {
-                console.log('tis me ' + e)
                 throw 'BreakException'
             }
         })
