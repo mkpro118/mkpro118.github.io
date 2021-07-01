@@ -9,8 +9,8 @@
         <meta property="og:image" content="images/chessboard.png">
         <meta property="og:image_height" content="200">
         <meta property="og:image_width" content="200">
-        <meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
         <link rel="stylesheet" type="text/css" href="Chess.css">
+        <!-- <link rel="stylesheet" href="Fallback.css"> -->
         <link rel="shortcut icon" href="images/black-king.png">
         <script src="Chess.js" defer></script>
         <title>Play Chess</title>
@@ -263,6 +263,13 @@
                 10:00
             </div>
             <div id="white-timer-progress"></div>
+        </div>
+        <div id="winner">
+            <div id="message">White wins by Checkmate</div>
+            <div id="rematch-button">
+                <div id="normal" class="side">Rematch</div>
+                <div id="hover" class="side">Rematch</div>
+            </div>
         </div>
     </body>
 </html>
