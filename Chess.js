@@ -1491,6 +1491,7 @@ function calculate_check_path(piece, my_king) {
 
 
 function checkmate(player) {
+    const opponent = player === 'white' ? 'Black' : 'White'
     const pieces = document.querySelectorAll(`img[id^=${player}]`)
     const possible_moves_set = new Set()
     pieces.forEach(e => {
