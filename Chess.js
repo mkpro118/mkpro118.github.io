@@ -844,7 +844,7 @@ function disable() {
 
 
 function possibleMoves(id, check_pin = false, for_checkmate = false) {
-    if (id.startsWith(turn) && check_pin && !for_checkmate) {
+    if (id.startsWith(turn) && check_pin && !for_checkmate && !id.includes('king')) {
         if (isPiecePinned(id)) {
             return []
         }
