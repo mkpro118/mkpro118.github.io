@@ -274,6 +274,7 @@ rematch.addEventListener('click', e => {
     timer = null
 
     document.querySelector('#winner').style.display = 'none'
+    disable()
 })
 
 
@@ -916,6 +917,10 @@ function possibleMoves(id, check_pin = false, for_checkmate = false) {
                             }
                         }
                         if (opponent_moves.includes(move)) {
+                            // let check_path
+                            // if (is_under_check) {
+                            //     check_path =
+                            // }
                             rejected_moves.add(move)
                         }
                     }
@@ -947,8 +952,11 @@ function possibleMoves(id, check_pin = false, for_checkmate = false) {
         }
     }
 
-    if(is_under_check && !(id.includes('king')) && id.startsWith(turn)) {
+    if(is_under_check && !(id.includes('king')) &&  id.startsWith(turn)) {
         moves = moves.filter( e => check_path.includes(e))
+    }
+    if(is_under_check && (id.includes('king')) &&  id.startsWith(turn)) {
+        moves = moves.filter( e => !check_path.includes(e))
     }
     if (id.startsWith(turn) && check_pin && !for_checkmate && !id.includes('king')) {
         const a = isPiecePinned(id)
@@ -1553,7 +1561,7 @@ function calculatePinPath(piece, my_king) {
                 const file_offset  = offset[1]
                 let file_possible = piece_position_arr[1] + file_offset
                 let rank_possible = piece_position_arr[0] + rank_offset
-                while (file_possible != king_position_arr[1] ((rank_possible < 8) && (rank_possible >= 0)) && ((file_possible < 8) && (file_possible >= 0))) {
+                while (file_possible != king_position_arr[1] && ((rank_possible < 8) && (rank_possible >= 0)) && ((file_possible < 8) && (file_possible >= 0))) {
                     pin_path.push(files_rev[file_possible] + ranks_rev[rank_possible])
                     rank_possible = rank_possible + rank_offset
                     file_possible = file_possible + file_offset
@@ -1675,7 +1683,6 @@ function allPossibleMoves(id) {
                     break
                 }
                 else if (kid.id.slice(0, 5) == id.slice(0, 5)) {
-                    _ = moves.pop()
                     break
                 }
             }
