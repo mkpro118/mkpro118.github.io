@@ -2357,7 +2357,7 @@ hr{
         width: calc(0.6 * var(--board-size));
         height: calc(0.4 * var(--board-size));
         background: dimgray;
-        transform: translate(-50%, -50%) scale(0);
+        transform: translate(-50%, -120%) scale(0);
         z-index: 1000;
         border-radius: 1vw;
         opacity: 0.95;
