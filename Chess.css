@@ -2346,4 +2346,110 @@ hr{
     #white-timer-progress{
         height: 7.5%;
     }
+    #winner{
+        display: none;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: calc(0.6 * var(--board-size));
+        height: calc(0.4 * var(--board-size));
+        background: dimgray;
+        transform: translate(-50%, -50%) scale(0);
+        z-index: 1000;
+        border-radius: 1vw;
+        opacity: 0.95;
+        -webkit-box-shadow: inset 0 -1px 20px #AAA,
+                    inset 1px 0 5px #AAA,
+                    inset -1px 0 5px #AAA;
+        -moz-box-shadow: inset 0 -1px 20px #AAA,
+                    inset 1px 0 5px #AAA,
+                    inset -1px 0 5px #AAA;
+        -o-box-shadow: inset 0 -1px 20px #AAA,
+                    inset 1px 0 5px #AAA,
+                    inset -1px 0 5px #AAA;
+        box-shadow: inset 0 -1px 20px #AAA,
+                    inset 1px 0 5px #AAA,
+                    inset -1px 0 5px #AAA;
+    }
+
+    .win{
+        -webkit-animation-name: win;
+        -webkit-animation-duration: 500ms;
+        -webkit-animation-iteration-count: 1;
+        -webkit-animation-timing-function: ease-in-out;
+        -webkit-animation-fill-mode: forwards;
+    }
+
+    @keyframes win {
+        100% {
+            position: absolute;
+            top: 50%;
+            right: 50%;
+            transform: translate(-50%, -50%) scale(1.0);
+        }
+    }
+
+    @-moz-keyframes win {
+        100% {
+            position: absolute;
+            top: 50%;
+            right: 50%;
+            -moz-transform: translate(-50%, -50%) scale(1.0);
+        }
+    }
+
+    @-webkit-keyframes win {
+        100% {
+            position: absolute;
+            top: 50%;
+            right: 50%;
+            -webkit-transform: translate(-50%, -50%) scale(1.0);
+        }
+    }
+
+    #message{
+        font-size: 2vw;
+    }
+
+    #rematch-button{
+        position: relative;
+        width: calc(0.25 * var(--board-size));
+        height: calc(0.12 * var(--board-size));
+        transform-style: preserve-3d;
+        transform: translateZ(calc(-1 * calc(0.5 * calc(0.12 * var(--board-size)))));
+        transition: transform 300ms ease-in-out;
+    }
+
+    #rematch-button:hover {
+        transform: rotateX(-90deg);
+    }
+
+    .side{
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        font-size: 1.8vw;
+        backface-visibility: hidden;
+    }
+
+    #normal{
+        background-color: black;
+        border: 0.1vw solid #069;
+        border-radius: 1vw;
+        color: #069;
+    }
+
+    #hover{
+        color: white;
+        background-color: #069;
+        border: 0.1vw solid black;
+        border-radius: 1vw;
+        transform: rotateX(90deg);
+    }
 }
