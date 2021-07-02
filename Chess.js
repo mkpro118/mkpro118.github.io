@@ -995,8 +995,6 @@ function possibleMoves(id) {
     if (id.startsWith(turn) && !id.includes('king')) {
         const a = isPiecePinned(id)
         const pin = a[0], pin_path = a[1]
-        console.log(pin)
-        console.log(pin_path)
         if (pin) {
             if (pin_path){
                 moves = moves.filter( e => pin_path.includes(e))
@@ -1550,10 +1548,6 @@ function calculatePinPath(piece, my_king) {
         return pin_path
     }
 
-    console.log((king_position_arr[0] - piece_position_arr[0]) === 0)
-    console.log((king_position_arr[1] - piece_position_arr[1]) === 0)
-    console.log(((king_position_arr[1] - piece_position_arr[1]) / (king_position_arr[0] - piece_position_arr[0])) === 1)
-    console.log(((king_position_arr[1] - piece_position_arr[1]) / (king_position_arr[0] - piece_position_arr[0])) === -1)
 
     if ((king_position_arr[0] - piece_position_arr[0]) === 0) {
         const offsets  = [1,-1]
@@ -1565,7 +1559,6 @@ function calculatePinPath(piece, my_king) {
             }
             file_possible = file_possible + offset
         }
-        console.log(pin_path)
         return pin_path
     }
 
@@ -1579,7 +1572,6 @@ function calculatePinPath(piece, my_king) {
             }
             rank_possible = rank_possible + offset
         }
-        console.log(pin_path)
         return pin_path
     }
 
@@ -1596,7 +1588,6 @@ function calculatePinPath(piece, my_king) {
             rank_possible = rank_possible + offset
             file_possible = file_possible + offset
         }
-        console.log(pin_path)
         return pin_path
     }
 
@@ -1615,7 +1606,6 @@ function calculatePinPath(piece, my_king) {
             rank_possible = rank_possible + rank_offset
             file_possible = file_possible + file_offset
         }
-        console.log(pin_path)
         return pin_path
     }
 }
@@ -1660,16 +1650,11 @@ function isPiecePinned(p) {
     if (p.startsWith(opponent)) return false
     const opponent_pieces = document.querySelectorAll(`img[id^=${opponent}-rook], img[id^=${opponent}-bishop], img[id^=${opponent}-queen]`)
     const my_king = document.querySelector(`#${p.split('-')[0]}-king`)
-    console.log(my_king)
     try {
         opponent_pieces.forEach(e => {
             const __moves = allPossibleMoves(e.id)
             if (__moves.includes(my_king.parentNode.id)) {
-                console.log(__moves)
-                console.log(my_king.parentNode.id)
-                console.log(e)
                 pin_path = calculatePinPath(e, my_king)
-                console.log(pin_path)
                 throw 'BreakException'
             }
         })
