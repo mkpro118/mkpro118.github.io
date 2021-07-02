@@ -456,6 +456,7 @@ function drop(event) {
 
         // Black King Castle
         blackKingCastle(data, to)
+        is_opponent_king_under_attack()
     }
 
     if (!((possibleMoves(data, true).includes(to)) || (possibleMoves(data, true).includes(target.parentNode.id)))) {
@@ -774,6 +775,37 @@ function moveToUnfriendlySquare(data, to, target) {
     }
     else if(data.includes('pawn')) {
         __move = parent2.id[0] + 'x' + parent1.id
+        is_promoting = false
+        promotion = null
+        if (turn === 'white' && __move.includes('8')) {
+            is_promoting = true
+            promotion = document.createElement('img')
+            promotion.src = (pieceStyle === 'lichess') ? 'images/white-queen.png' : 'images/white-queen-alt.png'
+            promotion.id = 'white-queen-' + (++white_queen_count)
+            promotion.className = 'grabbable'
+            promotion.onclick = highlight
+            promotion.ondragstart = drag
+            promotion.draggable = true
+            promotion.alt = 'black-queen'
+
+        }
+        if (turn === 'black' && __move.includes('1')) {
+            is_promoting = true
+            promotion = document.createElement('img')
+            promotion.src = (pieceStyle === 'lichess') ? 'images/black-queen.png' : 'images/black-queen-alt.png'
+            promotion.id = 'black-queen-' + (++black_queen_count)
+            promotion.className = 'grabbable'
+            promotion.onclick = highlight
+            promotion.ondragstart = drag
+            promotion.draggable = true
+            promotion.alt = 'black-queen'
+        }
+        if (is_promoting) {
+            parent1.removeChild(child)
+            parent1.appendChild(promotion)
+            __move += '=Q'
+            is_promoting = false
+        }
     }
     if (data === 'white-rook-1') {
         has_white_rook1_moved = true
@@ -963,7 +995,7 @@ function possibleMoves(id, check_pin = false, for_checkmate = false) {
     if (id.startsWith(turn) && check_pin && !for_checkmate && !id.includes('king')) {
         const a = isPiecePinned(id)
         const pin = a[0], pin_path = a[1]
-        if (pin) {
+        if (pin_path) {
             moves = moves.filter( e => pin_path.includes(e))
         }
     }
