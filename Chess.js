@@ -882,7 +882,7 @@ function disable() {
 }
 
 
-function possibleMoves(id, check_pin = false, for_checkmate = false) {
+function possibleMoves(id) {
     let offsets = null
     if (id.includes('king')) {
         offsets = king(id)
@@ -992,11 +992,15 @@ function possibleMoves(id, check_pin = false, for_checkmate = false) {
     if(is_under_check && (id.includes('king')) &&  id.startsWith(turn)) {
         moves = moves.filter( e => !(check_path.includes(e) && (e !== checking_piece.parentNode.id)))
     }
-    if (id.startsWith(turn) && check_pin && !for_checkmate && !id.includes('king')) {
+    if (id.startsWith(turn) && !id.includes('king')) {
         const a = isPiecePinned(id)
         const pin = a[0], pin_path = a[1]
-        if (pin_path) {
-            moves = moves.filter( e => pin_path.includes(e))
+        console.log(pin)
+        console.log(pin_path)
+        if (pin) {
+            if (pin_path){
+                moves = moves.filter( e => pin_path.includes(e))
+            }
         }
     }
     return moves
@@ -1546,6 +1550,11 @@ function calculatePinPath(piece, my_king) {
         return pin_path
     }
 
+    console.log((king_position_arr[0] - piece_position_arr[0]) === 0)
+    console.log((king_position_arr[1] - piece_position_arr[1]) === 0)
+    console.log(((king_position_arr[1] - piece_position_arr[1]) / (king_position_arr[0] - piece_position_arr[0])) === 1)
+    console.log(((king_position_arr[1] - piece_position_arr[1]) / (king_position_arr[0] - piece_position_arr[0])) === -1)
+
     if ((king_position_arr[0] - piece_position_arr[0]) === 0) {
         const offsets  = [1,-1]
         for (offset of offsets) {
@@ -1556,6 +1565,7 @@ function calculatePinPath(piece, my_king) {
             }
             file_possible = file_possible + offset
         }
+        console.log(pin_path)
         return pin_path
     }
 
@@ -1569,6 +1579,7 @@ function calculatePinPath(piece, my_king) {
             }
             rank_possible = rank_possible + offset
         }
+        console.log(pin_path)
         return pin_path
     }
 
@@ -1585,27 +1596,27 @@ function calculatePinPath(piece, my_king) {
             rank_possible = rank_possible + offset
             file_possible = file_possible + offset
         }
+        console.log(pin_path)
         return pin_path
     }
 
     else if (((king_position_arr[1] - piece_position_arr[1]) / (king_position_arr[0] - piece_position_arr[0])) === -1) {
-        if ((king_position_arr[0] < piece_position_arr[0])) {
-            const offsets = [[-1,1],[1,-1]]
-            for(offset of offsets) {
-                const rank_offset = offset[0]
-                const file_offset  = offset[1]
-                let file_possible = piece_position_arr[1] + file_offset
-                let rank_possible = piece_position_arr[0] + rank_offset
-                while (file_possible != king_position_arr[1] && ((rank_possible < 8) && (rank_possible >= 0)) && ((file_possible < 8) && (file_possible >= 0))) {
-                    pin_path.push(files_rev[file_possible] + ranks_rev[rank_possible])
-                    rank_possible = rank_possible + rank_offset
-                    file_possible = file_possible + file_offset
-                }
+        const offsets = [[-1,1],[1,-1]]
+        for(offset of offsets) {
+            const rank_offset = offset[0]
+            const file_offset  = offset[1]
+            let file_possible = piece_position_arr[1] + file_offset
+            let rank_possible = piece_position_arr[0] + rank_offset
+            while (file_possible != king_position_arr[1] && ((rank_possible < 8) && (rank_possible >= 0)) && ((file_possible < 8) && (file_possible >= 0))) {
+                pin_path.push(files_rev[file_possible] + ranks_rev[rank_possible])
                 rank_possible = rank_possible + rank_offset
                 file_possible = file_possible + file_offset
             }
-            return pin_path
+            rank_possible = rank_possible + rank_offset
+            file_possible = file_possible + file_offset
         }
+        console.log(pin_path)
+        return pin_path
     }
 }
 
@@ -1615,7 +1626,7 @@ function checkmate(player) {
     const pieces = document.querySelectorAll(`img[id^=${player}]`)
     const possible_moves_set = new Set()
     pieces.forEach(e => {
-        const possible_moves_per_piece = possibleMoves(e.id, true, true)
+        const possible_moves_per_piece = allPossibleMoves(e.id)
         for (var i = 0; i < possible_moves_per_piece.length; i++) {
             possible_moves_set.add(possible_moves_per_piece[i])
         }
@@ -1649,11 +1660,16 @@ function isPiecePinned(p) {
     if (p.startsWith(opponent)) return false
     const opponent_pieces = document.querySelectorAll(`img[id^=${opponent}-rook], img[id^=${opponent}-bishop], img[id^=${opponent}-queen]`)
     const my_king = document.querySelector(`#${p.split('-')[0]}-king`)
+    console.log(my_king)
     try {
         opponent_pieces.forEach(e => {
             const __moves = allPossibleMoves(e.id)
             if (__moves.includes(my_king.parentNode.id)) {
+                console.log(__moves)
+                console.log(my_king.parentNode.id)
+                console.log(e)
                 pin_path = calculatePinPath(e, my_king)
+                console.log(pin_path)
                 throw 'BreakException'
             }
         })
