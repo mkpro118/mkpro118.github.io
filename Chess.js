@@ -844,11 +844,6 @@ function disable() {
 
 
 function possibleMoves(id, check_pin = false, for_checkmate = false) {
-    if (id.startsWith(turn) && check_pin && !for_checkmate && !id.includes('king')) {
-        if (isPiecePinned(id)) {
-            return []
-        }
-    }
     let offsets = null
     if (id.includes('king')) {
         offsets = king(id)
@@ -954,6 +949,13 @@ function possibleMoves(id, check_pin = false, for_checkmate = false) {
 
     if(is_under_check && !(id.includes('king')) && id.startsWith(turn)) {
         moves = moves.filter( e => check_path.includes(e))
+    }
+    if (id.startsWith(turn) && check_pin && !for_checkmate && !id.includes('king')) {
+        const a = isPiecePinned(id)
+        const pin = a[0], pin_path = a[1]
+        if (pin) {
+            moves = moves.filter( e => pin_path.includes(e))
+        }
     }
     return moves
 }
@@ -1486,7 +1488,82 @@ function calculate_check_path(piece, my_king) {
             return
         }
     }
+}
 
+function calculatePinPath(piece, my_king) {
+    const pin_path = [piece.parentNode.id]
+    const piece_id = piece.id
+    const piece_position = piece.parentNode.id
+    const piece_position_arr = [ranks[piece_position[1]], files[piece_position[0]]]
+    const king_position = my_king.parentNode.id
+    const king_position_arr = [ranks[king_position[1]], files[king_position[0]]]
+
+
+    if (piece_id.includes('knight')) {
+        return pin_path
+    }
+
+    if ((king_position_arr[0] - piece_position_arr[0]) === 0) {
+        const offsets  = [1,-1]
+        for (offset of offsets) {
+            let file_possible = piece_position_arr[1] + offset
+            while (file_possible != king_position_arr[1] && ((file_possible < 8) && (file_possible >= 0))) {
+                pin_path.push(files_rev[file_possible] + ranks_rev[king_position_arr[0]])
+                file_possible = file_possible + offset
+            }
+            file_possible = file_possible + offset
+        }
+        return pin_path
+    }
+
+    else if ((king_position_arr[1] - piece_position_arr[1]) === 0) {
+        const offsets  = [1, -1]
+        for (offset of offsets) {
+            let rank_possible = piece_position_arr[0] + offset
+            while (rank_possible != king_position_arr[0] && ((rank_possible < 8) && (rank_possible >= 0))) {
+                pin_path.push(files_rev[king_position_arr[1]] + ranks_rev[rank_possible])
+                rank_possible = rank_possible + offset
+            }
+            rank_possible = rank_possible + offset
+        }
+        return pin_path
+    }
+
+    else if (((king_position_arr[1] - piece_position_arr[1]) / (king_position_arr[0] - piece_position_arr[0])) === 1) {
+        const offsets  = [-1, 1]
+        for (offset of offsets) {
+            let file_possible = piece_position_arr[1] + offset
+            let rank_possible = piece_position_arr[0] + offset
+            while (file_possible != king_position_arr[1] && ((rank_possible < 8) && (rank_possible >= 0)) && ((file_possible < 8) && (file_possible >= 0))) {
+                pin_path.push(files_rev[file_possible] + ranks_rev[rank_possible])
+                rank_possible = rank_possible + offset
+                file_possible = file_possible + offset
+            }
+            rank_possible = rank_possible + offset
+            file_possible = file_possible + offset
+        }
+        return pin_path
+    }
+
+    else if (((king_position_arr[1] - piece_position_arr[1]) / (king_position_arr[0] - piece_position_arr[0])) === -1) {
+        if ((king_position_arr[0] < piece_position_arr[0])) {
+            const offsets = [[-1,1],[1,-1]]
+            for(offset of offsets) {
+                const rank_offset = offset[0]
+                const file_offset  = offset[1]
+                let file_possible = piece_position_arr[1] + file_offset
+                let rank_possible = piece_position_arr[0] + rank_offset
+                while (file_possible != king_position_arr[1] ((rank_possible < 8) && (rank_possible >= 0)) && ((file_possible < 8) && (file_possible >= 0))) {
+                    pin_path.push(files_rev[file_possible] + ranks_rev[rank_possible])
+                    rank_possible = rank_possible + rank_offset
+                    file_possible = file_possible + file_offset
+                }
+                rank_possible = rank_possible + rank_offset
+                file_possible = file_possible + file_offset
+            }
+            return pin_path
+        }
+    }
 }
 
 
@@ -1521,6 +1598,7 @@ function checkmate(player) {
 
 
 function isPiecePinned(p) {
+    let pin_path = null
     const piece_to_check = document.querySelector('#'+p)
     const piece_to_check_parent = piece_to_check.parentNode
     piece_to_check_parent.removeChild(piece_to_check)
@@ -1532,13 +1610,14 @@ function isPiecePinned(p) {
         opponent_pieces.forEach(e => {
             const __moves = allPossibleMoves(e.id)
             if (__moves.includes(my_king.parentNode.id)) {
+                pin_path = calculatePinPath(e, my_king)
                 throw 'BreakException'
             }
         })
     }
     catch (e) {
         if (e === 'BreakException') {
-            return true
+            return [true, pin_path]
         }
         else{
             throw e
@@ -1547,7 +1626,7 @@ function isPiecePinned(p) {
     finally {
         piece_to_check_parent.appendChild(piece_to_check)
     }
-    return false
+    return [false, pin_path]
 }
 
 function allPossibleMoves(id) {
