@@ -2388,7 +2388,7 @@ hr{
             position: absolute;
             top: 50%;
             right: 50%;
-            transform: translate(-50%, -50%) scale(1.0);
+            transform: translate(-50%, -120%) scale(1.0);
         }
     }
 
@@ -2397,7 +2397,7 @@ hr{
             position: absolute;
             top: 50%;
             right: 50%;
-            -moz-transform: translate(-50%, -50%) scale(1.0);
+            -moz-transform: translate(-50%, -120%) scale(1.0);
         }
     }
 
@@ -2406,7 +2406,7 @@ hr{
             position: absolute;
             top: 50%;
             right: 50%;
-            -webkit-transform: translate(-50%, -50%) scale(1.0);
+            -webkit-transform: translate(-50%, -120%) scale(1.0);
         }
     }
 
