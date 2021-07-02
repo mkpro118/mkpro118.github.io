@@ -2202,24 +2202,24 @@ hr{
     .chesscom-style,
     .chesscom-style-highlight,
     .lichess-style-highlight{
-        height: 5vw;
-        width: 5vw;
+        height: 7vw;
+        width: 7vw;
     }
 
     .lichess-style,
     .lichess-style-highlight{
-        background-size: 5vw;
+        background-size: 7vw;
     }
 
     .divider{
         margin-top: 0vw;
-        height: 7vw;
+        height: 9vw;
         width: 0.11vw;
     }
 
     .chesscom-style,
     .chesscom-style-highlight{
-        background-size: 5vw;
+        background-size: 7vw;
     }
 
     .chesscom-style-highlight,
