@@ -274,6 +274,10 @@ rematch.addEventListener('click', e => {
     timer = null
 
     document.querySelector('#winner').style.display = 'none'
+    const progress_bars = document.querySelectorAll('#black-timer-progress, #white-timer-progress')
+    progress_bars.forEach(e => {
+        e.style.width = '100%'
+    })
     disable()
 })
 
@@ -712,6 +716,7 @@ function moveToEmptySquare(data, to, target, parent) {
         target.appendChild(promotion)
         _move_ = _move_+'=Q'
         document.getElementById(parent).removeChild(document.getElementById(data))
+        is_promoting = false
     } else {
         target.appendChild(document.getElementById(data))
     }
@@ -917,10 +922,6 @@ function possibleMoves(id, check_pin = false, for_checkmate = false) {
                             }
                         }
                         if (opponent_moves.includes(move)) {
-                            // let check_path
-                            // if (is_under_check) {
-                            //     check_path =
-                            // }
                             rejected_moves.add(move)
                         }
                     }
