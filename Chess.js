@@ -1,5 +1,6 @@
 let turn = 'white'
 let is_under_check = false
+let checking_piece = null
 let check_path = []
 let double_check = false
 
@@ -499,7 +500,7 @@ function drop(event) {
         if (e.className.includes('check')) {
             e.classList.remove(`check-${square_type}`)
             is_under_check = false
-
+            checking_piece = null
         }
     })
     is_opponent_king_under_attack()
@@ -957,7 +958,7 @@ function possibleMoves(id, check_pin = false, for_checkmate = false) {
         moves = moves.filter( e => check_path.includes(e))
     }
     if(is_under_check && (id.includes('king')) &&  id.startsWith(turn)) {
-        moves = moves.filter( e => !check_path.includes(e))
+        moves = moves.filter( e => !(check_path.includes(e) && (e !== checking_piece.parentNode.id)))
     }
     if (id.startsWith(turn) && check_pin && !for_checkmate && !id.includes('king')) {
         const a = isPiecePinned(id)
@@ -1357,6 +1358,7 @@ function is_opponent_king_under_attack() {
                 is_under_check = true
                 my_king.parentNode.classList.add('check-'+my_king.parentNode.className.split('-')[1])
                 if (check_counter === 1) {
+                    checking_piece = e
                     calculate_check_path(e, my_king)
                 }
                 if (check_counter === 2) {
