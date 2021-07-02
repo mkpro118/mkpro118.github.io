@@ -882,7 +882,7 @@ function disable() {
 }
 
 
-function possibleMoves(id) {
+function possibleMoves(id, for_checkmate=false) {
     let offsets = null
     if (id.includes('king')) {
         offsets = king(id)
@@ -992,7 +992,7 @@ function possibleMoves(id) {
     if(is_under_check && (id.includes('king')) &&  id.startsWith(turn)) {
         moves = moves.filter( e => !(check_path.includes(e) && (e !== checking_piece.parentNode.id)))
     }
-    if (id.startsWith(turn) && !id.includes('king')) {
+    if (id.startsWith(turn) && !id.includes('king') && !for_checkmate) {
         const a = isPiecePinned(id)
         const pin = a[0], pin_path = a[1]
         if (pin) {
@@ -1616,7 +1616,7 @@ function checkmate(player) {
     const pieces = document.querySelectorAll(`img[id^=${player}]`)
     const possible_moves_set = new Set()
     pieces.forEach(e => {
-        const possible_moves_per_piece = allPossibleMoves(e.id)
+        const possible_moves_per_piece = possibleMoves(e.id, true)
         for (var i = 0; i < possible_moves_per_piece.length; i++) {
             possible_moves_set.add(possible_moves_per_piece[i])
         }
