@@ -456,7 +456,7 @@ ol > li::before {
     content: "" counter(numbers) ".";
     text-align: center;
     font-family: Helvetica;
-    font-size: 1.4vw;
+    font-size: 1.25vw;
     color: #202422;
     display: table-cell;
     align-items: flex-start;
@@ -469,7 +469,7 @@ div.move-white{
     display: table-cell;
     text-align: center;
     font-family: Helvetica;
-    font-size: 1.4vw;
+    font-size: 1.25vw;
     color: #dddddd;
     align-self: center;
     width: 40%;
@@ -479,7 +479,7 @@ div.move-black{
     display: table-cell;
     text-align: center;
     font-family: Helvetica;
-    font-size: 1.4vw;
+    font-size: 1.25vw;
     color: #dddddd;
     align-self: center;
     width: 40%;
@@ -1066,7 +1066,7 @@ hr{
     }
 
     ol > li::before {
-    font-size: 2vw;
+    font-size: 1.75vw;
     }
 
 
@@ -1077,12 +1077,12 @@ hr{
     }
 
     div.move-white{
-        font-size: 2vw;
+        font-size: 1.75vw;
         width: 40%;
     }
 
     div.move-black{
-        font-size: 2vw;
+        font-size: 1.75vw;
         width: 40%;
     }
 
@@ -1386,15 +1386,15 @@ hr{
     }
 
     ol > li::before {
-        font-size: 2vw;
+        font-size: 1.75vw;
     }
 
     div.move-white{
-        font-size: 2vw;
+        font-size: 1.75vw;
     }
 
     div.move-black{
-        font-size: 2vw;
+        font-size: 1.75vw;
     }
 
     .tools-container{
@@ -1753,15 +1753,15 @@ hr{
     }
 
     ol > li::before {
-        font-size: 2.5vw;
+        font-size: 2.25vw;
     }
 
     div.move-white{
-        font-size: 2.5vw;
+        font-size: 2.25vw;
     }
 
     div.move-black{
-        font-size: 2.5vw;
+        font-size: 2.25vw;
     }
 
     .tools-container{
@@ -2149,15 +2149,15 @@ hr{
 
     ol > li::before {
         font-family: Helvetica;
-        font-size: 2.5vw;
+        font-size: 2.3vw;
     }
 
     div.move-white{
-        font-size: 2.5vw;
+        font-size: 2.3vw;
     }
 
     div.move-black{
-        font-size: 2.5vw;
+        font-size: 2.3vw;
     }
 
     .tools-container{
