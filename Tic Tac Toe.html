@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tic Tac Toe</title>
+        <link rel="stylesheet" href="Tic Tac Toe.css">
+        <script src="Tic Tac Toe.js" defer></script>
+    </head>
+    <body>
+    <section class="main">
+        <noscript>
+            <p style="height: 100%; width: 100%; font-size: 4rem; display:flex;justify-content: center; align-items: center; class: #FFF">
+            Sorry we cannot render this game without Javascript!<br> Please enable JavaScript to play the game</p>
+        </noscript>
+        <div class="result">
+            <p></p>
+        </div>
+    </section>
+    <section class="sidebar">
+        <aside>
+            <div class="upper-header">
+                <svg height="100%" width="100%">
+                    <rect x="0%" y="0%" width="100%" height="100%" style="fill:black;z-index: 1;" />
+                    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" style="font-size:3rem; stroke:#0AF;stroke-width:0.5%;fill:#0AF;z-index: 2;">Play Against</text>
+                </svg>
+            </div>
+            <div class="upper">
+                <div class="left">
+                    <svg id="choice-ai-svg" height="100%" width="100%">
+                        <rect id="choice-ai-rect" x="0%" y="0%" width="100%" height="100%" style="stroke:#999;stroke-width:10%;fill:none;z-index: 1;" />
+                        <rect x="0%" y="0%" width="100%" height="100%" style="stroke:grey;stroke-width:2%;fill:none;z-index: 2;" />
+                        <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" style="font-size:4rem; stroke:#0DF;stroke-width:1%;fill:#1EF;z-index: 3;">AI</text>
+                    </svg>
+                </div>
+                <div class="right">
+                    <svg id="choice-pvp-svg" height="100%" width="100%">
+                        <rect id="choice-pvp-rect" x="0%" y="0%" width="100%" height="100%" style="stroke:#999;stroke-width:2%;fill:none;z-index: 1;" />
+                        <rect x="0%" y="0%" width="100%" height="100%" style="stroke:grey;stroke-width:2%;fill:none;z-index: 2;" />
+                        <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" style="font-size:4rem; stroke:#0DF;stroke-width:1%;fill:none;z-index: 3;">PvP</text>
+                    </svg>
+                </div>
+            </div>
+            <div class="lower-header">
+                <svg height="100%" width="100%">
+                    <rect x="0%" y="0%" width="100%" height="100%" style="fill:black;z-index: 1;" />
+                    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" style="font-size:3rem; stroke:#1E4;stroke-width:0.5%;fill:#1E4;z-index: 2;">Play As</text>
+                </svg>
+            </div>
+            <div class="lower">
+                <div class="left">
+                    <x-marker id="choice-x"></x-marker>
+                </div>
+                <div class="right">
+                    <o-marker id="choice-o"></o-marker>
+                </div>
+            </div>
+        </aside>
+        <a class="btn">
+            <span>
+                RESET
+            </span>
+            <span aria-hidden="true">
+                RESET
+            </span>
+        </a>
+    </section>
+    </body>
+</html>
