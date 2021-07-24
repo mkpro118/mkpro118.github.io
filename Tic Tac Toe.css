@@ -52,6 +52,7 @@ body{
 }
 
 .result p{
+    color: white;
     font-size: 4rem;
     z-index: 101;
 }
