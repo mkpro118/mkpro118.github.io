@@ -151,7 +151,7 @@ class AI {
             for (let j = 0; j < 3; j++) {
                 if (this.board[i][j] === '') {
                     this.board[i][j] = this.ai
-                    let score = this.minimax(false)
+                    let score = this.minimax(false, 0)
                     this.board[i][j] = ''
                     if (score > best_score) {
                         best_score = score
@@ -164,14 +164,14 @@ class AI {
         return best_move
     }
 
-    minimax(is_max){
+    minimax(is_max, depth){
         let result = this.simulated_winner()
         if (result) {
             if (result === this.ai) {
-                return 1
+                return 1 * (10 - depth)
             }
             else if (result === this.opponent) {
-                return -1
+                return -1 * (10 - depth)
             }
             else {
                 return 0
@@ -184,7 +184,7 @@ class AI {
             for (let j = 0; j < 3; j++) {
                 if (this.board[i][j] === '') {
                     this.board[i][j] = is_max ? this.ai : this.opponent
-                    let score = this.minimax(!is_max)
+                    let score = this.minimax(!is_max, depth + 1)
                     this.board[i][j] = ''
                     best_score = is_max ? Math.max(score, best_score) : Math.min(score, best_score)
                 }
