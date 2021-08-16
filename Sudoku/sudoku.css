@@ -1,0 +1,65 @@
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root,
+body{
+    height: 100%;
+    width: 100%;
+}
+
+.page-container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: hsl(206, 55%, 15%);
+    flex-direction: column;
+}
+
+.main-content{
+    height: 75vw;
+    width: 75vw;
+    background: hsl(206, 55%, 11%);
+}
+
+.numbers{
+    height: 8%;
+    width: 80%;
+    background: hsl(208 40% 18%);
+}
+
+.tools{
+    height: 6.9%;
+    width: 50%;
+    background: hsl(206 24% 66%);
+}
+
+/* sudoku-board{
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    background: green;
+    height: 100%;
+    width: 100%;
+    grid-gap: 10px;
+    gap: 10px;
+    position: relative;
+    z-index: 10;
+} */
+
+sudoku-board::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: hsl(200 89% 60%);
+    z-index: 100;
+}
