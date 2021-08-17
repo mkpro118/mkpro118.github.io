@@ -1,6 +1,14 @@
+# An amazing library which is the sole reason
+# why this program has been written in python
 import numpy as np
 import random
 
+
+# Hard-coded the starting point because it's
+# faster than anything else
+
+# Step 1: Starting point
+# A known solved 2d array for Sudoku
 sudo_list = np.array([
     [1, 2, 3, 4, 5, 6, 7, 8, 9],
     [4, 5, 6, 7, 8, 9, 1, 2, 3],
@@ -14,44 +22,69 @@ sudo_list = np.array([
 ])
 
 
-
-def r(m, n, t=False):
+# A Random Shuffler function to dry up the code
+def shuffle_list(start, end, transpose=False):
+    # Need this to modify the global scoped sudo_list
     global sudo_list
-    if t:
-        np.random.shuffle(np.transpose(sudo_list[:, m:n]))
+
+    if transpose:
+        # np coming in handy
+        np.random.shuffle(np.transpose(sudo_list[:, start:end]))
     else:
-        np.random.shuffle(sudo_list[m:n, :])
-        
+        np.random.shuffle(sudo_list[start:end, :])
 
+
+# A unique sudoku generator
 def sudokuGenerator():
+    # Multiple for blocks used to increase randomness
+    # Throw-away variables used for the loops to increase speed
+
+    # Needed to modify the global scoped sudo_list
     global sudo_list
-    # Step 3: Shuffling Col 1-3
+
+    # Anywhere between 5 to 10 random shuffling
+    # for every step
+
+    # Shuffling happens in 8 different manners
+
+    # Step 2: Shuffling Col 1-3
     for _ in range(random.randint(5, 10)):
-        r(0,3,True)
-    # Step 4: Shuffling Col 4-6
+        shuffle_list(0, 3, True)
+
+    # Step 3: Shuffling Col 4-6
     for _ in range(random.randint(5, 10)):
-        r(3,6,True)
-    # Step 5: Shuffling Col 7-9
+        shuffle_list(3, 6, True)
+
+    # Step 4: Shuffling Col 7-9
     for _ in range(random.randint(5, 10)):
-        r(6,9,True)
-    # Step 6: Shuffling Row 1-3
+        shuffle_list(6, 9, True)
+
+    # Step 5: Shuffling Row 1-3
     for _ in range(random.randint(5, 10)):
-        r(0,3)
-    # Step 7: Shuffling Row 4-6
+        shuffle_list(0, 3)
+
+    # Step 6: Shuffling Row 4-6
     for _ in range(random.randint(5, 10)):
-        r(3,6)
-    # Step 8: Shuffling Row 7-9
+        shuffle_list(3, 6)
+
+    # Step 7: Shuffling Row 7-9
     for _ in range(random.randint(5, 10)):
-        r(6,9)
-    # Step 9: Shuffling rows in sets of 3
+        shuffle_list(6, 9)
+
+    # Step 8: Shuffling rows in sets of 3 (3x9)
     rows = np.array_split(sudo_list, 3)
     for _ in range(random.randint(5, 10)):
+        # not using numpy's random function because
+        # rows is a list, not a np.ndarray
         random.shuffle(rows)
     sudo_list = np.vstack(rows)
-    # Step 10: Shuffling columns in sets of 3
-    col = np.array_split(sudo_list.T, 3)
+
+    # Step 9: Shuffling columns in sets of 3 (9x3)
+    cols = np.array_split(sudo_list.T, 3)
     for _ in range(random.randint(5, 10)):
-        random.shuffle(col)
-    sudo_list = np.vstack(col)
+        # not using numpy function because cols
+        # is a list, not a np.ndarray
+        random.shuffle(cols)
+    sudo_list = np.vstack(cols)
 
     return sudo_list
