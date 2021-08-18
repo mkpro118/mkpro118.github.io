@@ -1,0 +1,94 @@
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background: linear-gradient(-45deg, hsl(214 88% 45%), hsl(169 69% 42.0%));
+    color: darkslategray;
+}
+
+.inputs{
+    height: 30%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.outputs{
+    height: 69%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+table{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.url-count{
+    height: 60%;
+    width: 40%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+
+button {
+    background: transparent;
+    font-size: 1.420rem;
+    padding: 0.3em 0.6em;
+    border-radius: 10%;
+    border: 2px solid darkslategray;
+    color: darkslategray;
+    position: relative;
+}
+
+button:hover{
+    background: darkslategray;
+    color: hsl(190 83% 52%);
+}
+
+label{
+    color: hsl(0 0% 10%);
+    float: right;
+    font-size: 1.3rem;
+    user-select: none;
+}
+
+.params{
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+input,
+input:focus,
+input:active,
+textarea,
+textarea:focus,
+textarea:active {
+    background: hsl(0 0% 25%);
+    outline: none;
+    border: none;
+    color: hsl(0 0% 90%);
+}
