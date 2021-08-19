@@ -23,8 +23,8 @@ body{
 }
 
 .main-content{
-    height: 75vw;
-    width: 75vw;
+    height: 75vh;
+    width: 75vh;
     background: hsl(206, 55%, 11%);
 }
 
@@ -62,4 +62,15 @@ sudoku-board::before{
     bottom: 0;
     background: hsl(200 89% 60%);
     z-index: 100;
+}
+
+sub-grid::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: hsl(200 64% 24%);
+    z-index: 500;
 }
