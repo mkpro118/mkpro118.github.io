@@ -2,7 +2,9 @@
 # why this program has been written in python
 import numpy as np
 import random
+import itertools
 
+correct = list(range(1,10))
 
 # Hard-coded the starting point because it's
 # faster than anything else
@@ -87,4 +89,31 @@ def sudokuGenerator():
         random.shuffle(cols)
     sudo_list = np.vstack(cols)
 
-    return sudo_list
+    return sudo_list.tolist()
+
+
+# Sudoku Solution Validator.
+# Called if provided solution differs
+# from generated sudoku.
+def sudokuCheck(rows):
+    # Creates list of all columns
+    cols = [col for col in list(zip(*rows))]
+    squares, mr, mc, ms = [], [], [], []
+    # Creates list of all squares
+    for i in range(0, 9, 3):
+        for j in range(0, 9, 3):
+          squares.append(list(itertools.chain(*[row[j:j+3] for row in rows[i:i+3]])))
+    
+    for number, row in enumerate(rows, 1):
+        if not (correct == sorted(row)):
+            mr.append(number)
+    for number, col in enumerate(cols, 1):
+        if not (correct == sorted(col)):
+            mc.append(number)
+    for number, square in enumerate(squares, 1):
+        if not (correct == sorted(square)):
+            ms.append(number)
+    return {'rows': mr, 'cols': mc, 'squares': ms,}
+
+if __name__ == '__main__':
+    print(sudokuCheck(sudokuGenerator()))
