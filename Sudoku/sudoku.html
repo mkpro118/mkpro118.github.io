@@ -8,8 +8,46 @@
         <script type="text/javascript" src="./sudoku.js" defer></script>
     </head>
     <body>
+        <noscript>
+            <section class="page-container">
+                Cannot Render Without Javascript
+            </section>
+        </noscript>
         <section class="page-container">
-            This is for Sudoku
+            <main class="main-content">
+                <sudoku-board>
+
+                </sudoku-board>
+            </main>
+            <section class="numbers">
+                <game-numbers>
+
+                </game-numbers>
+            </section>
+            <footer class="tools">
+                <game-tools>
+
+                </game-tools>
+            </footer>
         </section>
     </body>
 </html>
+
+
+<!--
+
+main-grid lines is hsl(200 89% 60%)
+sub-grid lines is hsl(200 64% 24%)
+circle background color is hsl(208 40% 18%)
+inside circle text-color is hsl(206 24% 66%)
+
+lower buttons circle border is hsl(206 31% 31%)
+lower buttons circles innert tect-color is hsl(208 16% 88%)
+
+any number filled by user not in focus text-color is hsl(198 55% 81%)
+
+on focus of number, user input background color is hsl(198 54% 75%)
+on focus of number, all other similar number's background is hsl(198 54% 50%)
+
+on incorrect value background is hsl(0 69% 82%)
+-->
