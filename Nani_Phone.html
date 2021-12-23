@@ -17,6 +17,9 @@
             height: 100%;
             width: 100%;
             background: #333;
+            webkit-height: 100%;
+            webkit-width: 100%;
+            webkit-background: #333;
         }
 
         div,
@@ -24,6 +27,8 @@
         embed {
             position: absolute;
             inset: 0;
+            webkit-position: absolute;
+            webkit-inset: 0;
         }
 
     </style>
@@ -31,7 +36,7 @@
 <body>
     <div>
         <object data="./NPPDF.pdf" type="application/pdf" height="100%", width="100%">
-<!--             <embed src="./__data/फ़ोन.pdf" type="application/pdf" height="100%", width="100%"> -->
+            <embed src="./NPPDF.pdf" type="application/pdf" height="100%", width="100%">
         </object>
     </div>
 
