@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PHONE</title>
+    <title>Phone Tricks</title>
     <style>
         *,
         *::before,
@@ -13,137 +13,101 @@
             box-sizing: border-box;
         }
 
-        :root, body {
-            height: 100%;
+        :root, body{
             width: 100%;
+            height: 100%;
             background: #333;
-            webkit-height: 100%;
-            webkit-width: 100%;
-            webkit-background: #333;
+            color: #DDD;
+            font-size: 5vw;
+            text-align: center;
         }
 
-        div,
-        object,
-        embed {
-            position: absolute;
-            inset: 0;
-            webkit-position: absolute;
-            webkit-inset: 0;
+        ul {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        li {
+            margin: 15px;
+            font-size: 21px;
+            text-decoration: underline;
+            font-weight: bold;
+            color: #0D9;
+        }
+
+        span {
+            letter-spacing: 1.2px;
+            margin: 5px auto;
+            text-align: center;
+            display: inline-block;
+        }
+
+        hr {
+            margin-top: 4px;
+        }
+
+        summary {
+            list-style: none;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary {
+            padding: 0.4rem 0.8rem;
+            background: #09D;
+            width: max-content;
+            margin: auto;
+            border-radius: 999px;
+        }
+
+        div[class] {
+            margin: 20px auto;
         }
 
     </style>
+    <script src="https://cdn.jsdelivr.net/gh/mkpro118/MKQuery/MKQuery.js"></script>
 </head>
 <body>
-    <script src="//mozilla.github.io/pdf.js/build/pdf.js"></script>
-<div>
-  <button id="prev">Previous</button>
-  <button id="next">Next</button>
-  &nbsp; &nbsp;
-  <span>Page: <span id="page_num"></span> / <span id="page_count"></span></span>
-</div>
-
-<canvas id="the-canvas"></canvas>
+    <div class="live-location">
+        <details>
+            <summary id="first" translate="yes">Live Location</summary>
+            <ul style="list-style: none;">
+                <li><span>Step 1</span> <br> <img loading="lazy" src="https://i.imgur.com/xxwX48N.jpg" alt="P1" width="360"><hr></li>
+                <li><span>Step 2</span> <br> <img loading="lazy" src="https://i.imgur.com/RnO67Zj.jpg" alt="P2" width="360"><hr></li>
+                <li><span>Step 3</span> <br> <img loading="lazy" src="https://i.imgur.com/UHrCbZt.jpg" alt="P3" width="360"></li>
+            </ul>
+        </details>
+    </div>
+    <div class="contact">
+        <details>
+            <summary id="second" translate="yes">Add New Whatsapp Contact</summary>
+            <ul style="list-style: none;">
+                <li><span>Step 1</span> <br> <img loading="lazy" src="https://i.imgur.com/y7mkSRp.jpg" alt="P1" width="360"><hr></li>
+                <li><span>Step 2</span> <br> <img loading="lazy" src="https://i.imgur.com/WKolcDH.jpg" alt="P2" width="360"></li>
+            </ul>
+        </details>
+    </div>
+    <div class="call">
+        <details>
+            <summary id="third" translate="yes">Send A Contact While On A Phone Call</summary>
+            <ul style="list-style: none;">
+                <li><span>Step 1</span> <br> <img loading="lazy" src="https://i.imgur.com/FFqGX71.jpg" alt="P1" width="360"><hr></li>
+                <li><span>Step 2</span> <br> <img loading="lazy" src="https://i.imgur.com/8pwYT4J.jpg" alt="P2" width="360"><hr></li>
+                <li><span>Step 3</span> <br> <img loading="lazy" src="https://i.imgur.com/vJhvXo7.jpg" alt="P3" width="360"><hr></li>
+                <li><span>Step 4</span> <br> <img loading="lazy" src="https://i.imgur.com/YOTApwA.jpg" alt="P4" width="360"></li>
+            </ul>
+        </details>
+    </div>
     <script>
-// If absolute URL from the remote server is provided, configure the CORS
-// header on that server.
-var url = './NPPDF.pdf';
-
-// Loaded via <script> tag, create shortcut to access PDF.js exports.
-var pdfjsLib = window['pdfjs-dist/build/pdf'];
-
-// The workerSrc property shall be specified.
-pdfjsLib.GlobalWorkerOptions.workerSrc = '//mozilla.github.io/pdf.js/build/pdf.worker.js';
-
-var pdfDoc = null,
-    pageNum = 1,
-    pageRendering = false,
-    pageNumPending = null,
-    scale = 0.8,
-    canvas = document.getElementById('the-canvas'),
-    ctx = canvas.getContext('2d');
-
-/**
- * Get page info from document, resize canvas accordingly, and render page.
- * @param num Page number.
- */
-function renderPage(num) {
-  pageRendering = true;
-  // Using promise to fetch the page
-  pdfDoc.getPage(num).then(function(page) {
-    var viewport = page.getViewport({scale: scale});
-    canvas.height = viewport.height;
-    canvas.width = viewport.width;
-
-    // Render PDF page into canvas context
-    var renderContext = {
-      canvasContext: ctx,
-      viewport: viewport
-    };
-    var renderTask = page.render(renderContext);
-
-    // Wait for rendering to finish
-    renderTask.promise.then(function() {
-      pageRendering = false;
-      if (pageNumPending !== null) {
-        // New page rendering is pending
-        renderPage(pageNumPending);
-        pageNumPending = null;
-      }
-    });
-  });
-
-  // Update page counters
-  document.getElementById('page_num').textContent = num;
-}
-
-/**
- * If another page rendering in progress, waits until the rendering is
- * finised. Otherwise, executes rendering immediately.
- */
-function queueRenderPage(num) {
-  if (pageRendering) {
-    pageNumPending = num;
-  } else {
-    renderPage(num);
-  }
-}
-
-/**
- * Displays previous page.
- */
-function onPrevPage() {
-  if (pageNum <= 1) {
-    return;
-  }
-  pageNum--;
-  queueRenderPage(pageNum);
-}
-document.getElementById('prev').addEventListener('click', onPrevPage);
-
-/**
- * Displays next page.
- */
-function onNextPage() {
-  if (pageNum >= pdfDoc.numPages) {
-    return;
-  }
-  pageNum++;
-  queueRenderPage(pageNum);
-}
-document.getElementById('next').addEventListener('click', onNextPage);
-
-/**
- * Asynchronously downloads PDF.
- */
-pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
-  pdfDoc = pdfDoc_;
-  document.getElementById('page_count').textContent = pdfDoc.numPages;
-
-  // Initial/first page rendering
-  renderPage(pageNum);
-});
-        
+        $('details > summary').on('click', event => {
+            event.stopPropagation()
+            const id = event.target.id
+            $(`details[open] > summary:not(#${id})`).each(_ => _.parentNode.removeAttribute('open'))
+        })
     </script>
-
 </body>
 </html>
