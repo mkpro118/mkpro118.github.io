@@ -6,7 +6,6 @@ const about_section = document.querySelector('section.about')
 const about_tab = document.querySelector('[data-tab="about"]')
 
 document.querySelectorAll('.tabs-list > li').forEach(e => {
-    console.log('yooo')
     e.addEventListener('click', function() {
         const active_section = this.dataset.tab
         console.log(active_section)
