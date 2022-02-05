@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SDC - UW</title>
     <link rel="stylesheet" href="./styles.css">
-    <script src="./script.js"></script>
+    <script src="./script.js" defer></script>
 </head>
 <body>
     <header>
@@ -43,14 +43,20 @@
     <main>
         <aside class="tabs">
             <ul class="tabs-list">
-                <li class="active-tab">Home</li>
-                <li>Projects</li>
-                <li>About</li>
+                <li class="active-tab" data-tab="home">Home</li>
+                <li data-tab="projects">Projects</li>
+                <li data-tab="about">About</li>
             </ul>
         </aside>
-        <section class="home"></section>
-        <section class="projects"></section>
-        <section class="about"></section>
+        <section class="home active-section">
+            Home Stuff, will add later
+        </section>
+        <section class="projects">
+            Project Stuff, will add later
+        </section>
+        <section class="about">
+            About Stuff, will add later
+        </section>
     </main>
     <footer>
 
