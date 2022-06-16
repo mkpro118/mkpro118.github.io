@@ -1,0 +1,378 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    --bg-color: black;
+    --text-color: #666666;
+    background: var(--bg-color);
+    color: var(--text-color);
+    font-size: 1.2rem;
+    font-family: 'Roboto', sans-serif;
+    user-select: none;
+}
+
+header {
+    text-align: center;
+    height: 8vh;
+    background: royalblue;
+    font-size: 1.5em;
+    display: grid;
+    place-items: center;
+    color: #DDD;
+}
+
+footer {
+    text-align: center;
+    height: 5vh;
+    background: indianred;
+    font-size: 0.8em;
+    display: grid;
+    place-items: center;
+    color: black;
+}
+
+main {
+    height: calc(100% - 12vh);
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+span[data-role="confetti"] {
+    border-radius: 999px;
+    display: inline-block;
+    position: absolute;
+    z-index: 100;
+}
+
+.move-confetti {
+    animation: moveConfetti 1s cubic-bezier(.8,1.1,.9,.96);
+    animation-delay: var(--delay);
+}
+
+@keyframes moveConfetti {
+    0% {
+        transform: translate(0px, 0px) var(--rotate);
+        opacity: 1;
+    }
+
+    90% {
+        transform: translate(calc(0.95 * var(--distance)), -150px) var(--rotate);
+        opacity: 0.5;
+    }
+
+    92% {
+        transform: translate(calc(0.96 * var(--distance)), -148px) var(--rotate);
+        opacity: 0.4;
+    }
+
+    95% {
+        transform: translate(calc(0.98 * var(--distance)), -145px) var(--rotate);
+        opacity: 0.2;
+    }
+
+    98% {
+        transform: translate(calc(0.99 * var(--distance)), -142px) var(--rotate);
+        opacity: 0.1;
+    }
+
+    100% {
+        transform: translate(var(--distance), -120px) var(--rotate);
+        opacity: 0;
+    }
+}
+
+section[data-container] {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+section[data-role="display"] {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 5;
+}
+
+div[data-role="happy"], div[data-role="bday"], div[data-role="pops"] {
+    text-transform: uppercase;
+    width: 100%;
+    flex: 1;
+    color: var(--text-color);
+}
+
+div[data-role="next-container"] { flex: 1.5; }
+
+div[data-role="happy"], div[data-role="bday"] {
+    display: grid;
+    place-items: center;
+}
+
+div[data-role="happy"] > span[data-role="text"].animate-scale {
+    animation: HappyAnimation 3s ease-in-out forwards;
+}
+
+@keyframes HappyAnimation {
+    from {
+        transform: scale(0);
+        opacity: 0.5;
+    }
+
+    to {
+        transform: scale(5);
+        opacity: 1;
+    }
+}
+
+div[data-role="bday"] {
+    /* flex: 0.5; */
+    /* background: green; */
+    font-size: 4em;
+}
+
+
+div[data-role="bday"] > span[data-role="text"] {
+    position: relative;
+}
+
+span[data-role="mask"] {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    line-height: 100%;
+}
+
+div.mask-container {
+    display: flex;
+    flex: 1;
+}
+
+div.mask-container > span {
+    background: var(--bg-color);
+    display: block;
+    flex: 1;
+}
+
+div[data-role="pops"] {
+    flex: 1;
+    font-size: 6.5em;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    /* height: 100%; */
+    width: 100%;
+}
+
+div[data-role="flip-letter-container"] {
+    display: block;
+    height: 100%;
+    width: calc(100% / 4);
+    position: relative;
+    overflow: hidden;
+}
+
+span.flipping-letter, span.retained-letter {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: -100%;
+    left: 0;
+    display: grid;
+    place-items: center;
+}
+
+span.flipping-letter {
+    animation: FlippingAnimation 400ms cubic-bezier(0,.21,0,.5) var(--delay) forwards;
+}
+
+span.retained-letter {
+    animation: RetainedAnimation 400ms cubic-bezier(0,.21,0,.5) var(--delay) forwards;
+}
+
+@keyframes FlippingAnimation {
+    from {
+        top: -100%;
+    }
+
+    to {
+        top: 100%;
+    }
+}
+
+@keyframes RetainedAnimation {
+    from {
+        top: -100%;
+    }
+
+    to {
+        top: 0;
+    }
+}
+
+div[data-role="next-container"] {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    font-size: 1.4em;
+}
+
+span[data-role="next-text"] {
+    transform: translateX(-100%);
+    animation: NextTextAnimation 1s linear 10.2s forwards;
+    opacity: 0;
+}
+
+@keyframes NextTextAnimation {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: none;
+        opacity: 1;
+    }
+}
+
+button[data-role="next-btn"] {
+    padding: 0.7em 1em;
+    border: none;
+    outline: none;
+    border-radius: 999px;
+    background: skyblue;
+    color: var(--bg-color);
+    font-size: 0.69em;
+}
+
+span[data-role="next-btn-container"] {
+    width: 100%;
+    transform: translateX(100%);
+    animation: NextButtonAnimation 1s linear 10.2s forwards;
+    opacity: 0;
+}
+
+@keyframes NextButtonAnimation {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: none;
+        opacity: 1;
+    }
+}
+
+section[data-role="photos"] {
+    z-index: 4;
+    position: absolute;
+    inset: 0;
+    background: var(--bg-color);
+}
+
+section[data-role="photos"].active {
+    z-index: 6;
+}
+
+section[data-role="photos-container"] {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: none;
+}
+section[data-role="photos"].active section[data-role="photos-container"] {
+    display: flex;
+}
+
+section[data-role="photos"].active div[data-role="navigate-left"],
+section[data-role="photos"].active div[data-role="navigate-right"] {
+    z-index: 15;
+    height: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: transparent;
+}
+
+section[data-role="photos"].active div[data-role="navigate-left"] {
+    align-items: flex-start;
+}
+
+section[data-role="photos"].active div[data-role="navigate-right"] {
+    align-items: flex-end;
+}
+
+section[data-role="photos"].active div[data-role="navigate-left"] > svg{
+    margin-left: 15px;
+}
+
+section[data-role="photos"].active div[data-role="navigate-right"] > svg{
+    margin-right: 15px;
+}
+
+line[data-role="arrow-line"] {
+    stroke: #BBB;
+    stroke-width: 3px;
+}
+
+section[data-role="image-container"] {
+    position: absolute;
+    inset: 0;
+}
+
+section[data-role="images"] {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: grid;
+    place-items: center;
+}
+
+section[data-role="images"]::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--bg-url);
+    background-repeat: no-repeat;
+    background-size: 150%;
+    background-position: center;
+    filter: blur(10px);
+    z-index: 11;
+}
+
+section[data-role="images"] > img {
+    max-width: 90%;
+    max-height: 90%;
+    display: none;
+    box-shadow: 0 0 15px black;
+    border-radius: 10px;
+
+}
+
+
+
+section[data-role="images"] > img.active {
+    display: inline-block;
+    position: relative;
+    z-index: 12;
+}
