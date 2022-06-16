@@ -361,17 +361,15 @@ section[data-role="images"]::before {
 }
 
 section[data-role="images"] > img {
-    max-width: 90%;
-    max-height: 90%;
     display: none;
     box-shadow: 0 0 15px black;
     border-radius: 10px;
 
 }
 
-
-
 section[data-role="images"] > img.active {
+    max-width: 90% !important;
+    max-height: 90% !important;
     display: inline-block;
     position: relative;
     z-index: 12;
