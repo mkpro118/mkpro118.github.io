@@ -63,7 +63,6 @@ function validate(board) {
         row = row.filter(x => x !== 0)
 
         if (!check_appearance(row)) {
-            console.log('row')
             return false
         }
     }
@@ -77,7 +76,6 @@ function validate(board) {
         col = col.filter(x => x !== 0)
 
         if (!check_appearance(col)) {
-            console.log('col')
             return false
         }
     }
@@ -93,7 +91,6 @@ function validate(board) {
             sq = sq.filter(x => x !== 0)
 
             if (!check_appearance(sq)) {
-                console.log('sq')
                 return false
             }
         }
@@ -113,14 +110,12 @@ function find_open_spot(board) {
 
 function find_trial_values(board, row, col) {
     let no_no_list = board[row].filter(x => x !== 0)
-    console.log('no_no_list', no_no_list);
 
     for (let i = 0; i < 9; i++) {
         if (board[i][col] !== 0) {
             no_no_list.push(board[i][col])
         }
     }
-    console.log('no_no_list', no_no_list);
 
     const y = row - (row % 3)
     const x = col - (col % 3)
@@ -132,8 +127,6 @@ function find_trial_values(board, row, col) {
     ]
 
     no_no_list = [...sq.filter(x => x !== 0), ...no_no_list]
-
-    console.log('no_no_list', no_no_list);
 
     no_no_list = set(no_no_list)
 
