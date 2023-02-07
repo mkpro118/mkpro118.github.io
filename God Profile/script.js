@@ -51,4 +51,13 @@
         $('section[data-references]').removeClass('active')
         $('section[data-role="darken-bg"]').removeClass('active')
     })
+
+    $(event => {
+        console.log(event)
+        if (event.key === 'Escape') {
+            scrollTop()
+            $('section[data-role="darken-bg"]').removeClass('active')
+            $('section[data-detail]').removeClass('active')
+        }
+    }, {on: 'keydown'})
 })();
