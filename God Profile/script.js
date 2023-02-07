@@ -58,6 +58,7 @@
             scrollTop()
             $('section[data-role="darken-bg"]').removeClass('active')
             $('section[data-detail]').removeClass('active')
+            $('section[data-references]').removeClass('active')
         }
     }, {on: 'keydown'})
 })();
