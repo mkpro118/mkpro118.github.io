@@ -1,0 +1,529 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root, body {
+    height: 100%;
+    width: 100%;
+    font-size: 18px;
+    color: hsla(0, 0%, 5%, 0.6);
+    user-select: none;
+    font-family: 'Quicksand', sans-serif;
+
+
+    /* variables */
+
+    --header-height: 9vh;
+    --footer-height: 5vh;
+
+    /* colors */
+    --white: hsl(0, 0%, 90%);
+    --black: hsla(0, 0%, 10%, 0.6);
+
+    --light-orange: hsl(39, 90%, 50%, 0.7);
+    --orange: hsl(39, 90%, 50%, 0.75);
+
+    --light-green: hsl(100, 90%, 32%, 0.7);
+    --green: hsl(100, 90%, 32%, 0.75);
+
+    --light-violet: hsla(239, 28%, 55%, 0.85);
+    --violet: hsla(239, 28%, 45%, 0.9);
+
+    --light-blue: hsla(200, 100%, 50%, 0.7);
+    --blue: hsla(200, 100%, 50%, 0.9);
+
+    --light-pink: hsl(330, 100%, 71%, 0.7);
+    --pink: hsl(330, 100%, 71%, 0.75);
+
+}
+
+::-webkit-scrollbar {
+  width: 0.4rem;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0px 0px 2px grey;
+  background: #555;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #aaa;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #f1f1f1;
+}
+
+body {
+    background: var(--blue);
+}
+
+header {
+    height: var(--header-height);
+    background: hsl(210, 25%, 45%, 0.69);
+    color: white;
+    font-size: 2.4rem;
+    line-height: var(--header-height);
+    text-align: center;
+    box-shadow: inset 0 0 3px black;
+    text-shadow: -2px 1px black;
+}
+
+footer {
+    height: var(--footer-height);
+    background: hsla(0, 0%, 15%, 0.75);
+    line-height: var(--footer-height);
+    font-size: 1rem;
+    color: white;
+    text-align: center;
+    box-shadow: inset 0 0 2px black;
+    text-shadow: -2px 2px black;
+}
+
+main {
+    height: calc(100% - calc(var(--footer-height) + var(--header-height)));
+    display: flex;
+    flex-direction: row;
+}
+
+span.character, span.place {
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-decoration-color: var(--pink);
+    text-decoration-thickness: 1.8px;
+}
+
+span.place {
+    text-decoration-color: var(--orange);
+}
+
+span.character:hover {
+    background: var(--pink);
+}
+
+span.place:hover {
+    background: var(--orange);
+}
+
+section.stats-card {
+    background: var(--light-violet);
+    flex: 3.2;
+    padding: 2rem 5rem;
+    box-shadow: inset 0 0 5px black;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    text-shadow: 0.4px 0.4px black;
+}
+
+section.apollo-header {
+    color: black;
+    text-shadow: -1px 0.5px 2px whitesmoke;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-decoration-thickness: 2.5px;
+    font-size: 2rem;
+    text-align: center;
+    text-decoration-color: papayawhip;
+    animation: show-stats-header 2s ease-in-out 100ms forwards;
+    transition: scale;
+    transition-duration: 500ms;
+}
+
+section.apollo-header:hover {
+    scale: 1.1;
+    transition: scale;
+    transition-duration: 500ms;
+}
+
+ul.apollo-stats {
+    margin-inline: auto;
+    font-size: 1.3rem;
+    counter-reset: ctr;
+}
+
+ul.apollo-stats > li::marker {
+    content: '→  ';
+    font-size: 1.2rem;
+    color: hotpink;
+}
+
+ul.apollo-stats > li {
+    margin-top: 0.5rem;
+    opacity: 0;
+}
+
+ul.apollo-stats > li:nth-child(2n+1) {
+    transform-origin: left;
+}
+
+ul.apollo-stats > li:nth-child(2n) {
+    transform-origin: right;
+}
+
+ul.apollo-stats > li.active {
+    animation: show-stats ease-out forwards;
+    animation-duration: var(--stats-animation-duration);
+    animation-delay: calc(1s + var(--stats-animation-delay));
+    scale: 1;
+    transition: scale;
+    transition-duration: 400ms;
+}
+
+ul.apollo-stats > li.active:hover {
+    transform-origin: bottom center;
+    scale: 1.01;
+    transition: scale;
+    transition-duration: 400ms;
+    color: black;
+    text-shadow: -1px -1px hsla(0, 0%, 60%, 0.4);
+}
+
+ul.apollo-stats > li.active:hover::marker{
+    color: lightcyan;
+}
+
+@keyframes show-stats-header {
+    from {
+        transform: scale(1.5);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+
+@keyframes show-stats {
+    from {
+        transform: scaleX(0);
+    }
+
+    to {
+        opacity: 1;
+        transform: scaleX(1);
+    }
+}
+
+section.more-content {
+    background: var(--violet);
+    flex: 2;
+    box-shadow: inset 0 0 5px black;
+
+    display: flex;
+    flex-direction: column;
+}
+
+section.card-container {
+    flex: 3;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section.references-btn-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    animation: show-references 500ms ease-in-out 7.5s forwards;
+    margin-bottom: 10px;
+}
+
+@keyframes show-references {
+    to {
+        opacity: 1;
+    }
+}
+
+button.references-btn {
+    color: var(--light-blue);
+    padding: 0.3rem 1.2rem;
+    font-size: 0.9rem;
+    background: transparent;
+    outline: none;
+    border: 3px solid var(--light-blue);
+    border-radius: 999px;
+    cursor: pointer;
+    text-shadow: 0.5px 0.5p black;
+}
+
+button.references-btn:hover {
+    background: var(--light-blue);
+    color: black;
+}
+
+section.features-header {
+    flex: 1.5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    text-align: center;
+    text-decoration-color: goldenrod;
+    color: black;
+    transform: translateY(-5cm);
+    opacity: 0;
+    animation: show-features-header 2s 3.6s forwards;
+    animation-timing-function: cubic-bezier(.78, 1.7,.44,.78);
+}
+
+@keyframes show-features-header {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        text-decoration: underline;
+        text-decoration-style: dotted;
+        text-decoration-thickness: 2.5px;
+        text-decoration-color: whitesmoke;
+        /* text-shadow: 0px 0px white; */
+
+    }
+}
+
+section.card {
+    border-radius: 10px;
+    box-shadow: 0 0 10px inset skyblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 1.2rem 1.2rem;
+    border: 2px dashed hsla(0, 0%, 0%, 0.8);
+    transform: translateY(-5cm);
+    opacity: 0;
+    animation: show-features 800ms forwards;
+    animation-timing-function: cubic-bezier(.78, 1.7,.44,.78);
+    transition: scale text-shadow;
+    transition-duration: 300ms;
+    color: white;
+    cursor: pointer;
+}
+
+section.card:hover {
+    box-shadow: 0 0 30px inset skyblue;
+    scale: 1.08;
+    transition: scale text-shadow;
+    transition-duration: 300ms;
+    text-shadow: -1px 1px 3px black !important;
+}
+
+section.card[data-feature="delphi-temple"] {
+    animation-delay: 5.6s;
+}
+
+section.card[data-feature="myth-of-agamemnon"] {
+    animation-delay: 6.4s;
+}
+
+section.card[data-feature="pythian-games"] {
+    animation-delay: 7.2s;
+}
+
+
+@keyframes show-features {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        text-shadow: -1px 1px black;
+    }
+}
+
+@supports (-webkit-text-stroke: 1px black) {
+
+    section.card {
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: white;
+        /* font-weight: bolder; */
+        text-shadow: none;
+    }
+}
+
+section[data-role="darken-bg"] {
+    background: hsla(0, 0%, 5%, 0.6);
+    z-index: 1;
+    position: absolute;
+    inset: 0;
+    transform: scale(0);
+    transition: transform background border-radius;
+    transition-duration: 400ms;
+    border-radius: 50%;
+}
+
+section[data-role="darken-bg"].active {
+    background: var(--black);
+    transform: scale(1);
+    transition: transform background border-radius;
+    transition-duration: 300ms;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0;
+}
+
+section[data-detail], section[data-references] {
+    display: none;
+}
+
+section[data-detail="myth-of-agamemnon"].active {
+    display: initial;
+    background: hsl(0, 0%, 15%);
+    color: var(--white);
+    height: 90vh;
+    width: 70vw;
+
+    overflow-y: scroll;
+    padding: 2rem;
+    border-radius: 10px;
+    z-index: 2;
+}
+
+section.myth-of-agamemnon-header {
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+section.meet-characters {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin-inline: auto;
+    text-align: center;
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+section.character-card {
+    font-size: 0.8rem;
+    box-shadow: 0px 2px 6px whitesmoke;
+    border-radius: 10px;
+    padding: 0.4rem 0.4rem;
+}
+
+section.character-card:hover {
+    box-shadow: 0px 2px 12px whitesmoke;
+}
+
+section.character-card > ul > li {
+    margin: 8px;
+}
+
+section.character-card > ul > li::marker {
+    content: '';
+}
+
+section.mtchdr {
+    margin-inline: auto;
+    text-align: center;
+}
+
+section.the-myth {
+    margin-top: 1rem;
+}
+
+div.text {
+    margin: 0.5rem;
+    padding: 0.5rem;
+}
+
+section[class^="close"] {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+button[class^="close"] {
+    padding: 0.3rem 1.2rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    outline: none;
+
+    border: 2px solid var(--light-pink);
+    background: var(--black);
+    color: var(--light-pink);
+}
+
+button[class^="close"]:hover {
+    background: var(--light-pink);
+    color: var(--black);
+    cursor: pointer;
+}
+
+section[data-detail="delphi-temple"].active {
+    display: initial;
+    background: hsl(0, 0%, 15%);
+    color: var(--white);
+    height: 90vh;
+    width: 55vw;
+
+    overflow-y: scroll;
+    padding: 1.2rem;
+    border-radius: 10px;
+    z-index: 2;
+}
+
+section.delphi-temple-header, section.pythian-games-header, section.references-header {
+    font-size: 1.6rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+section.delphi-temple-image {
+    margin-top: 1.2rem;
+    margin-bottom: 1rem;
+    height: 400px;
+    background: url('assets/Temple of Apollo at Delphi.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+section[data-detail="pythian-games"].active {
+    display: initial;
+    background: hsl(0, 0%, 15%);
+    color: var(--white);
+    height: 85vh;
+    width: 60vw;
+
+    overflow-y: scroll;
+    padding: 2rem;
+    border-radius: 10px;
+    z-index: 2;
+}
+
+section[data-references].active {
+    display: initial;
+    background: hsl(0, 0%, 15%);
+    color: var(--white);
+    height: 80vh;
+    width: 55vw;
+
+    overflow-y: scroll;
+    padding: 2rem;
+    border-radius: 10px;
+    z-index: 2;
+}
+
+section.the-reference {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section.close-pythian-games {
+    margin-top: 2.4rem;
+}
+
+a, a:visited {
+    color: var(--blue);
+}
