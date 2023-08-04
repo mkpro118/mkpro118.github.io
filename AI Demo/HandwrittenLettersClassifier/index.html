@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo - Handwritten Letter Classification</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/mkpro118/MKQuery/MKQuery.js"></script>
+</head>
+<body>
+    <header>
+        <span style="text-align: center;">Handwritten Letter Classifier</span>
+    </header>
+    <main>
+        <section class="drawing-grid-container">
+            <div class="square">
+                <div class="grid"></div>
+            </div>
+        </section>
+        <section class="actions-tab">
+            <div>
+                <span href="#" class="btn" data-name="clear-grid" data-color="red">Clear Grid</span>
+            </div>
+            <div>
+                <span href="#" class="btn" data-name="classify" data-color="green">Classify</span>
+            </div>
+            <div data-name="prediction-container">
+                Prediction:
+                <div data-name="prediction">
+                    ?
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        Made with ❤️ by M K
+    </footer>
+    <script src="./script.js" defer></script>
+    <script src="./neural_network.js" defer></script>
+</body>
+</html>
