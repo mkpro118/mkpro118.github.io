@@ -1,0 +1,100 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+    font-family: 'Poppins', sans-serif;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 500px;
+    max-height: 90vh;
+    width: 90%;
+    margin: 20px;
+    position: relative;
+    overflow: scroll;
+}
+.card-stuff {
+    display: none;
+}
+
+.ctrl {
+    position: absolute;
+    width: 50%;
+    top: 0;
+    bottom: 0;
+}
+
+.left {
+    left: 0;
+    background: transparent;
+}
+
+.right {
+    right: 0;
+    background: transparent;
+}
+
+.active {
+    display: initial;
+}
+
+.header {
+    background: #ff6f91;
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
+}
+
+.header h1 {
+    color: white;
+    font-family: 'Pacifico', cursive;
+    margin: 0;
+    font-size: 2.5em;
+    text-shadow: 1px 1px black;
+}
+
+.content {
+    padding: 20px;
+}
+
+.message {
+    font-size: 1.2em;
+    color: #555;
+    margin-top: 20px;
+}
+
+fieldset {
+    border: none;
+}
+
+.year {
+    font-size: 1.5rem;
+    color: #ff6f91;
+    text-shadow: 1px 1px black;
+}
+
+.footer {
+    background: #ff6f91;
+    padding: 10px;
+    border-radius: 0 0 10px 10px;
+    color: white;
+    font-weight: bold;
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+    .header h1 {
+        font-size: 2em;
+    }
+
+    .message {
+        font-size: 1em;
+    }
+}
