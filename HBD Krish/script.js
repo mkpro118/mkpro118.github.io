@@ -4,8 +4,7 @@ const img = $('img');
 
 const assets = {imgs: [], idx: 0, cap: 0};
 
-for (let i = 2015; i <= 2023; i++) {
-    if (i == 2020) continue;
+for (let i = 2015; i <= 2024; i++) {
     assets.imgs.push({year: i, file: `./assets/${i}.jpg`});
     assets.cap++;
 }
