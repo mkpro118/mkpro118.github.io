@@ -1,28 +1,162 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>test</title>
-    <link rel="stylesheet" type="text/css" href="stylesheet.css">
-    <script type="text/javascript">
-        window.location = 'Chess.html'
-    </script>
-</head>
-<body>
-    <div>
-        <header>
-
-        </header>
-    </div>
-    <nav class="navbar">
-        <ul class="items-list">
-            <li>
-                <a class="button" href="Chess.html"><label>Play Chess</label></a>
-            </li>
-            <li>
-                <a class="button" href="Percentage.html"><label>Calculate Your 12th Grade Percentage</label></a>
-            </li>
-        </ul>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mrigank Kumar - Software Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <nav>
+      <div class="menu-toggle">☰</div>
+      <ul>
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </nav>
-</body>
+
+    <section id="home">
+      <div class="particles" id="particles"></div>
+      <div class="content">
+        <h1>Mrigank Kumar</h1>
+        <p>Software Developer / Software Engineer</p>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <h2>About Me</h2>
+        <p>Hey! I'm M K, a recent graduate with a B.S. in Computer Science from the University of Wisconsin-Madison. My academic journey has been focused on Artificial Intelligence, Machine Learning, and Low-Level Systems Programming, and I'm excited to explore opportunities to apply my expertise in these areas.</p>
+        <p>I have strong programming skills, particularly in <u><strong>Python</strong></u> and <u><strong>C</strong></u>, where I have over six years of experience. I'm also proficient in various other programming languages such as <u>JavaScript</u>, <u>Rust</u>, <u>Java</u>, <u>C++</u>, <u>CPython Extension Modules</u>, <u>C#</u> and <u>HTML/CSS</u>. I've also worked with the <u><em>Django Framework</em></u> in Python and the <u><em>Unity Game Engine</em></u> in C#, especially in Virtual Reality applications.</p>
+        <h3>Education</h3>
+        <p><strong>University of Wisconsin - Madison</strong><br>
+        Bachelor's of Science in Computer Sciences<br>
+        September 2021 - May 2024 <small>(Accelerated)</small><br>
+        GPA: 3.83</p>
+        <p>Key Coursework:</p>
+        <ul>
+          <li>Software Development Practices, Agile/Scrum</li>
+          <li>Artificial Intelligence and Artificial Neural Networks, Deep Learning for Computer Vision</li>
+          <li>Operating Systems, Kernels and File Systems, Networks and Compilers</li>
+          <li>Big Data Systems such as Docker, HDFS, Spark, Cassandra, Kafka and BigQuery</li>
+          <li>Optimization using General Algebraic Modeling System (GAMS)</li>
+          <li>Economics, Applied Global Economics</li>
+          <li>Virtual and Augmented Reality</li>
+          <li>Cryptography</li>
+        </ul>
+        <h3>Honors</h3>
+        <ul>
+          <li>Distinction in the major - Computer Sciences</li>
+          <li>6x Dean's List</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <h2>Experience</h2>
+        <div class="experience-item">
+          <h3>Software Developer - AI Stack</h3>
+          <p><strong>Hipp Health</strong> - San Francisco, CA, USA</p>
+          <p>July 2024 - Present</p>
+          <ul>
+            <li>End to End Chat with Clinical Data Feature</li>
+            <li>Features for AI powered summaries at various levels of organization</li>
+            <li>Low latency data ingestion strategies</li>
+            <li>App analytics with PostHog</li>
+          </ul>
+          <a href="https://hipp.health/" target="_blank">Company Website</a>
+        </div>
+        <div class="experience-item">
+          <h3>Peer Mentor</h3>
+          <p><strong>University of Wisconsin-Madison</strong> - Madison, WI, USA</p>
+          <p>September, 2022 - May 2024</p>
+          <p>Mentor aspiring computer science students and assist students with implementing various data structures and algorithms in Java.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <h2>Projects</h2>
+        <div class="project">
+          <h3>Machine Learning Library</h3>
+          <p>Inspired from Scikit-Learn and TensorFlow, I built this self-contained library ab initio, with numerous modules useful for data analysis and machine learning. I have used it for my course projects, such as classification of chess pieces using Convolutional Neural Networks, and prediction of handwritten text using Artificial Neural Networks.</p>
+          <a href="https://github.com/mkpro118/neural_network" target="_blank">View on GitHub</a>
+        </div>
+        <div class="project">
+          <h3>CompGraph</h3>
+          <p>Developed a custom Python library for creating and analyzing computational graphs. The library provides a flexible framework for modeling complex data flow and dependencies in machine learning, optimization, and scientific computing tasks. Features Graph Construction, Automatic Differentiation, Visualization and built-in support for Stochastic Gradient Descent Optimization.</p>
+          <a href="https://github.com/mkpro118/ComputationalGraph" target="_blank">View on GitHub</a>
+        </div>
+        <div class="project">
+          <h3>Genetic Algorithm Library</h3>
+          <p>Developed a custom Python library for implementing genetic algorithms. The library provides a versatile framework for solving optimization problems inspired by natural selection and evolution.</p>
+          <a href="https://github.com/mkpro118/GeneticAlgorithm" target="_blank">View on GitHub</a>
+        </div>
+        <div class="project">
+          <h3>Instant Messaging App</h3>
+          <p>Developed using the Django Framework, I built a fully functional instant messaging app with a web interface, Asynchronous Consumers and WebSockets. Also features group chats and profile customization.</p>
+          <a href="https://github.com/mkpro118/my-whatsapp" target="_blank">View on GitHub</a>
+        </div>
+        <div class="project">
+          <h3>ArrowQuest</h3>
+          <p>Using the Unity Framework, I built a first-person archery simulator, with a unified interface for both PC and VR</p>
+          <a href="https://github.com/mkpro118/ArrowQuest" target="_blank">View on GitHub</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <h2>Skills</h2>
+        <div class="skills">
+          <span class="skill">Python (6+ years)</span>
+          <span class="skill">C/C++ (6+ years)</span>
+          <span class="skill">JavaScript (6+ years)</span>
+          <span class="skill">Java (6+ years)</span>
+          <span class="skill">Rust (4+ years)</span>
+          <span class="skill">Software Optimization (3+ years)</span>
+          <span class="skill">Agile/Scrum</span>
+          <span class="skill">Analytical Problem Solving</span>
+          <span class="skill">Leadership & Communication</span>
+          <span class="skill">Django Web Framework</span>
+          <span class="skill">Unity Game Engine</span>
+          <span class="skill">Game Development</span>
+        </div>
+        <h3>Interests</h3>
+        <div class="interests">
+          <span class="interest">Artificial Intelligence</span>
+          <span class="interest">Robotics</span>
+          <span class="interest">Systems Programming</span>
+          <span class="interest">Computer Networks</span>
+          <span class="interest">Computer Vision</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <h2>Contact</h2>
+        <p>Let's connect! You can reach me through the following platforms:</p>
+        <div class="contact-links">
+          <a href="https://www.linkedin.com/in/mrigank-kumar/" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+          </a>
+          <a href="https://github.com/mkpro118" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+          </a>
+          <a href="mailto:mrigankkumar08@gmail.com">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </body>
 </html>

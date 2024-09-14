@@ -1,0 +1,229 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #0a192f;
+  color: #e6f1ff;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: rgba(10, 25, 47, 0.9);
+  padding: 20px 0;
+  z-index: 1000;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: #8892b0;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover, nav ul li a.active {
+  color: #64ffda;
+}
+
+section:not(#contact) {
+  padding: 69px 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h1, h2, h3 {
+  color: #64ffda;
+}
+
+h1 {
+  font-size: 72px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 36px;
+  margin-bottom: 30px;
+}
+
+h3 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+p {
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: #8892b0;
+}
+
+#home {
+  position: relative;
+  overflow: hidden;
+}
+
+.particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(100, 255, 218, 0.3);
+  pointer-events: none;
+}
+
+.content {
+  z-index: 1;
+  text-align: center;
+}
+
+#about {
+  margin-inline: auto;
+}
+
+#about ul li {
+  list-style: inside;
+  margin-left: 25px;
+}
+
+.project, .experience-item {
+  background-color: #172a45;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.project h3, .experience-item h3 {
+  color: #64ffda;
+  margin-bottom: 10px;
+}
+
+.project a, .experience-item a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #64ffda;
+  text-decoration: none;
+  border: 1px solid #64ffda;
+  padding: 5px 10px;
+  border-radius: 3px;
+  transition: background-color 0.3s ease;
+}
+
+.project a:hover, .experience-item a:hover {
+  background-color: rgba(100, 255, 218, 0.1);
+}
+
+.skills, .interests {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.skill, .interest {
+  background-color: #172a45;
+  color: #8892b0;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: scale 300ms ease-out;
+}
+
+.skill:hover, .interest:hover {
+  cursor: default;
+  color: rgba(100, 255, 218, 0.3);
+  scale: 105%;
+}
+
+#contact {
+  padding-bottom: 42px;
+}
+
+#contact h2, #contact p  {
+  text-align: center;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.contact-links a {
+  color: #8892b0;
+  transition: color 300ms ease;
+  transition: scale 300ms ease;
+}
+
+.contact-links a:hover {
+  color: #64ffda;
+  scale: 120%;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+    nav {
+        padding: 10px 0;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    /* Hamburger menu styles */
+    .menu-toggle {
+        display: block;
+        cursor: pointer;
+        font-size: 24px;
+        color: #8892b0;
+        position: absolute;
+        top: 10px;
+        left: 20px;
+    }
+
+    nav ul {
+        display: none;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+}
